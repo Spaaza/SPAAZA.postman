@@ -1,0 +1,1318 @@
+{
+	"info": {
+		"_postman_id": "c22f388b-d43f-312e-e2e8-fe89779b8fef",
+		"name": "Spaaza official API examples",
+		"description": "A set of example API calls for the Spaaza API using admin and end-user authentication. See the notes accompanying the individual requests and the following resources:\n\n- [Spaaza API documentation](https://docs.spaaza.com)\n- [Spaaza API authentication](https://docs.spaaza.com/#authentication)\n- [Spaaza website](https://www.spaaza.com)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"session_user_id\", jsonData.results.session_info.session_user_id);",
+							"postman.setEnvironmentVariable(\"session_key\", jsonData.results.session_info.session_key);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "{{admin_username}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{admin_password}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/login",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				},
+				"description": "Login to the Spaaza API as an admin user. See the following Spaaza documentation:\n\n- [User Concept](https://docs.spaaza.com/#user)\n- [Authentication](https://docs.spaaza.com/#authentication)\n- [Logging users in](https://docs.spaaza.com/#logging-users-in)\n\nNote the \"Tests\" section of this POSTMAN request uses the values in the response to a successful request to populate the \"session_user_id\" and \"session_key\" variables in the POSTMAN environment. These are then used to authenticate calls to other Spaaza API endpoints."
+			},
+			"response": []
+		},
+		{
+			"name": "add-user admin",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var randomint = Math.random();",
+							"postman.setEnvironmentVariable(\"randomint\", randomint);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}"
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"type": "text",
+						"value": "{{api_version}}"
+					},
+					{
+						"description": "The user ID of the admin user - this is shown in the response to the login endpoint",
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"description": "The session key for the logged-in admin user",
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "address_streetname",
+							"value": "Long Street",
+							"type": "text"
+						},
+						{
+							"key": "address_housenumber",
+							"value": "46",
+							"type": "text"
+						},
+						{
+							"key": "address_housenumber_extension",
+							"value": "B",
+							"type": "text"
+						},
+						{
+							"key": "address_postalcode",
+							"value": "1015CB",
+							"type": "text"
+						},
+						{
+							"key": "address_regionstate",
+							"value": "Any State",
+							"type": "text"
+						},
+						{
+							"key": "address_towncity",
+							"value": "Amsterdam",
+							"type": "text"
+						},
+						{
+							"key": "authentication_point_identifier",
+							"value": "70994543534",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "auxiliary_identifier",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "birthday",
+							"value": "1981-07-21",
+							"type": "text"
+						},
+						{
+							"key": "branch_business_owner_code",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "chain_id",
+							"value": "{{chain_id}}",
+							"description": "Value populated from environment file. Can be overridden.",
+							"type": "text"
+						},
+						{
+							"key": "country_code",
+							"value": "NL",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "Joe",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "M",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Lu11223344#",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "home_store_id",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "is_employee",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "language",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "last_name",
+							"value": "somedude{{randomint}}",
+							"type": "text"
+						},
+						{
+							"key": "mailing_list_sub_offered",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "mailing_list_subscribed",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "member_number",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "opt_in_secondary",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "phone_number",
+							"value": "+31628200100",
+							"type": "text"
+						},
+						{
+							"key": "printed_mailing_list_subscribed",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "programme_opted_in",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "referral_code",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "registered",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "store_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "update_if_exists",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "somedude{{randomint}}@spaaza.com",
+							"description": "somedude{{randomint}}@spaaza.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/internal/add-user",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"internal",
+						"add-user"
+					]
+				},
+				"description": "Add a user to Spaaza using admin authentication. See the following documentation for more details on background and applicable parameters:\n\n- [User Concept](https://docs.spaaza.com/#user)\n- [Adding a user](https://docs.spaaza.com/#adding-a-user)\n\nNote the \"Pre-request Script\" section of this POSTMAN request is used to populate some of the values in the \"Body\" section of the request with their values. These can be overridden."
+			},
+			"response": []
+		},
+		{
+			"name": "alter-user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}",
+						"description": "This header should be set if the client is an end-user, and not set if the client is an admin user.",
+						"disabled": true
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"type": "text",
+						"value": "{{api_version}}"
+					},
+					{
+						"description": "The user ID of the admin user - this is shown in the response to the login.json endpoint",
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"description": "The session key for the logged-in admin user",
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user_id",
+							"value": "3638557",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "test49800020190228@example.com",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "Bloggs",
+							"type": "text"
+						},
+						{
+							"key": "webshop_customer_id",
+							"value": "70994543546",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "chain_id",
+							"value": "{{chain_id}}",
+							"description": "Value populated from environment file. Can be overridden.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/internal/alter-user",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"internal",
+						"alter-user"
+					]
+				},
+				"description": "Alter the details of a user account. See the following documentation for more details on background and applicable parameters:\n\n- [User Concept](https://docs.spaaza.com/#user)\n- [Altering a user](https://docs.spaaza.com/#altering-a-user)"
+			},
+			"response": []
+		},
+		{
+			"name": "login end-user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"session_user_id\", jsonData.results.session_info.session_user_id);",
+							"postman.setEnvironmentVariable(\"session_key\", jsonData.results.session_info.session_key);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}"
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"type": "text",
+						"value": "{{api_version}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "test49800020190228@example.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "blablabla1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/login",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				},
+				"description": "Log in as an end-user in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n- [User Concept](https://docs.spaaza.com/#user)\n- [Authentication](https://docs.spaaza.com/#authentication)\n- [Logging users in](https://docs.spaaza.com/#logging-users-in)\n\nNote the \"Tests\" section of this POSTMAN request uses the values in the response to a successful request to populate the \"session_user_id\" and \"session_key\" variables in the POSTMAN environment. These are then used to authenticate calls to other Spaaza API endpoints."
+			},
+			"response": []
+		},
+		{
+			"name": "get-card",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}",
+						"description": "This header should be set if the client is an end-user, and not set if the client is an admin user.",
+						"disabled": true
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}"
+					},
+					{
+						"description": "The session key for the logged-in admin user",
+						"key": "session_key",
+						"value": "{{session_key}}"
+					},
+					{
+						"description": "The user ID of the admin user - this is shown in the response to the login.json endpoint",
+						"key": "session_user_id",
+						"value": "{{session_user_id}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/get-card.?chain_id={{chain_id}}&member_number=3540236",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"get-card."
+					],
+					"query": [
+						{
+							"key": "chain_id",
+							"value": "{{chain_id}}"
+						},
+						{
+							"key": "member_number",
+							"value": "3540236"
+						},
+						{
+							"key": "user_id",
+							"value": "10745677",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "test49800020190228@example.com",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Get the card for an individual end-user including all information about promotions, wallets, points and vouchers. See the following documentation for more details on background and applicable parameters:\n\n- [User Concept](https://docs.spaaza.com/#user)\n- [Getting the \"card\" of a user](https://docs.spaaza.com/#getting-the-card-of-a-user)"
+			},
+			"response": []
+		},
+		{
+			"name": "get-user-vouchers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}",
+						"description": "This header should be set if the client is an end-user, and not set if the client is an admin user.",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}",
+						"type": "text"
+					},
+					{
+						"key": "session_user_id",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"key": "session_key",
+						"value": "{{session_key}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/get-user-vouchers?chain_id={{chain_id}}&member_number=3540236",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"get-user-vouchers"
+					],
+					"query": [
+						{
+							"key": "chain_id",
+							"value": "{{chain_id}}"
+						},
+						{
+							"key": "member_number",
+							"value": "3540236"
+						},
+						{
+							"key": "user_id",
+							"value": "234285434",
+							"disabled": true
+						},
+						{
+							"key": "filter",
+							"value": "all",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Get all vouchers for a user. See the following documentation for more details on background and applicable parameters:\n\n- [User Concept](https://docs.spaaza.com/#user)\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Get all vouchers for a user](https://docs.spaaza.com/#get-all-vouchers-for-a-user)"
+			},
+			"response": []
+		},
+		{
+			"name": "create-voucher",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"description": "This header should be set if the client is an end-user, and not set if the client is an admin user.",
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}",
+						"disabled": true
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}",
+						"type": "text"
+					},
+					{
+						"description": "The user ID of the admin user - this is shown in the response to the login.json endpoint",
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"description": "The session key for the logged-in admin user",
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user_id",
+							"value": "3540234",
+							"type": "text"
+						},
+						{
+							"key": "member_number",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "authentication_point_identifier",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "campaign_id",
+							"value": "{{base_loyalty_campaign_id}}",
+							"type": "text"
+						},
+						{
+							"key": "voucher_amount",
+							"value": "50.00",
+							"type": "text"
+						},
+						{
+							"key": "set_claimed",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "delete_existing",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "voucher_text",
+							"value": "Your voucher",
+							"type": "text"
+						},
+						{
+							"key": "voucher_type",
+							"value": "basket",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "voucher_discount_ratio",
+							"value": "0.25",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "voucher_lock_period",
+							"value": "300",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "voucher_locking_code",
+							"value": "lockingcode123",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "voucher_title",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "voucher_description",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "voucher_notes",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "voucher_honour_code",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "voucher_image_url",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "retailer_basket_code",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "expiry_date",
+							"value": "2092-07-28",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/create-voucher",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"create-voucher"
+					]
+				},
+				"description": "Create a voucher in Spaaza.  See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Creating vouchers](https://docs.spaaza.com/#creating-vouchers)"
+			},
+			"response": []
+		},
+		{
+			"name": "lock-voucher",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"description": "This header should be set if the client is an end-user, and not set if the client is an admin user.",
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}"
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"type": "text",
+						"value": "{{api_version}}"
+					},
+					{
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "voucher_key",
+							"value": "04629ca93b11155d6e31830a92acd9b92baee5d878cc1da74b73449cf0467058",
+							"type": "text"
+						},
+						{
+							"key": "voucher_id",
+							"value": "45566623",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "retailer_basket_code",
+							"value": "20190228-test-0001",
+							"type": "text"
+						},
+						{
+							"key": "voucher_lock_period",
+							"value": "300",
+							"type": "text"
+						},
+						{
+							"key": "voucher_locking_code",
+							"value": "lockingcode123#",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/lock-voucher",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"lock-voucher"
+					]
+				},
+				"description": "Lock a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Locking vouchers](https://docs.spaaza.com/#locking-vouchers)"
+			},
+			"response": []
+		},
+		{
+			"name": "delete-voucher",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}",
+						"description": "This header should be set if the client is an end-user, and not set if the client is an admin user.",
+						"type": "text"
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}"
+					},
+					{
+						"description": "The user ID of the admin user - this is shown in the response to the login.json endpoint",
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"description": "The session key for the logged-in admin user",
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "voucher_key",
+							"value": "e84f4f58a3020633680f98ef65f504a97309da600dd68e5b6023c0d4e3f97dbe",
+							"type": "text"
+						},
+						{
+							"key": "voucher_id",
+							"value": "2354354543",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "user_id",
+							"value": "3540234",
+							"type": "text"
+						},
+						{
+							"key": "chain_id",
+							"value": "{{chain_id}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/delete-voucher",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"delete-voucher"
+					]
+				},
+				"description": "Delete a voucher. See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Deleting vouchers](https://docs.spaaza.com/#deleting-vouchers)\n\nNote that, in the case of a voucher with a wallet campaign this will return the amount of the voucher to the customer's wallet balance."
+			},
+			"response": []
+		},
+		{
+			"name": "get-basket-price",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var d = new Date();",
+							"postman.setEnvironmentVariable('basket_retailer_basket_code', d.valueOf);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Spaaza-API-Version",
+						"value": "{{api_version}}"
+					},
+					{
+						"description": "The user ID of the admin user - this is shown in the response to the login.json endpoint",
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"description": "The session key for the logged-in admin user",
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"entity\": {\n        \"entity_type\": \"chain\",\n        \"entity_id\": {{chain_id}}\n    },\n    \"user\": {\n        \"member_programme\": \"spaaza\",\n        \"member_number\": \"3360056\"\n    },\n    \"basketa\": {\n        \"app_platform_type\": \"online\",\n        \"retailer_basket_code\": \"order_number_{{$timestamp}}\",\n        \"basket_total_price\": 150,\n        \"shipping_charge\": 0,\n        \"basket_currency\": {\n            \"currency_code\": \"EUR\"\n        },\n        \"basket_tax\": [\n            {\n                \"tax_rate\": 0.21,\n                \"tax_total\": 26.03\n            }\n        ],\n        \"basket_items\": [\n            {\n                \"item_barcode\": \"8755065949331\",\n                \"item_quantity\": 10,\n                \"item_price\": 15,\n                \"item_subtotal\": 150,\n                \"retailer_item_code\": \"line_item_01\",\n                \"item_type\": \"product\"\n            }\n        ]\n    }\n}"
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/get-basket-price",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"get-basket-price"
+					]
+				},
+				"description": "Call to the Spaaza get-basket-price endpoint to request an adjusted basket (order/transaction). See the following documentation for more details on background and applicable parameters:\n\n- [Basket Concept](https://docs.spaaza.com/#basket)\n- [Requesting an adjusted basket](https://docs.spaaza.com/#requesting-an-adjusted-basket)"
+			},
+			"response": []
+		},
+		{
+			"name": "add-basket minimum",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Spaaza-API-Version",
+						"value": "{{api_version}}"
+					},
+					{
+						"description": "The user ID of the admin user - this is shown in the response to the login.json endpoint",
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"description": "The session key for the logged-in admin user",
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"entity\": {\n\t\t\"entity_type\": \"chain\",\n\t\t\"entity_id\": {{chain_id}}\n\t},\n\t\"user\": {\n\t\t\"member_programme\": \"Spaaza\",\n\t\t\"member_number\": \"3360056\"\n\t},\n\t\"basket\": {\n\t\t\"basket_platform_type\": \"in_store\",\n\t\t\"retailer_basket_code\": \"order_number_{{$timestamp}}\",\n\t\t\"basket_total_price\": 20.50,\n\t\t\"basket_currency\": {\n\t\t\t\"currency_code\": \"EUR\"\n\t\t},\n\t\t\"basket_items\": [\n\t\t\t{\n\t\t\t\"item_barcode\": \"8718299435640\",\n\t\t\t\"item_quantity\": 1,\n\t\t\t\"item_price\": 20.50\n\t\t\t}\n\t\t]\n\t}\n}\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/add-basket",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"add-basket"
+					]
+				},
+				"description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction) and containing the minimum number of required values for a member transaction. See the following documentation for more details on background and applicable parameters:\n\n- [Basket Concept](https://docs.spaaza.com/#basket)\n- [Adding a completed basket](https://docs.spaaza.com/#adding-a-completed-basket)\n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number."
+			},
+			"response": []
+		},
+		{
+			"name": "add-basket and create product record",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Spaaza-API-Version",
+						"value": "{{api_version}}"
+					},
+					{
+						"description": "The user ID of the admin user - this is shown in the response to the login.json endpoint",
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"description": "The session key for the logged-in admin user",
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"entity\": {\n        \"entity_type\": \"chain\",\n        \"entity_id\": {{chain_id}},\n        \"branch_business_owner_code\": \"0965\",\n        \"employee_code\": \"0012089\",\n        \"employee_name\": \"JOCHEMS\"\n    },\n    \"user\": {\n        \"member_programme\": \"Spaaza\",\n        \"member_number\": \"3360056\"\n    },\n    \"basket\": {\n        \"basket_platform_type\": \"in_store\",\n        \"retailer_basket_code\": \"order_number_{{$timestamp}}\",\n        \"basket_total_price\": 100,\n        \"basket_timestamp_iso8601\": \"2021-04-28T14:07:14Z\",\n        \"basket_timezone_name\": \"Europe/Amsterdam\",\n        \"basket_notes\": \"Any notes go here\",\n        \"shipping_charge\": 0,\n        \"payment_methods\": [\n            {\n                \"payment_method\": \"cash\",\n                \"payment_amount\": 19.99\n            },\n            {\n                \"payment_method\": \"mastercard\",\n                \"payment_amount\": 80.01\n            }\n        ],\n        \"basket_currency\": {\n            \"currency_code\": \"EUR\"\n        },\n        \"basket_tax\": [\n            {\n                \"tax_rate\": 21,\n                \"tax_total\": 21.00\n            }\n        ],\n        \"basket_items\": [\n            {\n                \"retailer_item_code\": \"line_item_01\",\n                \"item_barcode\": \"8718299435640\",\n                \"retailer_product_code\": \"iou342oi\",\n                \"item_name\": \"Men's Merino Aran Jumper\",\n                \"item_description\": \"The Aran Jumper is a style of jumper that takes its name from the Aran Islands off the west coast of Ireland.\",\n                \"item_colour\": \"White\",\n                \"item_gender\": \"M\",\n                \"item_brand\": \"Aran Jumpers ltd\",\n                \"item_size\": \"L\",\n                \"item_season\": \"Winter\",\n                \"item_category\": \"Clothing > Tops > Jumpers > Aran Jumper\",\n                \"item_image_url\": \"www.example.com/image.jpg\",\n                \"item_type\": \"product\",\n                \"item_quantity\": 5,\n                \"item_price\": 20,\n                \"item_subtotal\": 100\n            }\n        ]\n    }\n}"
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/add-basket",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"add-basket"
+					]
+				},
+				"description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction), containing some optional parameters and including enough item article information to create a record in the Spaaza database which can be used for analytics purposes. See the following documentation for more details on background and applicable parameters:\n\n- [Basket Concept](https://docs.spaaza.com/#basket)\n- [Adding a completed basket](https://docs.spaaza.com/#adding-a-completed-basket)\n- [Creating Products and Product Variants](https://docs.spaaza.com/#creating-products-and-product-variants)\n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number."
+			},
+			"response": []
+		},
+		{
+			"name": "add-basket and redeem voucher",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Spaaza-API-Version",
+						"value": "{{api_version}}"
+					},
+					{
+						"description": "The user ID of the admin user - this is shown in the response to the login.json endpoint",
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"description": "The session key for the logged-in admin user",
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"entity\": {\n\t\t\"entity_type\": \"chain\",\n\t\t\"entity_id\": {{chain_id}},\n\t\t\"branch_business_owner_code\": \"0965\",\n\t\t\"employee_code\": \"0012089\",\n\t\t\"employee_name\": \"JOCHEMS\"\n\t},\n\t\"user\": {\n\t\t\"member_programme\": \"Spaaza\",\n\t\t\"member_number\": \"3360056\"\n\t},\n\t\"basket\": {\n\t\t\"basket_platform_type\": \"in_store\",\n\t\t\"retailer_basket_code\": \"order_number_{{$timestamp}}\",\n\t\t\"basket_total_price\": 90,\n\t\t\"basket_notes\": \"Any notes go here\",\n\t\t\"shipping_charge\": 0,\n\t\t\"payment_methods\": [],\n\t\t\"basket_currency\": {\n\t\t\t\"currency_code\": \"EUR\"\n\t\t},\n\t\t\"basket_tax\": [{\n\t\t\t\"tax_rate\": 21,\n\t\t\t\"tax_total\": 21.00\n\t\t}],\n\t\t\"basket_items\": [\n\t\t\t{\n\t\t\t\"retailer_item_code\": \"line_item_01\",\n\t\t\t\"item_barcode\": \"8718299435640\",\n\t\t\t\"item_type\": \"product\",\n\t\t\t\"item_quantity\": 5,\n\t\t\t\"item_price\": 20,\n\t\t\t\"item_subtotal\": 100\n\t\t\t}\n\t\t],\n\t\t\"basket_vouchers\": [{\n\t\t\t\"voucher_key\": \"cebe621970dd3b9829953e7183fc396bafab62cdb329f99252f9cb35e568a071\"\n\t\t}]\n\t}\n}\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/add-basket",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"add-basket"
+					]
+				},
+				"description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction), containing some optional parameters and redeeming a basket voucher. See the following documentation for more details on background and applicable parameters:\n\n- [Basket Concept](https://docs.spaaza.com/#basket)\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Adding a completed basket](https://docs.spaaza.com/#adding-a-completed-basket)\n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number."
+			},
+			"response": []
+		},
+		{
+			"name": "add-basket simple inline return",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Spaaza-API-Version",
+						"value": "{{api_version}}"
+					},
+					{
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"entity\": {\n\t\t\"entity_type\": \"chain\",\n\t\t\"entity_id\": {{chain_id}},\n\t\t\"branch_business_owner_code\": \"0965\",\n\t\t\"employee_code\": \"0012089\",\n\t\t\"employee_name\": \"JOCHEMS\"\n\t},\n\t\"user\": {\n\t\t\"member_programme\": \"Spaaza\",\n\t\t\"member_number\": \"3360056\"\n\t},\n\t\"basket\": {\n\t\t\"basket_platform_type\": \"in_store\",\n\t\t\"retailer_basket_code\": \"20210428-test-0022\",\n\t\t\"basket_total_price\": -20.00,\n\t\t\"basket_timestamp_iso8601\": \"2019-02-28T14:07:14Z\",\n\t\t\"basket_timezone_name\": \"Europe/Amsterdam\",\n\t\t\"basket_notes\": \"Any notes go here\",\n\t\t\"shipping_charge\": 0,\n\t\t\"payment_methods\": [],\n\t\t\"basket_currency\": {\n\t\t\t\"currency_code\": \"EUR\"\n\t\t},\n\t\t\"basket_tax\": [{\n\t\t\t\"tax_rate\": 21,\n\t\t\t\"tax_total\": -2.10\n\t\t}],\n\t\t\"basket_items\": [\n\t\t\t{\n                \"retailer_item_code\": \"1\",\n                \"item_barcode\": \"8718299435640\",\n                \"item_quantity\": 2,\n                \"item_price\": -10.00,\n                \"return_item\": true,\n                \"original_retailer_basket_code\": \"20210428-test-0021\",\n                \"original_retailer_item_code\": \"line_item_01\"\n            }\n\t\t]\n\t}\n}\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/add-basket",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"add-basket"
+					]
+				},
+				"description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction), containing some optional parameters and returning a single item from a previous transaction. See the following documentation for more details on background and applicable parameters:\n\n- [Basket Concept](https://docs.spaaza.com/#basket)\n- [Adding a completed basket](https://docs.spaaza.com/#adding-a-completed-basket)\n- [Processing a return inline](https://docs.spaaza.com/#processing-a-return-inline)\n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number and return item details."
+			},
+			"response": []
+		},
+		{
+			"name": "get-receipts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "session_user_id",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"key": "session_key",
+						"value": "{{session_key}}"
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/get-receipts?chain_id={{chain_id}}&number_results=20",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"get-receipts"
+					],
+					"query": [
+						{
+							"key": "chain_id",
+							"value": "{{chain_id}}"
+						},
+						{
+							"key": "number_results",
+							"value": "20"
+						},
+						{
+							"key": "results_offset",
+							"value": "1020",
+							"disabled": true
+						},
+						{
+							"key": "user_id",
+							"value": "454354354",
+							"disabled": true
+						},
+						{
+							"key": "max_created_datetime",
+							"value": "2022-09-19T14:05:20Z",
+							"disabled": true
+						},
+						{
+							"key": "max_created_datetime_relative",
+							"value": "+6 weeks",
+							"disabled": true
+						},
+						{
+							"key": "min_created_datetime",
+							"value": "2018-09-19T13:27:56+00:00",
+							"disabled": true
+						},
+						{
+							"key": "min_created_datetime_relative",
+							"value": "-13 months",
+							"disabled": true
+						},
+						{
+							"key": "branch_business_id",
+							"value": "34329",
+							"disabled": true
+						},
+						{
+							"key": "branch_business_owner_code",
+							"value": "ANYTOWN0001",
+							"disabled": true
+						},
+						{
+							"key": "retailer_basket_code",
+							"value": "RCPT_0001",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Call to the Spaaza get-receipts endpoint to retrieve details of receipts for a brand or chain, matching various filters. Note that this API endpoint can also be used to export a CSV file of receipts. See the following documentation for more details on background and applicable parameters:\n\n- [Basket Concept](https://docs.spaaza.com/#basket)\n- [Receipt Object](https://docs.spaaza.com/#receipt-object)\n- [Get All Receipts for a Chain](https://docs.spaaza.com/#get-all-receipts-for-a-chain)"
+			},
+			"response": []
+		},
+		{
+			"name": "get-vouchers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "session_user_id",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"key": "session_key",
+						"value": "{{session_key}}"
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/get-vouchers?chain_id={{chain_id}}&number_results=10&results_offset=0&show_all_statuses=true",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"get-vouchers"
+					],
+					"query": [
+						{
+							"key": "chain_id",
+							"value": "{{chain_id}}"
+						},
+						{
+							"key": "campaign_id",
+							"value": "238",
+							"disabled": true
+						},
+						{
+							"key": "number_results",
+							"value": "10"
+						},
+						{
+							"key": "results_offset",
+							"value": "0"
+						},
+						{
+							"key": "show_all_statuses",
+							"value": "true"
+						},
+						{
+							"key": "show_expired",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "show_redeemed",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "user_id",
+							"value": "843382423",
+							"disabled": true
+						},
+						{
+							"key": "exclude_regenerated",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "min_created_datetime",
+							"value": "2018-09-19T13:27:56+00:00",
+							"disabled": true
+						},
+						{
+							"key": "min_created_datetime_relative",
+							"value": "-13 months",
+							"disabled": true
+						},
+						{
+							"key": "max_created_datetime",
+							"value": "2022-09-19T14:05:20Z",
+							"disabled": true
+						},
+						{
+							"key": "max_created_datetime_relative",
+							"value": "+6 weeks",
+							"disabled": true
+						},
+						{
+							"key": "min_expiry_datetime",
+							"value": "2022-09-19T14:05:20Z",
+							"disabled": true
+						},
+						{
+							"key": "min_expiry_datetime_relative",
+							"value": "-13 weeks",
+							"disabled": true
+						},
+						{
+							"key": "max_expiry_datetime",
+							"value": "2018-09-19T13:27:56+00:00",
+							"disabled": true
+						},
+						{
+							"key": "max_expiry_datetime_relative",
+							"value": "+21 weeks",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Call to the Spaaza get-vouchers endpoint to retrieve details of vouchers for a brand or chain, matching various filters. Note that this API endpoint can also be used to export a CSV file of vouchers including details such as customer information and expiry time. See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Get all vouchers for a chain](https://docs.spaaza.com/#get-all-vouchers-for-a-chain)"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
