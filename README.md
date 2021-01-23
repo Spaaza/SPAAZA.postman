@@ -23,7 +23,7 @@ added to each API request in the POSTMAN collections which should be useful.
 Getting started is quite easy:
 
 1. You will need to have a Spaaza account for our testing environment. Please get in contact with us
-   to obtain these(see details above).
+   to obtain these (see details above).
 2. Import the 'Spaaza official API examples' POSTMAN collection in the repo into POSTMAN.
 3. Import the 'Spaaza official sample POSTMAN environment' environment file into POSTMAN.
 4. Update the variables in the environment file to match the ones given to you by Spaaza.
