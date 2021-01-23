@@ -61,7 +61,7 @@
 			"response": []
 		},
 		{
-			"name": "add-user admin",
+			"name": "add-user",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -856,8 +856,7 @@
 					"listen": "prerequest",
 					"script": {
 						"exec": [
-							"var d = new Date();",
-							"postman.setEnvironmentVariable('basket_retailer_basket_code', d.valueOf);"
+							""
 						],
 						"type": "text/javascript"
 					}
