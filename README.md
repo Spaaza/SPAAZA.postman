@@ -1,5 +1,5 @@
-# SPAAZA.postman
-Official POSTMAN collections and environment for using the Spaaza API. 
+# Spaaza POSTMAN Collections
+Official POSTMAN collections and environment files to enable running POSTMAN requests against the Spaaza API. 
 
 ## What is Spaaza?
 
@@ -24,14 +24,17 @@ Getting started is quite easy:
 
 1. You will need to have a Spaaza account for our testing environment. Please get in contact with us
    to obtain these (see details above).
-2. Import the 'Spaaza official API examples' POSTMAN collection in the repo into POSTMAN.
-3. Import the 'Spaaza official sample POSTMAN environment' environment file into POSTMAN.
+2. Import the 'Spaaza official API examples' POSTMAN collection file in this repo into POSTMAN.
+3. Import the 'Spaaza official sample POSTMAN environment' environment file in this repo into POSTMAN.
 4. Update the variables in the environment file to match the ones given to you by Spaaza.
 5. Start sending API requests and seeing responses.
 
 Most of the API requests require authentication, so you should start with the 'login admin' API
 request, which automatically populates the session variables which can be used with the other 
 requests.
+
+It's definitely worth reading the Spaaza API documentation 'Concepts' section to get a better 
+understanding of the way Spaaza works.
 
 ## Do you have any tips and hints on using the POSTMAN collection with the Spaaza API?
 
