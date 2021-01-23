@@ -6,10 +6,12 @@ Official POSTMAN collections and environment for using the Spaaza API.
 Spaaza is an incentive marketing platform with tools which are used by brands and retailers to run
 either individual promotional activities, or combined as a whole loyalty platform. Many well-known
 global brands use Spaaza's API-based platform and tools, including portals, webshop and POS
-integrations, apps and analytics service to run their promotional programmes. You can find out more
-about Spaaza on our website at [spaaza.com](https://www.spaaza.com) and contact us or request a demo
-via the contact button in the bottom right of the site. Once the lockdown is over, you can even pop
-along to our office in Amsterdam if you happen to be in the neighbourhood and want to say hi.
+integrations, apps and analytics service to run their promotional programmes.
+
+You can find out more about Spaaza on our website at [spaaza.com](https://www.spaaza.com) and 
+contact us or request a demo via the contact button in the bottom right of the site. Once the 
+lockdown is over, you can even pop along to our office in Amsterdam if you happen to be in the 
+neighbourhood and want to say hi.
 
 ## Where can I find more information about Spaaza's API?
 
