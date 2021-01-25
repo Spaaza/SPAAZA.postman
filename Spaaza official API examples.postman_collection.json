@@ -291,6 +291,132 @@
 			"response": []
 		},
 		{
+			"name": "add-user-note",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var randomint = Math.random();",
+							"postman.setEnvironmentVariable(\"randomint\", randomint);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}"
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"type": "text",
+						"value": "{{api_version}}"
+					},
+					{
+						"description": "The user ID of the admin user - this is shown in the response to the login endpoint",
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"description": "The session key for the logged-in admin user",
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user_id",
+							"value": "405683453",
+							"type": "text"
+						},
+						{
+							"key": "text",
+							"value": "Customer very happy with thier latest purchase.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/internal/add-user-note",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"internal",
+						"add-user-note"
+					]
+				},
+				"description": "Add a note to a Spaaza end-user using admin authentication. See the following documentation for more details on background and applicable parameters:\n\n- [User Concept](https://docs.spaaza.com/#user)\n- [User Notes](https://docs.spaaza.com/#note-objects)\n- [Adding a note to a user](https://docs.spaaza.com/#adding-a-note-to-a-user)"
+			},
+			"response": []
+		},
+		{
+			"name": "delete-user-note",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"description": "This header should be set if the client is an end-user, and not set if the client is an admin user.",
+						"key": "X-MyPrice-App-Hostname",
+						"type": "text",
+						"value": "{{app_hostname}}"
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}"
+					},
+					{
+						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"description": "The session key for the logged-in user",
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user_note_id",
+							"value": "494534991",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/internal/delete-user-note",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"internal",
+						"delete-user-note"
+					]
+				},
+				"description": "Delete a note added to a Spaaza end-user. See the following documentation for more details on background and applicable parameters:\n\n- [User Concept](https://docs.spaaza.com/#user)\n- [User Notes](https://docs.spaaza.com/#note-objects)\n- [Deleting a user note](https://docs.spaaza.com/#deleting-a-user-note)"
+			},
+			"response": []
+		},
+		{
 			"name": "alter-user",
 			"request": {
 				"auth": {
@@ -310,13 +436,13 @@
 						"value": "{{api_version}}"
 					},
 					{
-						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
+						"description": "The user ID of the API client user - this is shown in the response to the login.json endpoint",
 						"key": "session_user_id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
-						"description": "The session key for the logged-in user",
+						"description": "The session key for the logged-in API client user",
 						"key": "session_key",
 						"type": "text",
 						"value": "{{session_key}}"
@@ -667,6 +793,120 @@
 			"response": []
 		},
 		{
+			"name": "get-vouchers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "session_user_id",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"key": "session_key",
+						"value": "{{session_key}}"
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/get-vouchers?chain_id={{chain_id}}&number_results=10&results_offset=0&show_all_statuses=true",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"get-vouchers"
+					],
+					"query": [
+						{
+							"key": "chain_id",
+							"value": "{{chain_id}}"
+						},
+						{
+							"key": "campaign_id",
+							"value": "238",
+							"disabled": true
+						},
+						{
+							"key": "number_results",
+							"value": "10"
+						},
+						{
+							"key": "results_offset",
+							"value": "0"
+						},
+						{
+							"key": "show_all_statuses",
+							"value": "true"
+						},
+						{
+							"key": "show_expired",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "show_redeemed",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "user_id",
+							"value": "843382423",
+							"disabled": true
+						},
+						{
+							"key": "exclude_regenerated",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "min_created_datetime",
+							"value": "2018-09-19T13:27:56+00:00",
+							"disabled": true
+						},
+						{
+							"key": "min_created_datetime_relative",
+							"value": "-13 months",
+							"disabled": true
+						},
+						{
+							"key": "max_created_datetime",
+							"value": "2022-09-19T14:05:20Z",
+							"disabled": true
+						},
+						{
+							"key": "max_created_datetime_relative",
+							"value": "+6 weeks",
+							"disabled": true
+						},
+						{
+							"key": "min_expiry_datetime",
+							"value": "2022-09-19T14:05:20Z",
+							"disabled": true
+						},
+						{
+							"key": "min_expiry_datetime_relative",
+							"value": "-13 weeks",
+							"disabled": true
+						},
+						{
+							"key": "max_expiry_datetime",
+							"value": "2018-09-19T13:27:56+00:00",
+							"disabled": true
+						},
+						{
+							"key": "max_expiry_datetime_relative",
+							"value": "+21 weeks",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Call to the Spaaza get-vouchers endpoint to retrieve details of vouchers for a brand or chain, matching various filters. Note that this API endpoint can also be used to export a CSV file of vouchers including details such as customer information and expiry time. See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Get all vouchers for a chain](https://docs.spaaza.com/#get-all-vouchers-for-a-chain)"
+			},
+			"response": []
+		},
+		{
 			"name": "create-voucher",
 			"request": {
 				"auth": {
@@ -826,6 +1066,136 @@
 			"response": []
 		},
 		{
+			"name": "claim-voucher",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"description": "This header should be set if the client is an end-user, and not set if the client is an admin user.",
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}"
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"type": "text",
+						"value": "{{api_version}}"
+					},
+					{
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "voucher_key",
+							"value": "04629ca93b11155d6e31830a92acd9b92baee5d878cc1da74b73449cf0467058",
+							"type": "text"
+						},
+						{
+							"key": "voucher_id",
+							"value": "45566623",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "user_id",
+							"value": "40223588",
+							"type": "text"
+						},
+						{
+							"key": "chain_id",
+							"value": "{{chain_id}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/claim-voucher",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"claim-voucher"
+					]
+				},
+				"description": "Claim a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Claiming vouchers](https://docs.spaaza.com/#claiming-vouchers)"
+			},
+			"response": []
+		},
+		{
+			"name": "unclaim-voucher",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"description": "This header should be set if the client is an end-user, and not set if the client is an admin user.",
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}"
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"type": "text",
+						"value": "{{api_version}}"
+					},
+					{
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "voucher_key",
+							"value": "04629ca93b11155d6e31830a92acd9b92baee5d878cc1da74b73449cf0467058",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "40223588",
+							"type": "text"
+						},
+						{
+							"key": "chain_id",
+							"value": "{{chain_id}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/claim-voucher",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"claim-voucher"
+					]
+				},
+				"description": "Unclaim a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Claiming vouchers](https://docs.spaaza.com/#unclaiming-vouchers)"
+			},
+			"response": []
+		},
+		{
 			"name": "lock-voucher",
 			"request": {
 				"auth": {
@@ -900,6 +1270,132 @@
 			"response": []
 		},
 		{
+			"name": "unlock-voucher",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"description": "This header should be set if the client is an end-user, and not set if the client is an admin user.",
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}"
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"type": "text",
+						"value": "{{api_version}}"
+					},
+					{
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "voucher_key",
+							"value": "04629ca93b11155d6e31830a92acd9b92baee5d878cc1da74b73449cf0467058",
+							"type": "text"
+						},
+						{
+							"key": "voucher_id",
+							"value": "326236432",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/unlock-voucher",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"unlock-voucher"
+					]
+				},
+				"description": "Unlock a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Unlocking vouchers](https://docs.spaaza.com/#unlocking-vouchers)"
+			},
+			"response": []
+		},
+		{
+			"name": "expire-voucher",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"description": "This header should be set if the client is an end-user, and not set if the client is an admin user.",
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}"
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"type": "text",
+						"value": "{{api_version}}"
+					},
+					{
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "voucher_key",
+							"value": "04629ca93b11155d6e31830a92acd9b92baee5d878cc1da74b73449cf0467058",
+							"type": "text"
+						},
+						{
+							"key": "voucher_id",
+							"value": "326236432",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "user_id",
+							"value": "64443643",
+							"type": "text"
+						},
+						{
+							"key": "chain_id",
+							"value": "{{chain_id}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/expire-voucher",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"expire-voucher"
+					]
+				},
+				"description": "Expire a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Expiring vouchers](https://docs.spaaza.com/#expiring-vouchers)"
+			},
+			"response": []
+		},
+		{
 			"name": "delete-voucher",
 			"request": {
 				"auth": {
@@ -967,6 +1463,61 @@
 					]
 				},
 				"description": "Delete a voucher. See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Deleting vouchers](https://docs.spaaza.com/#deleting-vouchers)\n\nNote that, in the case of a voucher with a wallet campaign this will return the amount of the voucher to the customer's wallet balance."
+			},
+			"response": []
+		},
+		{
+			"name": "user-wallet-ledger (wallet history)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}"
+					},
+					{
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}",
+						"type": "text"
+					},
+					{
+						"key": "session_user_id",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"key": "session_key",
+						"value": "{{session_key}}"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/user-wallet-ledger?chain_id={{chain_id}}&user_id=843382423&type=wallet",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"user-wallet-ledger"
+					],
+					"query": [
+						{
+							"key": "chain_id",
+							"value": "{{chain_id}}"
+						},
+						{
+							"key": "user_id",
+							"value": "843382423"
+						},
+						{
+							"key": "type",
+							"value": "wallet"
+						}
+					]
+				},
+				"description": "Call to the Spaaza user-wallet-ledger endpoint to retrieve of a user's points or wallet history. See the following documentation for more details on background and applicable parameters:\n\n- [Wallet or points history](https://docs.spaaza.com/#wallet-or-points-history)"
 			},
 			"response": []
 		},
@@ -1297,120 +1848,6 @@
 					]
 				},
 				"description": "Call to the Spaaza get-receipts endpoint to retrieve details of receipts for a brand or chain, matching various filters. Note that this API endpoint can also be used to export a CSV file of receipts. See the following documentation for more details on background and applicable parameters:\n\n- [Basket Concept](https://docs.spaaza.com/#basket)\n- [Receipt Object](https://docs.spaaza.com/#receipt-object)\n- [Get All Receipts for a Chain](https://docs.spaaza.com/#get-all-receipts-for-a-chain)"
-			},
-			"response": []
-		},
-		{
-			"name": "get-vouchers",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "session_user_id",
-						"value": "{{session_user_id}}"
-					},
-					{
-						"key": "session_key",
-						"value": "{{session_key}}"
-					},
-					{
-						"key": "X-Spaaza-API-version",
-						"value": "{{api_version}}"
-					}
-				],
-				"url": {
-					"raw": "{{api_url}}/get-vouchers?chain_id={{chain_id}}&number_results=10&results_offset=0&show_all_statuses=true",
-					"host": [
-						"{{api_url}}"
-					],
-					"path": [
-						"get-vouchers"
-					],
-					"query": [
-						{
-							"key": "chain_id",
-							"value": "{{chain_id}}"
-						},
-						{
-							"key": "campaign_id",
-							"value": "238",
-							"disabled": true
-						},
-						{
-							"key": "number_results",
-							"value": "10"
-						},
-						{
-							"key": "results_offset",
-							"value": "0"
-						},
-						{
-							"key": "show_all_statuses",
-							"value": "true"
-						},
-						{
-							"key": "show_expired",
-							"value": "1",
-							"disabled": true
-						},
-						{
-							"key": "show_redeemed",
-							"value": "true",
-							"disabled": true
-						},
-						{
-							"key": "user_id",
-							"value": "843382423",
-							"disabled": true
-						},
-						{
-							"key": "exclude_regenerated",
-							"value": "true",
-							"disabled": true
-						},
-						{
-							"key": "min_created_datetime",
-							"value": "2018-09-19T13:27:56+00:00",
-							"disabled": true
-						},
-						{
-							"key": "min_created_datetime_relative",
-							"value": "-13 months",
-							"disabled": true
-						},
-						{
-							"key": "max_created_datetime",
-							"value": "2022-09-19T14:05:20Z",
-							"disabled": true
-						},
-						{
-							"key": "max_created_datetime_relative",
-							"value": "+6 weeks",
-							"disabled": true
-						},
-						{
-							"key": "min_expiry_datetime",
-							"value": "2022-09-19T14:05:20Z",
-							"disabled": true
-						},
-						{
-							"key": "min_expiry_datetime_relative",
-							"value": "-13 weeks",
-							"disabled": true
-						},
-						{
-							"key": "max_expiry_datetime",
-							"value": "2018-09-19T13:27:56+00:00",
-							"disabled": true
-						},
-						{
-							"key": "max_expiry_datetime_relative",
-							"value": "+21 weeks",
-							"disabled": true
-						}
-					]
-				},
-				"description": "Call to the Spaaza get-vouchers endpoint to retrieve details of vouchers for a brand or chain, matching various filters. Note that this API endpoint can also be used to export a CSV file of vouchers including details such as customer information and expiry time. See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Get all vouchers for a chain](https://docs.spaaza.com/#get-all-vouchers-for-a-chain)"
 			},
 			"response": []
 		}
