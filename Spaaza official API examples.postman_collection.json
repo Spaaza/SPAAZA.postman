@@ -310,13 +310,13 @@
 						"value": "{{api_version}}"
 					},
 					{
-						"description": "The user ID of the admin user - this is shown in the response to the login.json endpoint",
+						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
 						"key": "session_user_id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
-						"description": "The session key for the logged-in admin user",
+						"description": "The session key for the logged-in user",
 						"key": "session_key",
 						"type": "text",
 						"value": "{{session_key}}"
@@ -428,6 +428,127 @@
 			"response": []
 		},
 		{
+			"name": "logout",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}"
+					},
+					{
+						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"description": "The session key for the logged-in user",
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "voucher_key",
+							"value": "e84f4f58a3020633680f98ef65f504a97309da600dd68e5b6023c0d4e3f97dbe",
+							"type": "text"
+						},
+						{
+							"key": "voucher_id",
+							"value": "2354354543",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "user_id",
+							"value": "3540234",
+							"type": "text"
+						},
+						{
+							"key": "chain_id",
+							"value": "{{chain_id}}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/logout",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"logout"
+					]
+				},
+				"description": "Destroy a logged-in session for a Spaaza API user, effectively logging the user out. See the following documentation for more details on background and applicable parameters:\n\n- [User Concept](https://docs.spaaza.com/#user)\n- [Authentication](https://docs.spaaza.com/#authentication)\n- [Logging users in](https://docs.spaaza.com/#logging-users-in)"
+			},
+			"response": []
+		},
+		{
+			"name": "get-login-status session-based",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"description": "This header should be set if the client is an end-user, and not set if the client is an admin user.",
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}",
+						"disabled": true
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}"
+					},
+					{
+						"description": "The session key for the logged-in user",
+						"key": "session_key",
+						"value": "{{session_key}}"
+					},
+					{
+						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
+						"key": "session_user_id",
+						"value": "{{session_user_id}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/auth/get-login-status?user_id=10745677&session_key=adbe328af06bc94340145bfed00eac45ac",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"get-login-status"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "10745677"
+						},
+						{
+							"key": "username",
+							"value": "test49800020190228@example.com",
+							"disabled": true
+						},
+						{
+							"key": "session_key",
+							"value": "adbe328af06bc94340145bfed00eac45ac"
+						}
+					]
+				},
+				"description": "Check whether there is a valid Spaaza session for the supplied user and session key. See the following documentation for more details on background and applicable parameters:\n\n- [User Concept](https://docs.spaaza.com/#user)\n- [Authentication](https://docs.spaaza.com/#authentication)\n- [Logging users in](https://docs.spaaza.com/#logging-users-in)"
+			},
+			"response": []
+		},
+		{
 			"name": "get-card",
 			"request": {
 				"method": "GET",
@@ -443,23 +564,23 @@
 						"value": "{{api_version}}"
 					},
 					{
-						"description": "The session key for the logged-in admin user",
+						"description": "The session key for the logged-in user",
 						"key": "session_key",
 						"value": "{{session_key}}"
 					},
 					{
-						"description": "The user ID of the admin user - this is shown in the response to the login.json endpoint",
+						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
 						"key": "session_user_id",
 						"value": "{{session_user_id}}"
 					}
 				],
 				"url": {
-					"raw": "{{api_url}}/get-card.?chain_id={{chain_id}}&member_number=3540236",
+					"raw": "{{api_url}}/get-card?chain_id={{chain_id}}&member_number=3540236",
 					"host": [
 						"{{api_url}}"
 					],
 					"path": [
-						"get-card."
+						"get-card"
 					],
 					"query": [
 						{
@@ -565,13 +686,13 @@
 						"type": "text"
 					},
 					{
-						"description": "The user ID of the admin user - this is shown in the response to the login.json endpoint",
+						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
 						"key": "session_user_id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
-						"description": "The session key for the logged-in admin user",
+						"description": "The session key for the logged-in user",
 						"key": "session_key",
 						"type": "text",
 						"value": "{{session_key}}"
@@ -797,13 +918,13 @@
 						"value": "{{api_version}}"
 					},
 					{
-						"description": "The user ID of the admin user - this is shown in the response to the login.json endpoint",
+						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
 						"key": "session_user_id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
-						"description": "The session key for the logged-in admin user",
+						"description": "The session key for the logged-in user",
 						"key": "session_key",
 						"type": "text",
 						"value": "{{session_key}}"
@@ -877,13 +998,13 @@
 						"value": "{{api_version}}"
 					},
 					{
-						"description": "The user ID of the admin user - this is shown in the response to the login.json endpoint",
+						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
 						"key": "session_user_id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
-						"description": "The session key for the logged-in admin user",
+						"description": "The session key for the logged-in user",
 						"key": "session_key",
 						"type": "text",
 						"value": "{{session_key}}"
@@ -924,13 +1045,13 @@
 						"value": "{{api_version}}"
 					},
 					{
-						"description": "The user ID of the admin user - this is shown in the response to the login.json endpoint",
+						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
 						"key": "session_user_id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
-						"description": "The session key for the logged-in admin user",
+						"description": "The session key for the logged-in user",
 						"key": "session_key",
 						"type": "text",
 						"value": "{{session_key}}"
@@ -971,13 +1092,13 @@
 						"value": "{{api_version}}"
 					},
 					{
-						"description": "The user ID of the admin user - this is shown in the response to the login.json endpoint",
+						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
 						"key": "session_user_id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
-						"description": "The session key for the logged-in admin user",
+						"description": "The session key for the logged-in user",
 						"key": "session_key",
 						"type": "text",
 						"value": "{{session_key}}"
@@ -1018,13 +1139,13 @@
 						"value": "{{api_version}}"
 					},
 					{
-						"description": "The user ID of the admin user - this is shown in the response to the login.json endpoint",
+						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
 						"key": "session_user_id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
-						"description": "The session key for the logged-in admin user",
+						"description": "The session key for the logged-in user",
 						"key": "session_key",
 						"type": "text",
 						"value": "{{session_key}}"
