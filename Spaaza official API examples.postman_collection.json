@@ -463,21 +463,176 @@
 							"type": "text"
 						},
 						{
-							"key": "last_name",
-							"value": "Bloggs",
+							"key": "chain_id",
+							"value": "{{chain_id}}",
+							"description": "Value populated from environment file. Can be overridden.",
 							"type": "text"
 						},
 						{
-							"key": "webshop_customer_id",
+							"key": "authentication_point_identifier",
 							"value": "70994543546",
 							"type": "text",
 							"disabled": true
 						},
 						{
-							"key": "chain_id",
-							"value": "{{chain_id}}",
-							"description": "Value populated from environment file. Can be overridden.",
+							"key": "member_number",
+							"value": "435450444",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address_housenumber",
+							"value": "14",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address_housenumber_extension",
+							"value": "II",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address_line_2",
+							"value": "Apartment #416",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address_line_3",
+							"value": "Anyneighbourhood",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address_postalcode",
+							"value": "1012AG",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address_regionstate",
+							"value": "Anystate",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address_streetname",
+							"value": "Anystreet",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address_towncity",
+							"value": "Anytown",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "branch_business_owner_code",
+							"value": "STORE_01A",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "country_code",
+							"value": "US",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "first_name",
+							"value": "Josephine",
 							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "F",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "home_store_id",
+							"value": "3245",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "language",
+							"value": "en-US",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "is_employee",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "last_name",
+							"value": "Bloggs",
+							"type": "text"
+						},
+						{
+							"key": "mailing_list_sub_offered",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "mailing_list_subscribed",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "opt_in_secondary",
+							"value": "false",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "gobbledy#4$$10!",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "phone_number",
+							"value": "(214)-5555-7016",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "printed_mailing_list_subscribed",
+							"value": "false",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "programme_opted_in",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "registered",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "is_employee",
+							"value": "false",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "store_id",
+							"value": "5435435",
+							"type": "text",
+							"disabled": true
 						}
 					]
 				},
@@ -698,6 +853,12 @@
 						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
 						"key": "session_user_id",
 						"value": "{{session_user_id}}"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "nl-NL",
+						"type": "text",
+						"disabled": true
 					}
 				],
 				"url": {
@@ -725,6 +886,11 @@
 						{
 							"key": "username",
 							"value": "test49800020190228@example.com",
+							"disabled": true
+						},
+						{
+							"key": "authentication_point_identifier",
+							"value": "1324989443",
 							"disabled": true
 						}
 					]
