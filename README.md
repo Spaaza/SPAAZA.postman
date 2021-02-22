@@ -38,4 +38,9 @@ understanding of the way Spaaza works.
 
 ## Do you have any tips and hints on using the POSTMAN collection with the Spaaza API?
 
-These are coming soon - we'll be adding guides, videos and new endpoints here.
+Sure, there are some videos on the [Spaaza YouTube channel](https://www.youtube.com/channel/UCvM1ZMg-jOGDSdcnrobIPSQ)
+including the following:
+
+[![Getting started with the Spaaza API](images/youtube-tufHS8145Bs-screenshot.png)](https://youtu.be/tufHS8145Bs "Getting started with the Spaaza API")
+
+More coming soon - we'll be adding guides, videos and new endpoints here.
