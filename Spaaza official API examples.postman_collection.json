@@ -1494,6 +1494,82 @@
 			"response": []
 		},
 		{
+			"name": "redeem-voucher",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}",
+						"disabled": true
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"type": "text",
+						"value": "{{api_version}}"
+					},
+					{
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "voucher_key",
+							"value": "04629ca93b11155d6e31830a92acd9b92baee5d878cc1da74b73449cf0467058",
+							"type": "text"
+						},
+						{
+							"key": "voucher_id",
+							"value": "437643",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "user_id",
+							"value": "55555555",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "chain_id",
+							"value": "{{chain_id}}",
+							"type": "text"
+						},
+						{
+							"key": "amount",
+							"value": "5.50",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/redeem-voucher",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"redeem-voucher"
+					]
+				},
+				"description": "Redeem a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Redeeming vouchers](https://docs.spaaza.com/#redeeming-vouchers)"
+			},
+			"response": []
+		},
+		{
 			"name": "expire-voucher",
 			"request": {
 				"auth": {
@@ -1729,7 +1805,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"entity\": {\n        \"entity_type\": \"chain\",\n        \"entity_id\": {{chain_id}}\n    },\n    \"user\": {\n        \"member_programme\": \"spaaza\",\n        \"member_number\": \"3360056\"\n    },\n    \"basket\": {\n        \"app_platform_type\": \"online\",\n        \"retailer_basket_code\": \"order_number_{{$timestamp}}\",\n        \"basket_total_price\": 150,\n        \"shipping_charge\": 0,\n        \"basket_currency\": {\n            \"currency_code\": \"EUR\"\n        },\n        \"basket_tax\": [\n            {\n                \"tax_rate\": 0.21,\n                \"tax_total\": 26.03\n            }\n        ],\n        \"basket_items\": [\n            {\n                \"item_barcode\": \"8755065949331\",\n                \"item_quantity\": 10,\n                \"item_price\": 15,\n                \"item_subtotal\": 150,\n                \"retailer_item_code\": \"line_item_01\",\n                \"item_type\": \"product\"\n            }\n        ]\n    }\n}"
+					"raw": "{\n    \"entity\": {\n        \"entity_type\": \"chain\",\n        \"entity_id\": {{chain_id}}\n    },\n    \"user\": {\n        \"member_programme\": \"spaaza\",\n        \"member_number\": \"3360056\"\n    },\n    \"basket\": {\n        \"basket_platform_type\": \"online\",\n        \"retailer_basket_code\": \"order_number_{{$timestamp}}\",\n        \"basket_total_price\": 210,\n        \"shipping_charge\": 0,\n        \"basket_currency\": {\n            \"currency_code\": \"EUR\"\n        },\n        \"basket_tax\": [\n            {\n                \"tax_rate\": 0.21,\n                \"tax_total\": 26.03\n            }\n        ],\n        \"basket_items\": [\n            {\n                \"item_barcode\": \"8755065949331\",\n                \"item_quantity\": 10.50,\n                \"item_quantity_unit\": \"kg\",\n                \"item_price\": 20,\n                \"item_subtotal\": 210,\n                \"retailer_item_code\": \"line_item_01\",\n                \"item_type\": \"product\"\n            }\n        ]\n    }\n}"
 				},
 				"url": {
 					"raw": "{{api_url}}/auth/get-basket-price",
