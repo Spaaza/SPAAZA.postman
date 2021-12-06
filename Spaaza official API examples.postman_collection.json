@@ -56,7 +56,123 @@
 						"login"
 					]
 				},
-				"description": "Login to the Spaaza API as an admin user. See the following Spaaza documentation:\n\n- [User Concept](https://docs.spaaza.com/#user)\n- [Authentication](https://docs.spaaza.com/#authentication)\n- [Logging users in](https://docs.spaaza.com/#logging-users-in)\n\nNote the \"Tests\" section of this POSTMAN request uses the values in the response to a successful request to populate the \"session_user_id\" and \"session_key\" variables in the POSTMAN environment. These are then used to authenticate calls to other Spaaza API endpoints."
+				"description": "Login to the Spaaza API as an admin user. See the following Spaaza documentation:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Authentication](https://docs.spaaza.com/api/authentication/)\n*   [Logging users in](https://docs.spaaza.com/api/login/)\n    \n\nNote the \"Tests\" section of this POSTMAN request uses the values in the response to a successful request to populate the \"session_user_id\" and \"session_key\" variables in the POSTMAN environment. These are then used to authenticate calls to other Spaaza API endpoints."
+			},
+			"response": []
+		},
+		{
+			"name": "alter-business",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}",
+						"description": "This header should be set if the client is an end-user, and not set if the client is an admin user.",
+						"disabled": true
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"type": "text",
+						"value": "{{api_version}}"
+					},
+					{
+						"description": "The user ID of the API client user - this is shown in the response to the login.json endpoint",
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"description": "The session key for the logged-in API client user",
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "business_id",
+							"value": "23423525",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Paris Branch",
+							"type": "text"
+						},
+						{
+							"key": "address_1",
+							"value": "Rue de Grenelles 261",
+							"type": "text"
+						},
+						{
+							"key": "address_2",
+							"value": "Quartier Latin",
+							"type": "text"
+						},
+						{
+							"key": "address_3",
+							"value": "Centre de Commerce #421",
+							"type": "text"
+						},
+						{
+							"key": "address_towncity",
+							"value": "Anytown",
+							"type": "text"
+						},
+						{
+							"key": "region",
+							"value": "Anyregion",
+							"type": "text"
+						},
+						{
+							"key": "countrycode",
+							"value": "FR",
+							"type": "text"
+						},
+						{
+							"key": "postalcode",
+							"value": "75004",
+							"type": "text"
+						},
+						{
+							"key": "latitude",
+							"value": "48.7543",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "3.2149",
+							"type": "text"
+						},
+						{
+							"key": "business_image_url",
+							"value": "https://example.com/images/business/image.jpg",
+							"type": "text"
+						},
+						{
+							"key": "business_review_url",
+							"value": "https://reviewsite.example.com/reviews/review01.jpg",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/internal/alter-business",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"internal",
+						"alter-business"
+					]
+				},
+				"description": "In Spaaza terminology, a “business” is a branch of a retailer (a “chain”). This API call updates an existing business. See the following documentation for more details on background and applicable parameters:\n\n*   [Business Concept](https://docs.spaaza.com/docs/api/businesses.html)\n*   [Altering a business](https://docs.spaaza.com/api/alter-business/)"
 			},
 			"response": []
 		},
@@ -181,7 +297,7 @@
 						},
 						{
 							"key": "password",
-							"value": "Lu11223344#",
+							"value": "{{customer_password}}",
 							"type": "text",
 							"disabled": true
 						},
@@ -286,133 +402,7 @@
 						"add-user"
 					]
 				},
-				"description": "Add a user to Spaaza using admin authentication. See the following documentation for more details on background and applicable parameters:\n\n- [User Concept](https://docs.spaaza.com/#user)\n- [Adding a user](https://docs.spaaza.com/#adding-a-user)\n\nNote the \"Pre-request Script\" section of this POSTMAN request is used to populate some of the values in the \"Body\" section of the request with their values. These can be overridden."
-			},
-			"response": []
-		},
-		{
-			"name": "add-user-note",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"var randomint = Math.random();",
-							"postman.setEnvironmentVariable(\"randomint\", randomint);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "X-MyPrice-App-Hostname",
-						"value": "{{app_hostname}}"
-					},
-					{
-						"key": "X-Spaaza-API-version",
-						"type": "text",
-						"value": "{{api_version}}"
-					},
-					{
-						"description": "The user ID of the admin user - this is shown in the response to the login endpoint",
-						"key": "session_user_id",
-						"type": "text",
-						"value": "{{session_user_id}}"
-					},
-					{
-						"description": "The session key for the logged-in admin user",
-						"key": "session_key",
-						"type": "text",
-						"value": "{{session_key}}"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "user_id",
-							"value": "405683453",
-							"type": "text"
-						},
-						{
-							"key": "text",
-							"value": "Customer very happy with thier latest purchase.",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "{{api_url}}/internal/add-user-note",
-					"host": [
-						"{{api_url}}"
-					],
-					"path": [
-						"internal",
-						"add-user-note"
-					]
-				},
-				"description": "Add a note to a Spaaza end-user using admin authentication. See the following documentation for more details on background and applicable parameters:\n\n- [User Concept](https://docs.spaaza.com/#user)\n- [User Notes](https://docs.spaaza.com/#note-objects)\n- [Adding a note to a user](https://docs.spaaza.com/#adding-a-note-to-a-user)"
-			},
-			"response": []
-		},
-		{
-			"name": "delete-user-note",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "DELETE",
-				"header": [
-					{
-						"description": "This header should be set if the client is an end-user, and not set if the client is an admin user.",
-						"key": "X-MyPrice-App-Hostname",
-						"type": "text",
-						"value": "{{app_hostname}}"
-					},
-					{
-						"key": "X-Spaaza-API-version",
-						"value": "{{api_version}}"
-					},
-					{
-						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
-						"key": "session_user_id",
-						"type": "text",
-						"value": "{{session_user_id}}"
-					},
-					{
-						"description": "The session key for the logged-in user",
-						"key": "session_key",
-						"type": "text",
-						"value": "{{session_key}}"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "user_note_id",
-							"value": "494534991",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "{{api_url}}/internal/delete-user-note",
-					"host": [
-						"{{api_url}}"
-					],
-					"path": [
-						"internal",
-						"delete-user-note"
-					]
-				},
-				"description": "Delete a note added to a Spaaza end-user. See the following documentation for more details on background and applicable parameters:\n\n- [User Concept](https://docs.spaaza.com/#user)\n- [User Notes](https://docs.spaaza.com/#note-objects)\n- [Deleting a user note](https://docs.spaaza.com/#deleting-a-user-note)"
+				"description": "Add a user to Spaaza using admin authentication. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Adding a user](https://docs.spaaza.com/docs/api/users.html)\n    \n\nNote the \"Pre-request Script\" section of this POSTMAN request is used to populate some of the values in the \"Body\" section of the request with their values. These can be overridden."
 			},
 			"response": []
 		},
@@ -646,7 +636,254 @@
 						"alter-user"
 					]
 				},
-				"description": "Alter the details of a user account. See the following documentation for more details on background and applicable parameters:\n\n- [User Concept](https://docs.spaaza.com/#user)\n- [Altering a user](https://docs.spaaza.com/#altering-a-user)"
+				"description": "Alter the details of a user account. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Altering a user](https://docs.spaaza.com/api/alter-user/)"
+			},
+			"response": []
+		},
+		{
+			"name": "delete-user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"description": "This header should be set if the client is an end-user, and not set if the client is an admin user.",
+						"key": "X-MyPrice-App-Hostname",
+						"type": "text",
+						"value": "{{app_hostname}}"
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}"
+					},
+					{
+						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"description": "The session key for the logged-in user",
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user_note_id",
+							"value": "494534991",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/delete-user",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"delete-user"
+					]
+				},
+				"description": "Delete a user for legal purposes. This API endpoint obfuscates all personally-idenfiable user details such as first name, last name, email address, gender, date of birth and address details. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Deleting user accounts](https://docs.spaaza.com/api/delete-user/)"
+			},
+			"response": []
+		},
+		{
+			"name": "alter-user-loyalty-level",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}",
+						"description": "This header should be set if the client is an end-user, and not set if the client is an admin user.",
+						"disabled": true
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"type": "text",
+						"value": "{{api_version}}"
+					},
+					{
+						"description": "The user ID of the API client user - this is shown in the response to the login.json endpoint",
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"description": "The session key for the logged-in API client user",
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user_id",
+							"value": "3638557",
+							"type": "text"
+						},
+						{
+							"key": "member_number",
+							"value": "45354666",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "loyalty_level_id",
+							"value": "4972",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/alter-user-loyalty-level",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"alter-user-loyalty-level"
+					]
+				},
+				"description": "Alter the loyalty level of a user to that supplied. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Campaigns Concept](https://docs.spaaza.com/docs/api/campaigns.html)\n*   [Set loyalty level](https://docs.spaaza.com/api/alter-loyalty-level/)"
+			},
+			"response": []
+		},
+		{
+			"name": "add-user-note",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var randomint = Math.random();",
+							"postman.setEnvironmentVariable(\"randomint\", randomint);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}"
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"type": "text",
+						"value": "{{api_version}}"
+					},
+					{
+						"description": "The user ID of the admin user - this is shown in the response to the login endpoint",
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"description": "The session key for the logged-in admin user",
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user_id",
+							"value": "405683453",
+							"type": "text"
+						},
+						{
+							"key": "text",
+							"value": "Customer very happy with thier latest purchase.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/internal/add-user-note",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"internal",
+						"add-user-note"
+					]
+				},
+				"description": "Add a note to a Spaaza end-user using admin authentication. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [User Notes](https://docs.spaaza.com/api/add-user-note/)"
+			},
+			"response": []
+		},
+		{
+			"name": "delete-user-note",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"description": "This header should be set if the client is an end-user, and not set if the client is an admin user.",
+						"key": "X-MyPrice-App-Hostname",
+						"type": "text",
+						"value": "{{app_hostname}}"
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}"
+					},
+					{
+						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"description": "The session key for the logged-in user",
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user_note_id",
+							"value": "494534991",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/internal/delete-user-note",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"internal",
+						"delete-user-note"
+					]
+				},
+				"description": "Delete a note added to a Spaaza end-user. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [User Notes](https://docs.spaaza.com/api/add-user-note/)"
 			},
 			"response": []
 		},
@@ -704,7 +941,112 @@
 						"login"
 					]
 				},
-				"description": "Log in as an end-user in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n- [User Concept](https://docs.spaaza.com/#user)\n- [Authentication](https://docs.spaaza.com/#authentication)\n- [Logging users in](https://docs.spaaza.com/#logging-users-in)\n\nNote the \"Tests\" section of this POSTMAN request uses the values in the response to a successful request to populate the \"session_user_id\" and \"session_key\" variables in the POSTMAN environment. These are then used to authenticate calls to other Spaaza API endpoints."
+				"description": "Log in as an end-user in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Authentication](https://docs.spaaza.com/api/authentication/)\n*   [Logging users in](https://docs.spaaza.com/api/login/)\n    \n\nNote the \"Tests\" section of this POSTMAN request uses the values in the response to a successful request to populate the \"session_user_id\" and \"session_key\" variables in the POSTMAN environment. These are then used to authenticate calls to other Spaaza API endpoints."
+			},
+			"response": []
+		},
+		{
+			"name": "get-cross-site-token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}"
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"type": "text",
+						"value": "{{api_version}}"
+					},
+					{
+						"key": "session_user_id",
+						"value": "{{session_user_id}}",
+						"type": "text"
+					},
+					{
+						"key": "session_key",
+						"value": "{{session_key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/auth/get-cross-site-token",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"get-cross-site-token"
+					]
+				},
+				"description": "Get a token to do cross site authentication with the given app. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Authentication](https://docs.spaaza.com/api/authentication/)\n*   [Cross site authentication token](https://docs.spaaza.com/api/cross-site-authentication-tokens/)"
+			},
+			"response": []
+		},
+		{
+			"name": "get-login-status session-based",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"description": "This header should be set if the client is an end-user, and not set if the client is an admin user.",
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}",
+						"disabled": true
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}"
+					},
+					{
+						"description": "The session key for the logged-in user",
+						"key": "session_key",
+						"value": "{{session_key}}"
+					},
+					{
+						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
+						"key": "session_user_id",
+						"value": "{{session_user_id}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/auth/get-login-status?user_id=10745677&session_key=adbe328af06bc94340145bfed00eac45ac",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"get-login-status"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "10745677"
+						},
+						{
+							"key": "username",
+							"value": "test49800020190228@example.com",
+							"disabled": true
+						},
+						{
+							"key": "session_key",
+							"value": "adbe328af06bc94340145bfed00eac45ac"
+						}
+					]
+				},
+				"description": "Check whether there is a valid Spaaza session for the supplied user and session key. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Authentication](https://docs.spaaza.com/api/authentication/)\n*   [Logging users in](https://docs.spaaza.com/api/login/)\n*   [Getting user session status](https://docs.spaaza.com/api/get-session-status/)"
 			},
 			"response": []
 		},
@@ -770,62 +1112,7 @@
 						"logout"
 					]
 				},
-				"description": "Destroy a logged-in session for a Spaaza API user, effectively logging the user out. See the following documentation for more details on background and applicable parameters:\n\n- [User Concept](https://docs.spaaza.com/#user)\n- [Authentication](https://docs.spaaza.com/#authentication)\n- [Logging users in](https://docs.spaaza.com/#logging-users-in)"
-			},
-			"response": []
-		},
-		{
-			"name": "get-login-status session-based",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"description": "This header should be set if the client is an end-user, and not set if the client is an admin user.",
-						"key": "X-MyPrice-App-Hostname",
-						"value": "{{app_hostname}}",
-						"disabled": true
-					},
-					{
-						"key": "X-Spaaza-API-version",
-						"value": "{{api_version}}"
-					},
-					{
-						"description": "The session key for the logged-in user",
-						"key": "session_key",
-						"value": "{{session_key}}"
-					},
-					{
-						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
-						"key": "session_user_id",
-						"value": "{{session_user_id}}"
-					}
-				],
-				"url": {
-					"raw": "{{api_url}}/auth/get-login-status?user_id=10745677&session_key=adbe328af06bc94340145bfed00eac45ac",
-					"host": [
-						"{{api_url}}"
-					],
-					"path": [
-						"auth",
-						"get-login-status"
-					],
-					"query": [
-						{
-							"key": "user_id",
-							"value": "10745677"
-						},
-						{
-							"key": "username",
-							"value": "test49800020190228@example.com",
-							"disabled": true
-						},
-						{
-							"key": "session_key",
-							"value": "adbe328af06bc94340145bfed00eac45ac"
-						}
-					]
-				},
-				"description": "Check whether there is a valid Spaaza session for the supplied user and session key. See the following documentation for more details on background and applicable parameters:\n\n- [User Concept](https://docs.spaaza.com/#user)\n- [Authentication](https://docs.spaaza.com/#authentication)\n- [Logging users in](https://docs.spaaza.com/#logging-users-in)"
+				"description": "Destroy a logged-in session for a Spaaza API user, effectively logging the user out. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Authentication](https://docs.spaaza.com/api/authentication/)\n*   [Logging users in](https://docs.spaaza.com/api/login/)\n*   [Logging users out](https://docs.spaaza.com/api/logout/)"
 			},
 			"response": []
 		},
@@ -857,6 +1144,7 @@
 					{
 						"key": "Accept-Language",
 						"value": "nl-NL",
+						"description": "Accept a particular language or prioritised list of languages in the response",
 						"type": "text",
 						"disabled": true
 					}
@@ -895,7 +1183,7 @@
 						}
 					]
 				},
-				"description": "Get the card for an individual end-user including all information about promotions, wallets, points and vouchers. See the following documentation for more details on background and applicable parameters:\n\n- [User Concept](https://docs.spaaza.com/#user)\n- [Getting the \"card\" of a user](https://docs.spaaza.com/#getting-the-card-of-a-user)"
+				"description": "Get the card for an individual end-user including all information about promotions, wallets, points and vouchers. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Getting the \"card\" of a user](https://docs.spaaza.com/api/get-card/)"
 			},
 			"response": []
 		},
@@ -954,121 +1242,7 @@
 						}
 					]
 				},
-				"description": "Get all vouchers for a user. See the following documentation for more details on background and applicable parameters:\n\n- [User Concept](https://docs.spaaza.com/#user)\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Get all vouchers for a user](https://docs.spaaza.com/#get-all-vouchers-for-a-user)"
-			},
-			"response": []
-		},
-		{
-			"name": "get-vouchers",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "session_user_id",
-						"value": "{{session_user_id}}"
-					},
-					{
-						"key": "session_key",
-						"value": "{{session_key}}"
-					},
-					{
-						"key": "X-Spaaza-API-version",
-						"value": "{{api_version}}"
-					}
-				],
-				"url": {
-					"raw": "{{api_url}}/get-vouchers?chain_id={{chain_id}}&number_results=10&results_offset=0&show_all_statuses=true",
-					"host": [
-						"{{api_url}}"
-					],
-					"path": [
-						"get-vouchers"
-					],
-					"query": [
-						{
-							"key": "chain_id",
-							"value": "{{chain_id}}"
-						},
-						{
-							"key": "campaign_id",
-							"value": "238",
-							"disabled": true
-						},
-						{
-							"key": "number_results",
-							"value": "10"
-						},
-						{
-							"key": "results_offset",
-							"value": "0"
-						},
-						{
-							"key": "show_all_statuses",
-							"value": "true"
-						},
-						{
-							"key": "show_expired",
-							"value": "1",
-							"disabled": true
-						},
-						{
-							"key": "show_redeemed",
-							"value": "true",
-							"disabled": true
-						},
-						{
-							"key": "user_id",
-							"value": "843382423",
-							"disabled": true
-						},
-						{
-							"key": "exclude_regenerated",
-							"value": "true",
-							"disabled": true
-						},
-						{
-							"key": "min_created_datetime",
-							"value": "2018-09-19T13:27:56+00:00",
-							"disabled": true
-						},
-						{
-							"key": "min_created_datetime_relative",
-							"value": "-13 months",
-							"disabled": true
-						},
-						{
-							"key": "max_created_datetime",
-							"value": "2022-09-19T14:05:20Z",
-							"disabled": true
-						},
-						{
-							"key": "max_created_datetime_relative",
-							"value": "+6 weeks",
-							"disabled": true
-						},
-						{
-							"key": "min_expiry_datetime",
-							"value": "2022-09-19T14:05:20Z",
-							"disabled": true
-						},
-						{
-							"key": "min_expiry_datetime_relative",
-							"value": "-13 weeks",
-							"disabled": true
-						},
-						{
-							"key": "max_expiry_datetime",
-							"value": "2018-09-19T13:27:56+00:00",
-							"disabled": true
-						},
-						{
-							"key": "max_expiry_datetime_relative",
-							"value": "+21 weeks",
-							"disabled": true
-						}
-					]
-				},
-				"description": "Call to the Spaaza get-vouchers endpoint to retrieve details of vouchers for a brand or chain, matching various filters. Note that this API endpoint can also be used to export a CSV file of vouchers including details such as customer information and expiry time. See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Get all vouchers for a chain](https://docs.spaaza.com/#get-all-vouchers-for-a-chain)"
+				"description": "Get all vouchers for a user. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Get all vouchers for a user](https://docs.spaaza.com/api/get-user-vouchers/)"
 			},
 			"response": []
 		},
@@ -1227,7 +1401,7 @@
 						"create-voucher"
 					]
 				},
-				"description": "Create a voucher in Spaaza.  See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Creating vouchers](https://docs.spaaza.com/#creating-vouchers)"
+				"description": "Create a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Creating vouchers](https://docs.spaaza.com/api/create-voucher/)"
 			},
 			"response": []
 		},
@@ -1295,7 +1469,7 @@
 						"claim-voucher"
 					]
 				},
-				"description": "Claim a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Claiming vouchers](https://docs.spaaza.com/#claiming-vouchers)"
+				"description": "Claim a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Claiming vouchers](https://docs.spaaza.com/api/claim-voucher/)"
 			},
 			"response": []
 		},
@@ -1357,7 +1531,7 @@
 						"claim-voucher"
 					]
 				},
-				"description": "Unclaim a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Claiming vouchers](https://docs.spaaza.com/#unclaiming-vouchers)"
+				"description": "Unclaim a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Claiming vouchers](https://docs.spaaza.com/api/unclaim-voucher/)"
 			},
 			"response": []
 		},
@@ -1431,7 +1605,7 @@
 						"lock-voucher"
 					]
 				},
-				"description": "Lock a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Locking vouchers](https://docs.spaaza.com/#locking-vouchers)"
+				"description": "Lock a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Locking vouchers](https://docs.spaaza.com/api/lock-voucher/)"
 			},
 			"response": []
 		},
@@ -1489,7 +1663,7 @@
 						"unlock-voucher"
 					]
 				},
-				"description": "Unlock a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Unlocking vouchers](https://docs.spaaza.com/#unlocking-vouchers)"
+				"description": "Unlock a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Unlocking vouchers](https://docs.spaaza.com/api/unlock-voucher/)"
 			},
 			"response": []
 		},
@@ -1565,7 +1739,7 @@
 						"redeem-voucher"
 					]
 				},
-				"description": "Redeem a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Redeeming vouchers](https://docs.spaaza.com/#redeeming-vouchers)"
+				"description": "Redeem a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Redeeming vouchers](https://docs.spaaza.com/api/redeem-voucher/)"
 			},
 			"response": []
 		},
@@ -1633,7 +1807,7 @@
 						"expire-voucher"
 					]
 				},
-				"description": "Expire a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Expiring vouchers](https://docs.spaaza.com/#expiring-vouchers)"
+				"description": "Expire a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Expiring vouchers](https://docs.spaaza.com/api/expire-voucher/)"
 			},
 			"response": []
 		},
@@ -1704,7 +1878,202 @@
 						"delete-voucher"
 					]
 				},
-				"description": "Delete a voucher. See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Deleting vouchers](https://docs.spaaza.com/#deleting-vouchers)\n\nNote that, in the case of a voucher with a wallet campaign this will return the amount of the voucher to the customer's wallet balance."
+				"description": "Delete a voucher. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Deleting vouchers](https://docs.spaaza.com/api/delete-voucher)\n    \n\nNote that, in the case of a voucher with a wallet campaign this will return the amount of the voucher to the customer's wallet balance."
+			},
+			"response": []
+		},
+		{
+			"name": "interact-campaign",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "session_user_id",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"key": "session_key",
+						"value": "{{session_key}}"
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/interact-campaign?chain_id={{chain_id}}&user_id=843382423",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"interact-campaign"
+					],
+					"query": [
+						{
+							"key": "chain_id",
+							"value": "{{chain_id}}"
+						},
+						{
+							"key": "campaign_id",
+							"value": "238",
+							"disabled": true
+						},
+						{
+							"key": "authentication_point_identifier",
+							"value": "5545454544",
+							"disabled": true
+						},
+						{
+							"key": "member_number",
+							"value": "4548375438",
+							"disabled": true
+						},
+						{
+							"key": "user_id",
+							"value": "843382423"
+						}
+					]
+				},
+				"description": "Interact with a campaign in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Campaigns Concept](https://docs.spaaza.com/docs/api/campaigns.html)\n*   [Campaign Interaction](https://docs.spaaza.com/api/interact-campaign/)"
+			},
+			"response": []
+		},
+		{
+			"name": "get-campaign-referrals",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "session_user_id",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"key": "session_key",
+						"value": "{{session_key}}"
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/get-campaign-referrals?chain_id={{chain_id}}&user_id=843382423",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"get-campaign-referrals"
+					],
+					"query": [
+						{
+							"key": "chain_id",
+							"value": "{{chain_id}}"
+						},
+						{
+							"key": "campaign_id",
+							"value": "238",
+							"disabled": true
+						},
+						{
+							"key": "authentication_point_identifier",
+							"value": "5545454544",
+							"disabled": true
+						},
+						{
+							"key": "member_number",
+							"value": "4548375438",
+							"disabled": true
+						},
+						{
+							"key": "user_id",
+							"value": "843382423"
+						}
+					]
+				},
+				"description": "Get the number of referrals by a referring user as well as a partially obfuscated list of referred users.. See the following documentation for more details on background and applicable parameters:\n\n*   [Campaigns Concept](https://docs.spaaza.com/docs/api/campaigns.html)\n*   [Getting a user's referrals](https://docs.spaaza.com/api/get-campaign-referrals/)"
+			},
+			"response": []
+		},
+		{
+			"name": "add-user-purchase-progress (wallet amount)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"description": "This header should be set if the client is an end-user, and not set if the client is an admin user.",
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}",
+						"disabled": true
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}",
+						"type": "text"
+					},
+					{
+						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"description": "The session key for the logged-in user",
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user_id",
+							"value": "3540234",
+							"type": "text"
+						},
+						{
+							"key": "member_number",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "authentication_point_identifier",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "campaign_id",
+							"value": "{{base_loyalty_campaign_id}}",
+							"type": "text"
+						},
+						{
+							"key": "amount",
+							"value": "50.00",
+							"type": "text"
+						},
+						{
+							"key": "log_message",
+							"value": "Manual addition of wallet amount - thanks!",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/add-user-purchase-progress",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"add-user-purchase-progress"
+					]
+				},
+				"description": "Adds a points or monetary wallet amount to the wallet of a specified user. See the following documentation for more details on background and applicable parameters:\n\n*   [Wallet Concept](https://docs.spaaza.com/docs/api/wallets.html)\n*   [Campaign Concept](https://docs-test01.spaaza.com/docs/api/campaigns.html)\n*   [Adding wallet value](https://docs.spaaza.com/api/add-user-purchase-progress/)"
 			},
 			"response": []
 		},
@@ -1759,7 +2128,7 @@
 						}
 					]
 				},
-				"description": "Call to the Spaaza user-wallet-ledger endpoint to retrieve of a user's points or wallet history. See the following documentation for more details on background and applicable parameters:\n\n- [Wallet or points history](https://docs.spaaza.com/#wallet-or-points-history)"
+				"description": "Call to the Spaaza user-wallet-ledger endpoint to retrieve of a user's points or wallet history. See the following documentation for more details on background and applicable parameters:\n\n*   [Campaigns Concept](https://docs.spaaza.com/docs/api/campaigns.html)\n*   [Wallet Concept](https://docs.spaaza.com/docs/api/wallets.html)\n*   [Wallet or points history](https://docs.spaaza.com/api/user-wallet-ledger/)"
 			},
 			"response": []
 		},
@@ -1817,7 +2186,7 @@
 						"get-basket-price"
 					]
 				},
-				"description": "Call to the Spaaza get-basket-price endpoint to request an adjusted basket (order/transaction). See the following documentation for more details on background and applicable parameters:\n\n- [Basket Concept](https://docs.spaaza.com/#basket)\n- [Requesting an adjusted basket](https://docs.spaaza.com/#requesting-an-adjusted-basket)"
+				"description": "Call to the Spaaza get-basket-price endpoint to request an adjusted basket (order/transaction). See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/docs/api/baskets.html)\n*   [Get basket adjustments](https://docs.spaaza.com/api/get-basket-price/)"
 			},
 			"response": []
 		},
@@ -1864,7 +2233,7 @@
 						"add-basket"
 					]
 				},
-				"description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction) and containing the minimum number of required values for a member transaction. See the following documentation for more details on background and applicable parameters:\n\n- [Basket Concept](https://docs.spaaza.com/#basket)\n- [Adding a completed basket](https://docs.spaaza.com/#adding-a-completed-basket)\n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number."
+				"description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction) and containing the minimum number of required values for a member transaction. See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/docs/api/baskets.html)\n*   [Adding a completed basket](https://docs.spaaza.com/api/add-basket/)\n    \n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number."
 			},
 			"response": []
 		},
@@ -1911,7 +2280,7 @@
 						"add-basket"
 					]
 				},
-				"description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction), containing some optional parameters and including enough item article information to create a record in the Spaaza database which can be used for analytics purposes. See the following documentation for more details on background and applicable parameters:\n\n- [Basket Concept](https://docs.spaaza.com/#basket)\n- [Adding a completed basket](https://docs.spaaza.com/#adding-a-completed-basket)\n- [Creating Products and Product Variants](https://docs.spaaza.com/#creating-products-and-product-variants)\n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number."
+				"description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction), containing some optional parameters and including enough item article information to create a record in the Spaaza database which can be used for analytics purposes. See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/docs/api/baskets.html)\n*   [Adding a completed basket](https://docs.spaaza.com/api/add-basket/)\n*   [Creating products and product variants through baskets](https://docs.spaaza.com/api/creating-products-with-add-basket/)\n    \n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number."
 			},
 			"response": []
 		},
@@ -1958,7 +2327,7 @@
 						"add-basket"
 					]
 				},
-				"description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction), containing some optional parameters and redeeming a basket voucher. See the following documentation for more details on background and applicable parameters:\n\n- [Basket Concept](https://docs.spaaza.com/#basket)\n- [Voucher Concept](https://docs.spaaza.com/#voucher)\n- [Adding a completed basket](https://docs.spaaza.com/#adding-a-completed-basket)\n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number."
+				"description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction), containing some optional parameters and redeeming a basket voucher. See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/docs/api/baskets.html)\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Adding a completed basket](https://docs.spaaza.com/api/add-basket/)\n    \n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number."
 			},
 			"response": []
 		},
@@ -2003,7 +2372,7 @@
 						"add-basket"
 					]
 				},
-				"description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction), containing some optional parameters and returning a single item from a previous transaction. See the following documentation for more details on background and applicable parameters:\n\n- [Basket Concept](https://docs.spaaza.com/#basket)\n- [Adding a completed basket](https://docs.spaaza.com/#adding-a-completed-basket)\n- [Processing a return inline](https://docs.spaaza.com/#processing-a-return-inline)\n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number and return item details."
+				"description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction), containing some optional parameters and returning a single item from a previous transaction. See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/docs/api/baskets.html)\n*   [Adding a completed basket](https://docs.spaaza.com/api/add-basket/)\n*   [Processing a return inline](https://docs.spaaza.com/api/returns/)\n    \n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number and return item details."
 			},
 			"response": []
 		},
@@ -2089,7 +2458,7 @@
 						}
 					]
 				},
-				"description": "Call to the Spaaza get-receipts endpoint to retrieve details of receipts for a brand or chain, matching various filters. Note that this API endpoint can also be used to export a CSV file of receipts. See the following documentation for more details on background and applicable parameters:\n\n- [Basket Concept](https://docs.spaaza.com/#basket)\n- [Receipt Object](https://docs.spaaza.com/#receipt-object)\n- [Get All Receipts for a Chain](https://docs.spaaza.com/#get-all-receipts-for-a-chain)"
+				"description": "Call to the Spaaza get-receipts endpoint to retrieve details of receipts for a brand or chain, matching various filters. Note that this API endpoint can also be used to export a CSV file of receipts. See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/docs/api/baskets.html)\n*   [Receipt Object](https://docs.spaaza.com/docs/api/receipt-object.html)\n*   [Get All Receipts for a Chain](https://docs.spaaza.com/docs/api/get-receipts.html)"
 			},
 			"response": []
 		}
