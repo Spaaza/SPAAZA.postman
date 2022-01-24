@@ -2377,6 +2377,109 @@
 			"response": []
 		},
 		{
+			"name": "claim-basket",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"description": "This header should be set if the client is an end-user, and not set if the client is an admin user.",
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}",
+						"disabled": true
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}",
+						"type": "text"
+					},
+					{
+						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
+						"key": "session_user_id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"description": "The session key for the logged-in user",
+						"key": "session_key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "chain_id",
+							"value": "{{chain_id}}",
+							"description": "Mandatory in the case of admin authentication, must not be passed in the case of user authentication.",
+							"type": "text"
+						},
+						{
+							"key": "basket_id",
+							"value": "123456",
+							"description": "One of `basket_id` `retailer_basket_code` or `supplementary_basket_code` must be used to identify the basket.",
+							"type": "text"
+						},
+						{
+							"key": "retailer_basket_code",
+							"value": "TX1030445",
+							"description": "One of `basket_id` `retailer_basket_code` or `supplementary_basket_code` must be used to identify the basket.",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "supplementary_basket_code",
+							"value": "SUPPCODE012345",
+							"description": "One of `basket_id` `retailer_basket_code` or `supplementary_basket_code` must be used to identify the basket.",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "user_id",
+							"value": "12345678",
+							"description": "One of `user_id` `member_number` `username` or `authentication_point_identifier` must be used to identify the user claiming the basket ",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "member_number",
+							"value": "10000125",
+							"description": "One of `user_id` `member_number` `username` or `authentication_point_identifier` must be used to identify the user claiming the basket ",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "joe@example.com",
+							"description": "One of `user_id` `member_number` `username` or `authentication_point_identifier` must be used to identify the user claiming the basket ",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "authentication_point_identifier",
+							"value": "CUST_00042",
+							"description": "One of `user_id` `member_number` `username` or `authentication_point_identifier` must be used to identify the user claiming the basket ",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/create-voucher",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"create-voucher"
+					]
+				},
+				"description": "Claim a basket in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/docs/api/baskets.html)\n*   [Creating vouchers](https://docs.spaaza.com/api/create-voucher/)"
+			},
+			"response": []
+		},
+		{
 			"name": "get-receipts",
 			"request": {
 				"method": "GET",
