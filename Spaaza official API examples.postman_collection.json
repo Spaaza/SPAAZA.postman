@@ -676,8 +676,25 @@
 					"mode": "urlencoded",
 					"urlencoded": [
 						{
-							"key": "user_note_id",
-							"value": "494534991",
+							"key": "user_id",
+							"value": "55555555",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "sam@example.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "member_number",
+							"value": "2233445566",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "chain_id",
+							"value": "1743",
 							"type": "text"
 						}
 					]
