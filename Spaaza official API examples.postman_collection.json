@@ -57,7 +57,7 @@
 						"login"
 					]
 				},
-				"description": "Login to the Spaaza API as an admin user. See the following Spaaza documentation:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Authentication](https://docs.spaaza.com/api/authentication/)\n*   [Logging users in](https://docs.spaaza.com/api/login/)\n    \n\nNote the \"Tests\" section of this POSTMAN request uses the values in the response to a successful request to populate the \"session_user_id\" and \"session_key\" variables in the POSTMAN environment. These are then used to authenticate calls to other Spaaza API endpoints."
+				"description": "Login to the Spaaza API as an admin user. See the following Spaaza documentation:\n\n- [User Concept](https://docs.spaaza.com/api/users/)\n    \n- [Authentication](https://docs.spaaza.com/api/authentication/)\n- [Logging users in](https://docs.spaaza.com/api/login/)\n    \n\nNote the \"Tests\" section of this POSTMAN request uses the values in the response to a successful request to populate the \"session_user_id\" and \"session_key\" variables in the POSTMAN environment. These are then used to authenticate calls to other Spaaza API endpoints."
 			},
 			"response": []
 		},
@@ -1547,7 +1547,7 @@
 						"claim-voucher"
 					]
 				},
-				"description": "Claim a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Claiming vouchers](https://docs.spaaza.com/api/claim-voucher/)"
+				"description": "Claim a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/api/vouchers/)\n    \n- [Claiming vouchers](https://docs.spaaza.com/api/claim-voucher/)"
 			},
 			"response": []
 		},
@@ -2013,6 +2013,106 @@
 					]
 				},
 				"description": "Interact with a campaign in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Campaigns Concept](https://docs.spaaza.com/docs/api/campaigns.html)\n*   [Campaign Interaction](https://docs.spaaza.com/api/interact-campaign/)"
+			},
+			"response": []
+		},
+		{
+			"name": "get-campaigns",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "session_user_id",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"key": "session_key",
+						"value": "{{session_key}}"
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}"
+					},
+					{
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}",
+						"description": "Uncheck in the case of admin authentication",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/get-campaigns?chain_id={{chain_id}}&member_number=2000057",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"get-campaigns"
+					],
+					"query": [
+						{
+							"key": "authentication_point_identifier",
+							"value": "28473578977ax8",
+							"description": "One of the permitted user identifiers (admin/privileged auth only)",
+							"disabled": true
+						},
+						{
+							"key": "auxiliary_identifier",
+							"value": "24983888",
+							"description": "One of the permitted user identifiers (admin/privileged auth only)",
+							"disabled": true
+						},
+						{
+							"key": "campaign_type",
+							"value": "loyalty",
+							"description": "e.g. loyalty, basket etc",
+							"disabled": true
+						},
+						{
+							"key": "chain_id",
+							"value": "{{chain_id}}"
+						},
+						{
+							"key": "display_full_campaign",
+							"value": "false",
+							"disabled": true
+						},
+						{
+							"key": "exclude_inactive",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "member_number",
+							"value": "2000057",
+							"description": "One of the permitted user identifiers (admin/privileged auth only)"
+						},
+						{
+							"key": "order_by",
+							"value": "priority",
+							"disabled": true
+						},
+						{
+							"key": "referral_code",
+							"value": "eu2jx9",
+							"description": "One of the permitted user identifiers (admin/privileged auth only)",
+							"disabled": true
+						},
+						{
+							"key": "user_id",
+							"value": "843382423",
+							"description": "One of the permitted user identifiers (admin/privileged auth only)",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "joe@example.com",
+							"description": "One of the permitted user identifiers (admin/privileged auth only)",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Get either all campaigns for a chain, or all campaigns applicable to a particular user within a chain.\n\n- [Campaigns Concept](https://docs.spaaza.com/api/campaigns/)"
 			},
 			"response": []
 		},
