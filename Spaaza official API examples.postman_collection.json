@@ -62,6 +62,64 @@
 			"response": []
 		},
 		{
+			"name": "login end-user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"session_user_id\", jsonData.results.session_info.session_user_id);",
+							"postman.setEnvironmentVariable(\"session_key\", jsonData.results.session_info.session_key);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}"
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"type": "text",
+						"value": "{{api_version}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "test49800020190228@example.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "blablabla1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/login",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				},
+				"description": "Log in as an end-user in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Authentication](https://docs.spaaza.com/api/authentication/)\n*   [Logging users in](https://docs.spaaza.com/api/login/)\n    \n\nNote the \"Tests\" section of this POSTMAN request uses the values in the response to a successful request to populate the \"session_user_id\" and \"session_key\" variables in the POSTMAN environment. These are then used to authenticate calls to other Spaaza API endpoints."
+			},
+			"response": []
+		},
+		{
 			"name": "alter-business",
 			"request": {
 				"auth": {
@@ -694,7 +752,7 @@
 						},
 						{
 							"key": "chain_id",
-							"value": "1743",
+							"value": "{{chain_id}}",
 							"type": "text"
 						}
 					]
@@ -761,6 +819,7 @@
 						{
 							"key": "loyalty_level_id",
 							"value": "4972",
+							"description": "The Spaaza ID of the loyalty level being changed to",
 							"type": "text"
 						}
 					]
@@ -902,64 +961,6 @@
 					]
 				},
 				"description": "Delete a note added to a Spaaza end-user. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [User Notes](https://docs.spaaza.com/api/add-user-note/)"
-			},
-			"response": []
-		},
-		{
-			"name": "login end-user",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"tests[\"Status code is 200\"] = responseCode.code === 200;",
-							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"session_user_id\", jsonData.results.session_info.session_user_id);",
-							"postman.setEnvironmentVariable(\"session_key\", jsonData.results.session_info.session_key);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "X-MyPrice-App-Hostname",
-						"value": "{{app_hostname}}"
-					},
-					{
-						"key": "X-Spaaza-API-version",
-						"type": "text",
-						"value": "{{api_version}}"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "username",
-							"value": "test49800020190228@example.com",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "blablabla1234",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "{{api_url}}/auth/login",
-					"host": [
-						"{{api_url}}"
-					],
-					"path": [
-						"auth",
-						"login"
-					]
-				},
-				"description": "Log in as an end-user in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Authentication](https://docs.spaaza.com/api/authentication/)\n*   [Logging users in](https://docs.spaaza.com/api/login/)\n    \n\nNote the \"Tests\" section of this POSTMAN request uses the values in the response to a successful request to populate the \"session_user_id\" and \"session_key\" variables in the POSTMAN environment. These are then used to authenticate calls to other Spaaza API endpoints."
 			},
 			"response": []
 		},
@@ -1155,30 +1156,7 @@
 				],
 				"body": {
 					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "voucher_key",
-							"value": "e84f4f58a3020633680f98ef65f504a97309da600dd68e5b6023c0d4e3f97dbe",
-							"type": "text"
-						},
-						{
-							"key": "voucher_id",
-							"value": "2354354543",
-							"type": "text",
-							"disabled": true
-						},
-						{
-							"key": "user_id",
-							"value": "3540234",
-							"type": "text"
-						},
-						{
-							"key": "chain_id",
-							"value": "{{chain_id}}",
-							"type": "text",
-							"disabled": true
-						}
-					]
+					"urlencoded": []
 				},
 				"url": {
 					"raw": "{{api_url}}/auth/logout",
@@ -1302,11 +1280,13 @@
 					"query": [
 						{
 							"key": "chain_id",
-							"value": "{{chain_id}}"
+							"value": "{{chain_id}}",
+							"description": "chain_id parameter used in admin authentication"
 						},
 						{
 							"key": "member_number",
-							"value": "3540236"
+							"value": "3540236",
+							"description": "one of the allowed end-user identifiers in admin authentication"
 						},
 						{
 							"key": "user_id",
@@ -1591,11 +1571,13 @@
 						{
 							"key": "user_id",
 							"value": "40223588",
+							"description": "end-user identifier to be used in admin authentication",
 							"type": "text"
 						},
 						{
 							"key": "chain_id",
 							"value": "{{chain_id}}",
+							"description": "chain_id to be used in admin authentication",
 							"type": "text"
 						}
 					]
@@ -1937,11 +1919,13 @@
 						{
 							"key": "user_id",
 							"value": "3540234",
+							"description": "end-user identifier to be used in case of admin authentication",
 							"type": "text"
 						},
 						{
 							"key": "chain_id",
 							"value": "{{chain_id}}",
+							"description": "chain_id to be used in admin authentication",
 							"type": "text",
 							"disabled": true
 						}
@@ -1979,7 +1963,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{api_url}}/interact-campaign?chain_id={{chain_id}}&user_id=843382423",
+					"raw": "{{api_url}}/interact-campaign?chain_id={{chain_id}}&campaign_id=238&user_id=843382423",
 					"host": [
 						"{{api_url}}"
 					],
@@ -1993,8 +1977,7 @@
 						},
 						{
 							"key": "campaign_id",
-							"value": "238",
-							"disabled": true
+							"value": "238"
 						},
 						{
 							"key": "authentication_point_identifier",
@@ -2042,7 +2025,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{api_url}}/get-campaigns?chain_id={{chain_id}}&member_number=2000057",
+					"raw": "{{api_url}}/get-campaigns?chain_id={{chain_id}}",
 					"host": [
 						"{{api_url}}"
 					],
@@ -2084,8 +2067,9 @@
 						},
 						{
 							"key": "member_number",
-							"value": "2000057",
-							"description": "One of the permitted user identifiers (admin/privileged auth only)"
+							"value": "55555555",
+							"description": "One of the permitted user identifiers (admin/privileged auth only)",
+							"disabled": true
 						},
 						{
 							"key": "order_by",
@@ -2294,11 +2278,13 @@
 					"query": [
 						{
 							"key": "chain_id",
-							"value": "{{chain_id}}"
+							"value": "{{chain_id}}",
+							"description": "chain_id to be used in admin authentication"
 						},
 						{
 							"key": "user_id",
-							"value": "843382423"
+							"value": "843382423",
+							"description": "end-user identifier to be used in admin authentication"
 						},
 						{
 							"key": "type",
@@ -2399,7 +2385,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"entity\": {\n\t\t\"entity_type\": \"chain\",\n\t\t\"entity_id\": {{chain_id}}\n\t},\n\t\"user\": {\n\t\t\"member_programme\": \"Spaaza\",\n\t\t\"member_number\": \"3360056\"\n\t},\n\t\"basket\": {\n\t\t\"basket_platform_type\": \"in_store\",\n\t\t\"retailer_basket_code\": \"order_number_{{$timestamp}}\",\n\t\t\"basket_total_price\": 20.50,\n\t\t\"basket_currency\": {\n\t\t\t\"currency_code\": \"EUR\"\n\t\t},\n\t\t\"basket_items\": [\n\t\t\t{\n\t\t\t\"item_barcode\": \"8718299435640\",\n\t\t\t\"item_quantity\": 1,\n\t\t\t\"item_price\": 20.50\n\t\t\t}\n\t\t]\n\t}\n}\n"
+					"raw": "{\n\t\"entity\": {\n\t\t\"entity_type\": \"chain\",\n\t\t\"entity_id\": {{chain_id}}\n\t},\n\t\"user\": {\n\t\t\"member_programme\": \"Spaaza\",\n\t\t\"member_number\": \"3360056\"\n\t},\n\t\"basket\": {\n\t\t\"basket_platform_type\": \"in_store\",\n\t\t\"retailer_basket_code\": \"order_number_{{$timestamp}}\",\n\t\t\"basket_total_price\": 20.50,\n\t\t\"basket_currency\": {\n\t\t\t\"currency_code\": \"EUR\"\n\t\t},\n\t\t\"basket_items\": [\n\t\t\t{\n\t\t\t\"item_barcode\": \"8718299435640\",\n\t\t\t\"item_quantity\": 1,\n\t\t\t\"item_price\": 20.50,\n            \"item_original_price\": 20.50\n\t\t\t}\n\t\t]\n\t}\n}\n"
 				},
 				"url": {
 					"raw": "{{api_url}}/auth/add-basket",
@@ -2446,7 +2432,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"entity\": {\n        \"entity_type\": \"chain\",\n        \"entity_id\": {{chain_id}},\n        \"branch_business_owner_code\": \"0965\",\n        \"employee_code\": \"0012089\",\n        \"employee_name\": \"JOCHEMS\"\n    },\n    \"user\": {\n        \"member_programme\": \"Spaaza\",\n        \"member_number\": \"3360056\"\n    },\n    \"basket\": {\n        \"basket_platform_type\": \"in_store\",\n        \"retailer_basket_code\": \"order_number_{{$timestamp}}\",\n        \"basket_total_price\": 100,\n        \"basket_timestamp_iso8601\": \"2021-04-28T14:07:14Z\",\n        \"basket_timezone_name\": \"Europe/Amsterdam\",\n        \"basket_notes\": \"Any notes go here\",\n        \"shipping_charge\": 0,\n        \"payment_methods\": [\n            {\n                \"payment_method\": \"cash\",\n                \"payment_amount\": 19.99\n            },\n            {\n                \"payment_method\": \"mastercard\",\n                \"payment_amount\": 80.01\n            }\n        ],\n        \"basket_currency\": {\n            \"currency_code\": \"EUR\"\n        },\n        \"basket_tax\": [\n            {\n                \"tax_rate\": 0.21,\n                \"tax_total\": 21.00\n            }\n        ],\n        \"basket_items\": [\n            {\n                \"retailer_item_code\": \"line_item_01\",\n                \"item_barcode\": \"8718299435640\",\n                \"retailer_product_code\": \"iou342oi\",\n                \"item_name\": \"Men's Merino Aran Jumper\",\n                \"item_description\": \"The Aran Jumper is a style of jumper that takes its name from the Aran Islands off the west coast of Ireland.\",\n                \"item_colour\": \"White\",\n                \"item_gender\": \"M\",\n                \"item_brand\": \"Aran Jumpers ltd\",\n                \"item_size\": \"L\",\n                \"item_season\": \"Winter\",\n                \"item_category\": \"Clothing > Tops > Jumpers > Aran Jumper\",\n                \"item_image_url\": \"www.example.com/image.jpg\",\n                \"item_type\": \"product\",\n                \"item_quantity\": 5,\n                \"item_price\": 20,\n                \"item_subtotal\": 100\n            }\n        ]\n    }\n}"
+					"raw": "{\n    \"entity\": {\n        \"entity_type\": \"chain\",\n        \"entity_id\": {{chain_id}},\n        \"branch_business_owner_code\": \"0965\",\n        \"employee_code\": \"0012089\",\n        \"employee_name\": \"JOCHEMS\"\n    },\n    \"user\": {\n        \"member_programme\": \"Spaaza\",\n        \"member_number\": \"3360056\"\n    },\n    \"basket\": {\n        \"basket_platform_type\": \"in_store\",\n        \"retailer_basket_code\": \"order_number_{{$timestamp}}\",\n        \"basket_total_price\": 100,\n        \"basket_timestamp_iso8601\": \"2021-04-28T14:07:14Z\",\n        \"basket_timezone_name\": \"Europe/Amsterdam\",\n        \"basket_notes\": \"Any notes go here\",\n        \"shipping_charge\": 0,\n        \"payment_methods\": [\n            {\n                \"payment_method\": \"cash\",\n                \"payment_amount\": 19.99\n            },\n            {\n                \"payment_method\": \"mastercard\",\n                \"payment_amount\": 80.01\n            }\n        ],\n        \"basket_currency\": {\n            \"currency_code\": \"EUR\"\n        },\n        \"basket_tax\": [\n            {\n                \"tax_rate\": 0.21,\n                \"tax_total\": 21.00\n            }\n        ],\n        \"basket_items\": [\n            {\n                \"retailer_item_code\": \"line_item_01\",\n                \"item_barcode\": \"8718299435640\",\n                \"retailer_product_code\": \"iou342oi\",\n                \"item_name\": \"Men's Merino Aran Jumper\",\n                \"item_description\": \"The Aran Jumper is a style of jumper that takes its name from the Aran Islands off the west coast of Ireland.\",\n                \"item_colour\": \"White\",\n                \"item_gender\": \"M\",\n                \"item_brand\": \"Aran Jumpers ltd\",\n                \"item_size\": \"L\",\n                \"item_season\": \"Winter\",\n                \"item_category\": \"Clothing > Tops > Jumpers > Aran Jumper\",\n                \"item_image_url\": \"www.example.com/image.jpg\",\n                \"item_type\": \"product\",\n                \"item_quantity\": 5,\n                \"item_price\": 20,\n                \"item_original_price\": 20,\n                \"item_subtotal\": 100\n            }\n        ]\n    }\n}"
 				},
 				"url": {
 					"raw": "{{api_url}}/auth/add-basket",
@@ -2493,7 +2479,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"entity\": {\n\t\t\"entity_type\": \"chain\",\n\t\t\"entity_id\": {{chain_id}},\n\t\t\"branch_business_owner_code\": \"0965\",\n\t\t\"employee_code\": \"0012089\",\n\t\t\"employee_name\": \"JOCHEMS\"\n\t},\n\t\"user\": {\n\t\t\"member_programme\": \"Spaaza\",\n\t\t\"member_number\": \"3360056\"\n\t},\n\t\"basket\": {\n\t\t\"basket_platform_type\": \"in_store\",\n\t\t\"retailer_basket_code\": \"order_number_{{$timestamp}}\",\n\t\t\"basket_total_price\": 90,\n\t\t\"basket_notes\": \"Any notes go here\",\n\t\t\"shipping_charge\": 0,\n\t\t\"payment_methods\": [],\n\t\t\"basket_currency\": {\n\t\t\t\"currency_code\": \"EUR\"\n\t\t},\n\t\t\"basket_tax\": [{\n\t\t\t\"tax_rate\": 0.21,\n\t\t\t\"tax_total\": 21.00\n\t\t}],\n\t\t\"basket_items\": [\n\t\t\t{\n\t\t\t\"retailer_item_code\": \"line_item_01\",\n\t\t\t\"item_barcode\": \"8718299435640\",\n\t\t\t\"item_type\": \"product\",\n\t\t\t\"item_quantity\": 5,\n\t\t\t\"item_price\": 20,\n\t\t\t\"item_subtotal\": 100\n\t\t\t}\n\t\t],\n\t\t\"basket_vouchers\": [{\n\t\t\t\"voucher_key\": \"cebe621970dd3b9829953e7183fc396bafab62cdb329f99252f9cb35e568a071\"\n\t\t}]\n\t}\n}\n"
+					"raw": "{\n\t\"entity\": {\n\t\t\"entity_type\": \"chain\",\n\t\t\"entity_id\": {{chain_id}},\n\t\t\"branch_business_owner_code\": \"0965\",\n\t\t\"employee_code\": \"0012089\",\n\t\t\"employee_name\": \"JOCHEMS\"\n\t},\n\t\"user\": {\n\t\t\"member_programme\": \"Spaaza\",\n\t\t\"member_number\": \"3360056\"\n\t},\n\t\"basket\": {\n\t\t\"basket_platform_type\": \"in_store\",\n\t\t\"retailer_basket_code\": \"order_number_{{$timestamp}}\",\n\t\t\"basket_total_price\": 75,\n\t\t\"basket_notes\": \"Any notes go here\",\n\t\t\"shipping_charge\": 0,\n\t\t\"payment_methods\": [],\n\t\t\"basket_currency\": {\n\t\t\t\"currency_code\": \"EUR\"\n\t\t},\n\t\t\"basket_tax\": [{\n\t\t\t\"tax_rate\": 0.21,\n\t\t\t\"tax_total\": 21.00\n\t\t}],\n\t\t\"basket_items\": [\n\t\t\t{\n\t\t\t\"retailer_item_code\": \"line_item_01\",\n\t\t\t\"item_barcode\": \"8718299435640\",\n\t\t\t\"item_type\": \"product\",\n\t\t\t\"item_quantity\": 5,\n\t\t\t\"item_price\": 15,\n            \"item_original_price\": 20,\n\t\t\t\"item_subtotal\": 75\n\t\t\t}\n\t\t],\n\t\t\"basket_vouchers\": [{\n\t\t\t\"voucher_key\": \"cebe621970dd3b9829953e7183fc396bafab62cdb329f99252f9cb35e568a071\"\n\t\t}]\n\t}\n}\n"
 				},
 				"url": {
 					"raw": "{{api_url}}/auth/add-basket",
@@ -2538,7 +2524,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"entity\": {\n\t\t\"entity_type\": \"chain\",\n\t\t\"entity_id\": {{chain_id}},\n\t\t\"branch_business_owner_code\": \"0965\",\n\t\t\"employee_code\": \"0012089\",\n\t\t\"employee_name\": \"JOCHEMS\"\n\t},\n\t\"user\": {\n\t\t\"member_programme\": \"Spaaza\",\n\t\t\"member_number\": \"3360056\"\n\t},\n\t\"basket\": {\n\t\t\"basket_platform_type\": \"in_store\",\n\t\t\"retailer_basket_code\": \"20210428-test-0022\",\n\t\t\"basket_total_price\": -20.00,\n\t\t\"basket_timestamp_iso8601\": \"2019-02-28T14:07:14Z\",\n\t\t\"basket_timezone_name\": \"Europe/Amsterdam\",\n\t\t\"basket_notes\": \"Any notes go here\",\n\t\t\"shipping_charge\": 0,\n\t\t\"payment_methods\": [],\n\t\t\"basket_currency\": {\n\t\t\t\"currency_code\": \"EUR\"\n\t\t},\n\t\t\"basket_tax\": [{\n\t\t\t\"tax_rate\": 0.21,\n\t\t\t\"tax_total\": -2.10\n\t\t}],\n\t\t\"basket_items\": [\n\t\t\t{\n                \"retailer_item_code\": \"1\",\n                \"item_barcode\": \"8718299435640\",\n                \"item_quantity\": 2,\n                \"item_price\": -10.00,\n                \"return_item\": true,\n                \"original_retailer_basket_code\": \"20210428-test-0021\",\n                \"original_retailer_item_code\": \"line_item_01\"\n            }\n\t\t]\n\t}\n}\n"
+					"raw": "{\n\t\"entity\": {\n\t\t\"entity_type\": \"chain\",\n\t\t\"entity_id\": {{chain_id}},\n\t\t\"branch_business_owner_code\": \"0965\",\n\t\t\"employee_code\": \"0012089\",\n\t\t\"employee_name\": \"JOCHEMS\"\n\t},\n\t\"user\": {\n\t\t\"member_programme\": \"Spaaza\",\n\t\t\"member_number\": \"3360056\"\n\t},\n\t\"basket\": {\n\t\t\"basket_platform_type\": \"in_store\",\n\t\t\"retailer_basket_code\": \"20210428-test-0022\",\n\t\t\"basket_total_price\": -20.00,\n\t\t\"basket_timestamp_iso8601\": \"2019-02-28T14:07:14Z\",\n\t\t\"basket_timezone_name\": \"Europe/Amsterdam\",\n\t\t\"basket_notes\": \"Any notes go here\",\n\t\t\"shipping_charge\": 0,\n\t\t\"payment_methods\": [],\n\t\t\"basket_currency\": {\n\t\t\t\"currency_code\": \"EUR\"\n\t\t},\n\t\t\"basket_tax\": [{\n\t\t\t\"tax_rate\": 0.21,\n\t\t\t\"tax_total\": -2.10\n\t\t}],\n\t\t\"basket_items\": [\n\t\t\t{\n                \"retailer_item_code\": \"1\",\n                \"item_barcode\": \"8718299435640\",\n                \"item_quantity\": 2,\n                \"item_price\": -10.00,\n                \"item_original_price\": -10.00,\n                \"return_item\": true,\n                \"original_retailer_basket_code\": \"20210428-test-0021\",\n                \"original_retailer_item_code\": \"line_item_01\"\n            }\n\t\t]\n\t}\n}\n"
 				},
 				"url": {
 					"raw": "{{api_url}}/auth/add-basket",
