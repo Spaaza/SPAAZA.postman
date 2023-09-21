@@ -1,5 +1,5 @@
-# Spaaza POSTMAN Collections
-Official POSTMAN collections and environment files to enable running POSTMAN requests against the Spaaza API. 
+# Spaaza POSTMAN Collection
+Official POSTMAN collection and environment file to enable running POSTMAN requests against the Spaaza [API](https://docs.spaaza.com).
 
 ## What is Spaaza?
 
