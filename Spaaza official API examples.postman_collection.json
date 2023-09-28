@@ -771,6 +771,78 @@
 			"response": []
 		},
 		{
+			"name": "search users (services API)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Origin",
+						"value": "https://console-test01.spaaza.com"
+					},
+					{
+						"key": "Session-User-Id",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"key": "Session-Chain-Id",
+						"value": "{{chain_id}}"
+					},
+					{
+						"key": "Session-Key",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "query",
+							"value": "gustav mahler",
+							"type": "text"
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "count",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "chain_id",
+							"value": "{{chain_id}}",
+							"type": "text"
+						},
+						{
+							"key": "opted_in",
+							"value": "false",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{services_url_protocol}}://{{services_url_domain}}/search/users",
+					"protocol": "{{services_url_protocol}}",
+					"host": [
+						"{{services_url_domain}}"
+					],
+					"path": [
+						"search",
+						"users"
+					]
+				},
+				"description": "Search for users using a search string (the \"query\") field. See [https://docs.spaaza.com/api/search/](https://docs.spaaza.com/api/search/) for more details."
+			},
+			"response": []
+		},
+		{
 			"name": "alter-user-loyalty-level",
 			"request": {
 				"auth": {
