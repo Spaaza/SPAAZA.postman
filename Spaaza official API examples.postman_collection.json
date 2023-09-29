@@ -1104,7 +1104,8 @@
 				"header": [
 					{
 						"key": "X-MyPrice-App-Hostname",
-						"value": "coppelmans-stage.spaaza.com"
+						"value": "{{app_hostname}}",
+						"disabled": true
 					},
 					{
 						"key": "X-Spaaza-API-version",
@@ -1127,7 +1128,7 @@
 					"urlencoded": [
 						{
 							"key": "username",
-							"value": "20220628-VoucherTest@cowcam.com",
+							"value": "joe@example.com",
 							"type": "text"
 						}
 					]
@@ -1142,7 +1143,7 @@
 						"request-password-reset"
 					]
 				},
-				"description": "Get a token to do cross site authentication with the given app. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Authentication](https://docs.spaaza.com/api/authentication/)\n*   [Cross site authentication token](https://docs.spaaza.com/api/cross-site-authentication-tokens/)"
+				"description": "Request a password reset mail for an account. See the following documentation:\n\n- [User Concept](https://docs.spaaza.com/docs/api/users.html)\n- [Authentication](https://docs.spaaza.com/api/authentication/)"
 			},
 			"response": []
 		},
