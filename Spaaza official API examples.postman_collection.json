@@ -2073,6 +2073,91 @@
 			"response": []
 		},
 		{
+			"name": "get-campaign",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "session_user_id",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"key": "session_key",
+						"value": "{{session_key}}"
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}"
+					},
+					{
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}",
+						"description": "Uncheck in the case of admin authentication",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/get-campaign?campaign_id=4021&chain_id={{chain_id}}",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"get-campaign"
+					],
+					"query": [
+						{
+							"key": "authentication_point_identifier",
+							"value": "28473578977ax8",
+							"description": "One of the permitted user identifiers (admin/privileged auth only)",
+							"disabled": true
+						},
+						{
+							"key": "auxiliary_identifier",
+							"value": "24983888",
+							"description": "One of the permitted user identifiers (admin/privileged auth only)",
+							"disabled": true
+						},
+						{
+							"key": "campaign_id",
+							"value": "4021",
+							"description": "The Spaaza ID of the campaign"
+						},
+						{
+							"key": "chain_id",
+							"value": "{{chain_id}}"
+						},
+						{
+							"key": "member_number",
+							"value": "55555555",
+							"description": "One of the permitted user identifiers (admin/privileged auth only)",
+							"disabled": true
+						},
+						{
+							"key": "referral_code",
+							"value": "eu2jx9",
+							"description": "One of the permitted user identifiers (admin/privileged auth only)",
+							"disabled": true
+						},
+						{
+							"key": "user_id",
+							"value": "843382423",
+							"description": "One of the permitted user identifiers (admin/privileged auth only)",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "joe@example.com",
+							"description": "One of the permitted user identifiers (admin/privileged auth only)",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Get information about a specific campaign. Optionally, with user-specific information added.\n\n- [Campaigns Concept](https://docs.spaaza.com/api/campaigns/)\n- [get-campaign call](https://docs.spaaza.com/api/get-campaign/)"
+			},
+			"response": []
+		},
+		{
 			"name": "get-campaigns",
 			"request": {
 				"method": "GET",
