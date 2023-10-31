@@ -2789,12 +2789,13 @@
 					]
 				},
 				"url": {
-					"raw": "{{api_url}}/create-voucher",
+					"raw": "{{api_url}}/auth/claim-basket",
 					"host": [
 						"{{api_url}}"
 					],
 					"path": [
-						"create-voucher"
+						"auth",
+						"claim-basket"
 					]
 				},
 				"description": "Claim a basket in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/docs/api/baskets.html)\n*   [Creating vouchers](https://docs.spaaza.com/api/create-voucher/)"
