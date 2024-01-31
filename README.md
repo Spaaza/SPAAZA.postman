@@ -21,7 +21,7 @@ added to each API request in the POSTMAN collections which should be useful.
 
 Getting started is quite easy:
 
-1. You will need to have a Spaaza account for our testing environment. Please get in contact with us
+1. You will need to have a Spaaza account which is able to access the API. Please get in contact with us
    to obtain these (see details above).
 2. Import the 'Spaaza official API examples' POSTMAN collection file in this repo into POSTMAN.
 3. Import the 'Spaaza official sample POSTMAN environment' environment file in this repo into POSTMAN.
