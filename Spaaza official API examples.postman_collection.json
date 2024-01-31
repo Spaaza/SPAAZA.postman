@@ -57,7 +57,7 @@
 						"login"
 					]
 				},
-				"description": "Login to the Spaaza API as an admin user. See the following Spaaza documentation:\n\n- [User Concept](https://docs.spaaza.com/api/users/)\n    \n- [Authentication](https://docs.spaaza.com/api/authentication/)\n- [Logging users in](https://docs.spaaza.com/api/login/)\n    \n\nNote the \"Tests\" section of this POSTMAN request uses the values in the response to a successful request to populate the \"session_user_id\" and \"session_key\" variables in the POSTMAN environment. These are then used to authenticate calls to other Spaaza API endpoints."
+				"description": "Login to the Spaaza API as an admin user. See the following Spaaza documentation:\n\n- [User Concept](https://docs.spaaza.com/api/users/)\n- [Authentication](https://docs.spaaza.com/api/authentication/)\n- [Logging users in](https://docs.spaaza.com/api/login/)\n    \n\nNote the \"Tests\" section of this POSTMAN request uses the values in the response to a successful request to populate the \"X-Spaaza-Session-User-Id\" and \"X-Spaaza-Session-Key\" variables in the POSTMAN environment. These are then used to authenticate calls to other Spaaza API endpoints."
 			},
 			"response": []
 		},
@@ -140,13 +140,13 @@
 					},
 					{
 						"description": "The user ID of the API client user - this is shown in the response to the login.json endpoint",
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
 						"description": "The session key for the logged-in API client user",
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"type": "text",
 						"value": "{{session_key}}"
 					}
@@ -266,13 +266,13 @@
 					},
 					{
 						"description": "The user ID of the admin user - this is shown in the response to the login endpoint",
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
 						"description": "The session key for the logged-in admin user",
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"type": "text",
 						"value": "{{session_key}}"
 					}
@@ -282,7 +282,7 @@
 					"urlencoded": [
 						{
 							"key": "address_streetname",
-							"value": "Long Street",
+							"value": "Any Street",
 							"type": "text"
 						},
 						{
@@ -312,13 +312,12 @@
 						},
 						{
 							"key": "authentication_point_identifier",
-							"value": "70994543534",
-							"type": "text",
-							"disabled": true
+							"value": "99911166488945",
+							"type": "text"
 						},
 						{
 							"key": "auxiliary_identifier",
-							"value": "",
+							"value": "435775",
 							"type": "text",
 							"disabled": true
 						},
@@ -329,9 +328,9 @@
 						},
 						{
 							"key": "branch_business_owner_code",
-							"value": "",
-							"type": "text",
-							"disabled": true
+							"value": "10001",
+							"description": "Retailer-specific idenfiier for the branch in which the new account was created",
+							"type": "text"
 						},
 						{
 							"key": "chain_id",
@@ -362,19 +361,19 @@
 						},
 						{
 							"key": "home_store_id",
-							"value": "",
+							"value": "43565",
 							"type": "text",
 							"disabled": true
 						},
 						{
 							"key": "is_employee",
-							"value": "",
+							"value": "false",
 							"type": "text",
 							"disabled": true
 						},
 						{
 							"key": "language",
-							"value": "",
+							"value": "en-US",
 							"type": "text",
 							"disabled": true
 						},
@@ -385,61 +384,63 @@
 						},
 						{
 							"key": "mailing_list_sub_offered",
-							"value": "",
+							"value": "false",
 							"type": "text",
 							"disabled": true
 						},
 						{
 							"key": "mailing_list_subscribed",
-							"value": "1",
+							"value": "true",
 							"type": "text"
 						},
 						{
 							"key": "member_number",
-							"value": "",
+							"value": "21858548",
 							"type": "text",
 							"disabled": true
 						},
 						{
 							"key": "opt_in_secondary",
-							"value": "",
+							"value": "false",
 							"type": "text",
 							"disabled": true
 						},
 						{
 							"key": "phone_number",
-							"value": "+31628200100",
+							"value": "+31655222555",
 							"type": "text"
 						},
 						{
 							"key": "printed_mailing_list_subscribed",
-							"value": "1",
+							"value": "true",
 							"type": "text"
 						},
 						{
 							"key": "programme_opted_in",
-							"value": "1",
+							"value": "true",
 							"type": "text"
 						},
 						{
 							"key": "referral_code",
-							"value": "",
+							"value": "4t38p9",
+							"type": "text"
+						},
+						{
+							"key": "registered",
+							"value": "false",
 							"type": "text",
 							"disabled": true
 						},
 						{
-							"key": "registered",
-							"value": "",
-							"type": "text"
-						},
-						{
 							"key": "store_id",
-							"value": "",
-							"type": "text"
+							"value": "43543",
+							"description": "Spaaza ID of the branch in which the new account was created",
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "update_if_exists",
-							"value": "true",
+							"value": "false",
 							"type": "text",
 							"disabled": true
 						},
@@ -486,13 +487,13 @@
 					},
 					{
 						"description": "The user ID of the API client user - this is shown in the response to the login.json endpoint",
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
 						"description": "The session key for the logged-in API client user",
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"type": "text",
 						"value": "{{session_key}}"
 					}
@@ -719,13 +720,13 @@
 					},
 					{
 						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
 						"description": "The session key for the logged-in user",
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"type": "text",
 						"value": "{{session_key}}"
 					}
@@ -784,16 +785,16 @@
 						"value": "https://console-test01.spaaza.com"
 					},
 					{
-						"key": "Session-User-Id",
+						"key": "X-Spaaza-Session-User-Id",
 						"value": "{{session_user_id}}"
 					},
 					{
-						"key": "Session-Chain-Id",
-						"value": "{{chain_id}}"
+						"key": "X-Spaaza-Session-Key",
+						"value": "{{session_key}}"
 					},
 					{
-						"key": "Session-Key",
-						"value": "{{session_key}}"
+						"key": "X-Spaaza-Session-Chain-Id",
+						"value": "{{chain_id}}"
 					}
 				],
 				"body": {
@@ -863,13 +864,13 @@
 					},
 					{
 						"description": "The user ID of the API client user - this is shown in the response to the login.json endpoint",
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
 						"description": "The session key for the logged-in API client user",
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"type": "text",
 						"value": "{{session_key}}"
 					}
@@ -941,13 +942,13 @@
 					},
 					{
 						"description": "The user ID of the admin user - this is shown in the response to the login endpoint",
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
 						"description": "The session key for the logged-in admin user",
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"type": "text",
 						"value": "{{session_key}}"
 					}
@@ -1001,13 +1002,13 @@
 					},
 					{
 						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
 						"description": "The session key for the logged-in user",
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"type": "text",
 						"value": "{{session_key}}"
 					}
@@ -1062,12 +1063,12 @@
 						"value": "{{api_version}}"
 					},
 					{
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"value": "{{session_user_id}}",
 						"type": "text"
 					},
 					{
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"value": "{{session_key}}",
 						"type": "text"
 					}
@@ -1113,12 +1114,12 @@
 						"value": "{{api_version}}"
 					},
 					{
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"value": "{{session_user_id}}",
 						"type": "text"
 					},
 					{
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"value": "{{session_key}}",
 						"type": "text"
 					}
@@ -1163,14 +1164,14 @@
 						"value": "{{api_version}}"
 					},
 					{
-						"description": "The session key for the logged-in user",
-						"key": "session_key",
-						"value": "{{session_key}}"
+						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
+						"key": "X-Spaaza-Session-User-Id",
+						"value": "{{session_user_id}}"
 					},
 					{
-						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
-						"key": "session_user_id",
-						"value": "{{session_user_id}}"
+						"description": "The session key for the logged-in user",
+						"key": "X-Spaaza-Session-Key",
+						"value": "{{session_key}}"
 					}
 				],
 				"url": {
@@ -1216,13 +1217,13 @@
 					},
 					{
 						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
 						"description": "The session key for the logged-in user",
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"type": "text",
 						"value": "{{session_key}}"
 					}
@@ -1261,14 +1262,14 @@
 						"value": "{{api_version}}"
 					},
 					{
-						"description": "The session key for the logged-in user",
-						"key": "session_key",
-						"value": "{{session_key}}"
+						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
+						"key": "X-Spaaza-Session-User-Id",
+						"value": "{{session_user_id}}"
 					},
 					{
-						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
-						"key": "session_user_id",
-						"value": "{{session_user_id}}"
+						"description": "The session key for the logged-in user",
+						"key": "X-Spaaza-Session-Key",
+						"value": "{{session_key}}"
 					},
 					{
 						"key": "Accept-Language",
@@ -1279,7 +1280,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{api_url}}/get-card?chain_id={{chain_id}}&member_number=3540236",
+					"raw": "{{api_url}}/get-card?chain_id={{chain_id}}&member_number=3934942",
 					"host": [
 						"{{api_url}}"
 					],
@@ -1293,7 +1294,7 @@
 						},
 						{
 							"key": "member_number",
-							"value": "3540236"
+							"value": "3934942"
 						},
 						{
 							"key": "user_id",
@@ -1308,6 +1309,88 @@
 						{
 							"key": "authentication_point_identifier",
 							"value": "1324989443",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Get the card for an individual end-user including all information about promotions, wallets, points and vouchers. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Getting the \"card\" of a user](https://docs.spaaza.com/api/get-card/)"
+			},
+			"response": []
+		},
+		{
+			"name": "get-user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}",
+						"description": "This header should be set if the client is an end-user, and not set if the client is an admin user.",
+						"disabled": true
+					},
+					{
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}"
+					},
+					{
+						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
+						"key": "X-Spaaza-Session-User-Id",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"description": "The session key for the logged-in user",
+						"key": "X-Spaaza-Session-Key",
+						"value": "{{session_key}}"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "nl-NL",
+						"description": "Accept a particular language or prioritised list of languages in the response",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{api_url}}/internal/get-user?chain_id={{chain_id}}&member_number=3935159",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"internal",
+						"get-user"
+					],
+					"query": [
+						{
+							"key": "chain_id",
+							"value": "{{chain_id}}"
+						},
+						{
+							"key": "member_number",
+							"value": "3935159"
+						},
+						{
+							"key": "user_id",
+							"value": "10745677",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "test49800020190228@example.com",
+							"disabled": true
+						},
+						{
+							"key": "authentication_point_identifier",
+							"value": "1324989443",
+							"disabled": true
+						},
+						{
+							"key": "referral_code",
+							"value": "e743af",
+							"disabled": true
+						},
+						{
+							"key": "auxiliary_identifier",
+							"value": "USER_INT_001AXF",
 							"disabled": true
 						}
 					]
@@ -1334,11 +1417,11 @@
 						"type": "text"
 					},
 					{
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"value": "{{session_user_id}}"
 					},
 					{
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"value": "{{session_key}}"
 					}
 				],
@@ -1398,13 +1481,13 @@
 					},
 					{
 						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
 						"description": "The session key for the logged-in user",
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"type": "text",
 						"value": "{{session_key}}"
 					}
@@ -1555,12 +1638,12 @@
 						"value": "{{api_version}}"
 					},
 					{
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"type": "text",
 						"value": "{{session_key}}"
 					}
@@ -1623,12 +1706,12 @@
 						"value": "{{api_version}}"
 					},
 					{
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"type": "text",
 						"value": "{{session_key}}"
 					}
@@ -1687,12 +1770,12 @@
 						"value": "{{api_version}}"
 					},
 					{
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"type": "text",
 						"value": "{{session_key}}"
 					}
@@ -1761,12 +1844,12 @@
 						"value": "{{api_version}}"
 					},
 					{
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"type": "text",
 						"value": "{{session_key}}"
 					}
@@ -1819,12 +1902,12 @@
 						"value": "{{api_version}}"
 					},
 					{
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"type": "text",
 						"value": "{{session_key}}"
 					}
@@ -1895,12 +1978,12 @@
 						"value": "{{api_version}}"
 					},
 					{
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"type": "text",
 						"value": "{{session_key}}"
 					}
@@ -1964,13 +2047,13 @@
 					},
 					{
 						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
 						"description": "The session key for the logged-in user",
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"type": "text",
 						"value": "{{session_key}}"
 					}
@@ -2023,16 +2106,16 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "session_user_id",
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}"
+					},
+					{
+						"key": "X-Spaaza-Session-User-Id",
 						"value": "{{session_user_id}}"
 					},
 					{
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"value": "{{session_key}}"
-					},
-					{
-						"key": "X-Spaaza-API-version",
-						"value": "{{api_version}}"
 					}
 				],
 				"url": {
@@ -2078,23 +2161,23 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "session_user_id",
-						"value": "{{session_user_id}}"
-					},
-					{
-						"key": "session_key",
-						"value": "{{session_key}}"
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}",
+						"description": "Uncheck in the case of admin authentication",
+						"type": "text",
+						"disabled": true
 					},
 					{
 						"key": "X-Spaaza-API-version",
 						"value": "{{api_version}}"
 					},
 					{
-						"key": "X-MyPrice-App-Hostname",
-						"value": "{{app_hostname}}",
-						"description": "Uncheck in the case of admin authentication",
-						"type": "text",
-						"disabled": true
+						"key": "X-Spaaza-Session-User-Id",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"key": "X-Spaaza-Session-Key",
+						"value": "{{session_key}}"
 					}
 				],
 				"url": {
@@ -2163,23 +2246,23 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "session_user_id",
-						"value": "{{session_user_id}}"
-					},
-					{
-						"key": "session_key",
-						"value": "{{session_key}}"
+						"key": "X-MyPrice-App-Hostname",
+						"value": "{{app_hostname}}",
+						"description": "Uncheck in the case of admin authentication",
+						"type": "text",
+						"disabled": true
 					},
 					{
 						"key": "X-Spaaza-API-version",
 						"value": "{{api_version}}"
 					},
 					{
-						"key": "X-MyPrice-App-Hostname",
-						"value": "{{app_hostname}}",
-						"description": "Uncheck in the case of admin authentication",
-						"type": "text",
-						"disabled": true
+						"key": "X-Spaaza-Session-User-Id",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"key": "X-Spaaza-Session-Key",
+						"value": "{{session_key}}"
 					}
 				],
 				"url": {
@@ -2264,16 +2347,16 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "session_user_id",
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}"
+					},
+					{
+						"key": "X-Spaaza-Session-User-Id",
 						"value": "{{session_user_id}}"
 					},
 					{
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"value": "{{session_key}}"
-					},
-					{
-						"key": "X-Spaaza-API-version",
-						"value": "{{api_version}}"
 					}
 				],
 				"url": {
@@ -2335,13 +2418,13 @@
 					},
 					{
 						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
 						"description": "The session key for the logged-in user",
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"type": "text",
 						"value": "{{session_key}}"
 					}
@@ -2412,11 +2495,11 @@
 						"type": "text"
 					},
 					{
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"value": "{{session_user_id}}"
 					},
 					{
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"value": "{{session_key}}"
 					},
 					{
@@ -2483,13 +2566,13 @@
 					},
 					{
 						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
 						"description": "The session key for the logged-in user",
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"type": "text",
 						"value": "{{session_key}}"
 					}
@@ -2530,13 +2613,13 @@
 					},
 					{
 						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
 						"description": "The session key for the logged-in user",
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"type": "text",
 						"value": "{{session_key}}"
 					}
@@ -2577,13 +2660,13 @@
 					},
 					{
 						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
 						"description": "The session key for the logged-in user",
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"type": "text",
 						"value": "{{session_key}}"
 					}
@@ -2607,53 +2690,6 @@
 			"response": []
 		},
 		{
-			"name": "add-basket and redeem voucher",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "X-Spaaza-API-Version",
-						"value": "{{api_version}}"
-					},
-					{
-						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
-						"key": "session_user_id",
-						"type": "text",
-						"value": "{{session_user_id}}"
-					},
-					{
-						"description": "The session key for the logged-in user",
-						"key": "session_key",
-						"type": "text",
-						"value": "{{session_key}}"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"entity\": {\n\t\t\"entity_type\": \"chain\",\n\t\t\"entity_id\": {{chain_id}},\n\t\t\"branch_business_owner_code\": \"0965\",\n\t\t\"employee_code\": \"0012089\",\n\t\t\"employee_name\": \"JOCHEMS\"\n\t},\n\t\"user\": {\n\t\t\"member_programme\": \"Spaaza\",\n\t\t\"member_number\": \"3360056\"\n\t},\n\t\"basket\": {\n\t\t\"basket_platform_type\": \"in_store\",\n\t\t\"retailer_basket_code\": \"order_number_{{$timestamp}}\",\n\t\t\"basket_total_price\": 75,\n\t\t\"basket_notes\": \"Any notes go here\",\n\t\t\"shipping_charge\": 0,\n\t\t\"payment_methods\": [],\n\t\t\"basket_currency\": {\n\t\t\t\"currency_code\": \"EUR\"\n\t\t},\n\t\t\"basket_tax\": [{\n\t\t\t\"tax_rate\": 0.21,\n\t\t\t\"tax_total\": 21.00\n\t\t}],\n\t\t\"basket_items\": [\n\t\t\t{\n\t\t\t\"retailer_item_code\": \"line_item_01\",\n\t\t\t\"item_barcode\": \"8718299435640\",\n\t\t\t\"item_type\": \"product\",\n\t\t\t\"item_quantity\": 5,\n\t\t\t\"item_price\": 15,\n            \"item_original_price\": 20,\n\t\t\t\"item_subtotal\": 75\n\t\t\t}\n\t\t],\n\t\t\"basket_vouchers\": [{\n\t\t\t\"voucher_key\": \"cebe621970dd3b9829953e7183fc396bafab62cdb329f99252f9cb35e568a071\"\n\t\t}]\n\t}\n}\n"
-				},
-				"url": {
-					"raw": "{{api_url}}/auth/add-basket",
-					"host": [
-						"{{api_url}}"
-					],
-					"path": [
-						"auth",
-						"add-basket"
-					]
-				},
-				"description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction), containing some optional parameters and redeeming a basket voucher. See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/docs/api/baskets.html)\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Adding a completed basket](https://docs.spaaza.com/api/add-basket/)\n    \n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number."
-			},
-			"response": []
-		},
-		{
 			"name": "add-basket simple inline return",
 			"request": {
 				"auth": {
@@ -2670,12 +2706,12 @@
 						"value": "{{api_version}}"
 					},
 					{
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"type": "text",
 						"value": "{{session_key}}"
 					}
@@ -2695,6 +2731,53 @@
 					]
 				},
 				"description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction), containing some optional parameters and returning a single item from a previous transaction. See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/docs/api/baskets.html)\n*   [Adding a completed basket](https://docs.spaaza.com/api/add-basket/)\n*   [Processing a return inline](https://docs.spaaza.com/api/returns/)\n    \n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number and return item details."
+			},
+			"response": []
+		},
+		{
+			"name": "ARTS POSLog add basket",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Spaaza-API-Version",
+						"value": "{{api_version}}"
+					},
+					{
+						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
+						"key": "X-Spaaza-Session-User-Id",
+						"type": "text",
+						"value": "{{session_user_id}}"
+					},
+					{
+						"description": "The session key for the logged-in user",
+						"key": "X-Spaaza-Session-Key",
+						"type": "text",
+						"value": "{{session_key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"entity\": {\n\t\t\"entity_type\": \"chain\",\n\t\t\"entity_id\": {{chain_id}},\n\t\t\"branch_business_owner_code\": \"0965\",\n\t\t\"employee_code\": \"0012089\",\n\t\t\"employee_name\": \"JOCHEMS\"\n\t},\n\t\"user\": {\n\t\t\"member_programme\": \"Spaaza\",\n\t\t\"member_number\": \"3360056\"\n\t},\n\t\"basket\": {\n\t\t\"basket_platform_type\": \"in_store\",\n\t\t\"retailer_basket_code\": \"order_number_{{$timestamp}}\",\n\t\t\"basket_total_price\": 75,\n\t\t\"basket_notes\": \"Any notes go here\",\n\t\t\"shipping_charge\": 0,\n\t\t\"payment_methods\": [],\n\t\t\"basket_currency\": {\n\t\t\t\"currency_code\": \"EUR\"\n\t\t},\n\t\t\"basket_tax\": [{\n\t\t\t\"tax_rate\": 0.21,\n\t\t\t\"tax_total\": 21.00\n\t\t}],\n\t\t\"basket_items\": [\n\t\t\t{\n\t\t\t\"retailer_item_code\": \"line_item_01\",\n\t\t\t\"item_barcode\": \"8718299435640\",\n\t\t\t\"item_type\": \"product\",\n\t\t\t\"item_quantity\": 5,\n\t\t\t\"item_price\": 15,\n            \"item_original_price\": 20,\n\t\t\t\"item_subtotal\": 75\n\t\t\t}\n\t\t],\n\t\t\"basket_vouchers\": [{\n\t\t\t\"voucher_key\": \"cebe621970dd3b9829953e7183fc396bafab62cdb329f99252f9cb35e568a071\"\n\t\t}]\n\t}\n}\n"
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/add-basket",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"add-basket"
+					]
+				},
+				"description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction), containing some optional parameters and redeeming a basket voucher. See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/docs/api/baskets.html)\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Adding a completed basket](https://docs.spaaza.com/api/add-basket/)\n    \n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number."
 			},
 			"response": []
 		},
@@ -2719,13 +2802,13 @@
 					},
 					{
 						"description": "The user ID of the user - this is shown in the response to the login.json endpoint",
-						"key": "session_user_id",
+						"key": "X-Spaaza-Session-User-Id",
 						"type": "text",
 						"value": "{{session_user_id}}"
 					},
 					{
 						"description": "The session key for the logged-in user",
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"type": "text",
 						"value": "{{session_key}}"
 					}
@@ -2808,16 +2891,16 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "session_user_id",
+						"key": "X-Spaaza-API-version",
+						"value": "{{api_version}}"
+					},
+					{
+						"key": "X-Spaaza-Session-User-Id",
 						"value": "{{session_user_id}}"
 					},
 					{
-						"key": "session_key",
+						"key": "X-Spaaza-Session-Key",
 						"value": "{{session_key}}"
-					},
-					{
-						"key": "X-Spaaza-API-version",
-						"value": "{{api_version}}"
 					}
 				],
 				"url": {
