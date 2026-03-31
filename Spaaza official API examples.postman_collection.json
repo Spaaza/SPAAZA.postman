@@ -8,7 +8,7 @@
   },
   "item": [
     {
-      "name": "login admin",
+      "name": "login admin (sends OTP to email)",
       "event": [
         {
           "listen": "test",
@@ -16,8 +16,41 @@
             "exec": [
               "tests[\"Status code is 200\"] = responseCode.code === 200;",
               "var jsonData = JSON.parse(responseBody);",
-              "postman.setEnvironmentVariable(\"session_user_id\", jsonData.results.session_info.session_user_id);",
-              "postman.setEnvironmentVariable(\"session_key\", jsonData.results.session_info.session_key);"
+              "var results = jsonData.results || {};",
+              "var apiVersion = pm.environment.get(\"api_version\") || \"1.0.0\";",
+              "function gteVersion(actual, minimum) {",
+              "    function parse(version) {",
+              "        return String(version || \"0.0.0\").split('.').map(function(part) {",
+              "            return parseInt(part, 10) || 0;",
+              "        });",
+              "    }",
+              "    var a = parse(actual);",
+              "    var b = parse(minimum);",
+              "    for (var i = 0; i < Math.max(a.length, b.length); i++) {",
+              "        var av = a[i] || 0;",
+              "        var bv = b[i] || 0;",
+              "        if (av > bv) return true;",
+              "        if (av < bv) return false;",
+              "    }",
+              "    return true;",
+              "}",
+              "if (results.session_info && results.session_info.session_user_id && results.session_info.session_key) {",
+              "    postman.setEnvironmentVariable(\"session_user_id\", results.session_info.session_user_id);",
+              "    postman.setEnvironmentVariable(\"session_key\", results.session_info.session_key);",
+              "    postman.setEnvironmentVariable(\"session_passcode_key\", \"\");",
+              "    postman.setEnvironmentVariable(\"session_passcode_expiry_date\", \"\");",
+              "    tests[\"Login returned a usable session directly\"] = true;",
+              "} else if (gteVersion(apiVersion, \"1.5.8\") && results.session_passcode_key) {",
+              "    postman.setEnvironmentVariable(\"session_user_id\", \"\");",
+              "    postman.setEnvironmentVariable(\"session_key\", \"\");",
+              "    postman.setEnvironmentVariable(\"session_passcode_key\", results.session_passcode_key);",
+              "    postman.setEnvironmentVariable(\"session_passcode_expiry_date\", results.session_passcode_expiry_date || \"\");",
+              "    tests[\"OTP required - use the session endpoint with session_passcode and session_passcode_key\"] = true;",
+              "    tests[\"session_passcode_key saved to environment\"] = !!results.session_passcode_key;",
+              "    console.log(\"Admin login requires OTP. Check your email for the session passcode, then call /auth/session using session_passcode and the saved session_passcode_key.\");",
+              "} else {",
+              "    tests[\"Login response contained recognised session or OTP fields\"] = false;",
+              "}"
             ],
             "type": "text/javascript"
           }
@@ -57,7 +90,73 @@
             "login"
           ]
         },
-        "description": "Login to the Spaaza API as an admin user. See the following Spaaza documentation:\n\n- [User Concept](https://docs.spaaza.com/api/users/)\n- [Authentication](https://docs.spaaza.com/api/authentication/)\n- [Logging users in](https://docs.spaaza.com/api/login/)\n    \n\nNote the \"Tests\" section of this POSTMAN request uses the values in the response to a successful request to populate the \"X-Spaaza-Session-User-Id\" and \"X-Spaaza-Session-Key\" variables in the POSTMAN environment. These are then used to authenticate calls to other Spaaza API endpoints."
+        "description": "Login to the Spaaza API as an admin user. See the following Spaaza documentation:\n\n- [User Concept](https://docs.spaaza.com/api/users/)\n- [Authentication](https://docs.spaaza.com/api/authentication/)\n- [Logging users in](https://docs.spaaza.com/api/login/)\n\nFor API version 1.5.8 and above, admin login may require 2FA. In that case the response returns `session_passcode_key` and `session_passcode_expiry_date` instead of `session_info`. The Tests script saves those values into the Postman environment, clears any stale session key values, and flags in the test results that you should next call the `session` endpoint with the emailed OTP (`session_passcode`) and the saved `session_passcode_key`."
+      },
+      "response": []
+    },
+    {
+      "name": "session (paste OTP from email)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "tests[\"Status code is 200\"] = responseCode.code === 200;",
+              "var jsonData = JSON.parse(responseBody);",
+              "var results = jsonData.results || {};",
+              "if (results.session_info && results.session_info.session_user_id && results.session_info.session_key) {",
+              "    postman.setEnvironmentVariable(\"session_user_id\", results.session_info.session_user_id);",
+              "    postman.setEnvironmentVariable(\"session_key\", results.session_info.session_key);",
+              "    postman.setEnvironmentVariable(\"session_passcode\", \"\");",
+              "    postman.setEnvironmentVariable(\"session_passcode_key\", \"\");",
+              "    postman.setEnvironmentVariable(\"session_passcode_expiry_date\", \"\");",
+              "    tests[\"Session created and saved to environment\"] = true;",
+              "} else {",
+              "    tests[\"Session response contained session_info\"] = false;",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Spaaza-API-version",
+            "value": "{{api_version}}",
+            "type": "text",
+            "description": "The API version to use for this request."
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "session_passcode",
+              "value": "[Fill in OTP here]",
+              "type": "text",
+              "description": "The OTP code sent to the admin user's email address."
+            },
+            {
+              "key": "session_passcode_key",
+              "value": "{{session_passcode_key}}",
+              "type": "text",
+              "description": "The passcode key returned by the admin login response."
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{api_url}}/auth/session",
+          "host": [
+            "{{api_url}}"
+          ],
+          "path": [
+            "auth",
+            "session"
+          ]
+        },
+        "description": "Exchange the emailed OTP (`session_passcode`) and saved `session_passcode_key` for a usable admin session after login.\n\n- [User Concept](https://docs.spaaza.com/api/users/)\n- [Logging users in](https://docs.spaaza.com/api/login/)\n- [Create session](https://docs.spaaza.com/api/session/)\n\nUse this request straight after `login admin (sends OTP to email)` when the login response returns `session_passcode_key` instead of `session_info`. Paste the OTP from the email into the `session_passcode` environment variable or request body, then send this request to populate `session_user_id` and `session_key`."
       },
       "response": []
     },
