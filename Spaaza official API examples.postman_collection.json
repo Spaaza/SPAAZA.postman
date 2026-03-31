@@ -790,6 +790,49 @@
       "name": "Businesses",
       "item": [
         {
+          "name": "get-business",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{api_url}}/internal/get-business?business_id=1383",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "get-business"
+              ],
+              "query": [
+                {
+                  "key": "business_id",
+                  "value": "1383",
+                  "description": "Required Spaaza business ID to fetch."
+                }
+              ]
+            },
+            "description": "Retrieve one business by its Spaaza business ID. Useful when you need the full current record for a specific branch.\n\n*   [Business Concept](https://docs.spaaza.com/api/businesses/)\n*   [Get business](https://docs.spaaza.com/api/get-business/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
           "name": "get-businesses",
           "request": {
             "method": "GET",
@@ -898,6 +941,185 @@
               ]
             },
             "description": "Retrieve businesses for a chain with optional text and location filters.\n\n*   [Business Concept](https://docs.spaaza.com/api/businesses/)\n*   [Get businesses](https://docs.spaaza.com/api/get-businesses/)"
+          },
+          "response": []
+        },
+        {
+          "name": "add-business",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{api_url}}/internal/add-business",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "add-business"
+              ]
+            },
+            "description": "Create a business (store/branch) for a chain. This request includes the public business fields and can also update an existing business when `update_if_exists` is enabled together with `business_id` or `owner_code`.\n\n*   [Business Concept](https://docs.spaaza.com/api/businesses/)\n*   [Add business](https://docs.spaaza.com/api/add-business/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "type": "text",
+                  "description": "Required chain to which the business belongs."
+                },
+                {
+                  "key": "name",
+                  "value": "Amsterdam Flagship Store",
+                  "type": "text",
+                  "description": "Required business name."
+                },
+                {
+                  "key": "address_1",
+                  "value": "Herengracht 504",
+                  "type": "text",
+                  "description": "Optional first address line.",
+                  "disabled": true
+                },
+                {
+                  "key": "address_2",
+                  "type": "text",
+                  "value": "Suite 2A",
+                  "description": "Optional second address line.",
+                  "disabled": true
+                },
+                {
+                  "key": "address_3",
+                  "type": "text",
+                  "value": "Canal district",
+                  "description": "Optional third address line.",
+                  "disabled": true
+                },
+                {
+                  "key": "business_id",
+                  "type": "text",
+                  "value": "1383",
+                  "description": "Optional business ID used when updating an existing business via update_if_exists.",
+                  "disabled": true
+                },
+                {
+                  "key": "countrycode",
+                  "value": "NL",
+                  "type": "text",
+                  "description": "Optional ISO ALPHA-2 country code.",
+                  "disabled": true
+                },
+                {
+                  "key": "format",
+                  "value": "Flagship",
+                  "type": "text",
+                  "description": "Optional business format.",
+                  "disabled": true
+                },
+                {
+                  "key": "google_place_id",
+                  "type": "text",
+                  "value": "ChIJVXealLU_xkcRja_At0z9AGY",
+                  "description": "Optional Google Place ID for the business.",
+                  "disabled": true
+                },
+                {
+                  "key": "image_url",
+                  "value": "https://example.com/images/store.jpg",
+                  "type": "text",
+                  "description": "Optional business image URL.",
+                  "disabled": true
+                },
+                {
+                  "key": "is_shut_down",
+                  "value": "false",
+                  "type": "text",
+                  "description": "Optional flag marking the business inactive.",
+                  "disabled": true
+                },
+                {
+                  "key": "latitude",
+                  "value": "52.3702",
+                  "type": "text",
+                  "description": "Optional decimal latitude.",
+                  "disabled": true
+                },
+                {
+                  "key": "longitude",
+                  "value": "4.8952",
+                  "type": "text",
+                  "description": "Optional decimal longitude.",
+                  "disabled": true
+                },
+                {
+                  "key": "opening_times",
+                  "value": "{\"monday\":{\"open\":\"09:00\",\"close\":\"18:00\"}}",
+                  "type": "text",
+                  "description": "Optional opening times JSON string.",
+                  "disabled": true
+                },
+                {
+                  "key": "owner_code",
+                  "value": "10001",
+                  "type": "text",
+                  "description": "Recommended retailer/store identifier, and one way to match an existing business when update_if_exists is used.",
+                  "disabled": true
+                },
+                {
+                  "key": "postalcode",
+                  "value": "1017CB",
+                  "type": "text",
+                  "description": "Optional postal code.",
+                  "disabled": true
+                },
+                {
+                  "key": "region",
+                  "value": "Noord Holland",
+                  "type": "text",
+                  "description": "Optional region/state.",
+                  "disabled": true
+                },
+                {
+                  "key": "review_url",
+                  "value": "https://g.page/spaaza/review",
+                  "type": "text",
+                  "description": "Optional review URL.",
+                  "disabled": true
+                },
+                {
+                  "key": "towncity",
+                  "value": "Amsterdam",
+                  "type": "text",
+                  "description": "Optional town/city.",
+                  "disabled": true
+                },
+                {
+                  "key": "update_if_exists",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Optional flag to update an existing business matched by business_id or owner_code.",
+                  "disabled": true
+                }
+              ]
+            }
           },
           "response": []
         },
@@ -1014,6 +1236,49 @@
               ]
             },
             "description": "In Spaaza terminology, a \u201cbusiness\u201d is a branch of a retailer (a \u201cchain\u201d). This API call updates an existing business. See the following documentation for more details on background and applicable parameters:\n\n*   [Business Concept](https://docs.spaaza.com/docs/api/businesses.html)\n*   [Altering a business](https://docs.spaaza.com/api/alter-business/)"
+          },
+          "response": []
+        },
+        {
+          "name": "delete-business",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{api_url}}/internal/delete-business?business_id=1383",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "delete-business"
+              ],
+              "query": [
+                {
+                  "key": "business_id",
+                  "value": "1383",
+                  "description": "Required Spaaza business ID to delete."
+                }
+              ]
+            },
+            "description": "Delete a business by its Spaaza business ID.\n\n*   [Business Concept](https://docs.spaaza.com/api/businesses/)\n*   [Delete business](https://docs.spaaza.com/api/delete-business/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ]
           },
           "response": []
         }
@@ -1226,6 +1491,146 @@
           "response": []
         },
         {
+          "name": "get-campaign-group",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{api_url}}/internal/get-campaign-group?chain_id={{chain_id}}&id=1",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "get-campaign-group"
+              ],
+              "query": [
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "description": "Required chain to which the campaign group belongs."
+                },
+                {
+                  "key": "id",
+                  "value": "1",
+                  "description": "Required campaign group ID to fetch."
+                }
+              ]
+            },
+            "description": "Retrieve one campaign group for a chain by campaign group ID.\n\n*   [Campaign Concept](https://docs.spaaza.com/api/campaigns/)\n*   [Get campaign group](https://docs.spaaza.com/api/get-campaign-group/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
+          "name": "get-campaign-groups",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{api_url}}/internal/get-campaign-groups?chain_id={{chain_id}}",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "get-campaign-groups"
+              ],
+              "query": [
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "description": "Required chain for which to retrieve campaign groups."
+                },
+                {
+                  "key": "limit",
+                  "value": "50",
+                  "type": "text",
+                  "description": "Optional maximum number of results to return.",
+                  "disabled": true
+                },
+                {
+                  "key": "match_all",
+                  "value": "false",
+                  "type": "text",
+                  "description": "Optional flag requiring all search terms to match when using name.",
+                  "disabled": true
+                },
+                {
+                  "key": "name",
+                  "value": "Alpha",
+                  "type": "text",
+                  "description": "Optional partial name filter.",
+                  "disabled": true
+                },
+                {
+                  "key": "offset",
+                  "value": "0",
+                  "type": "text",
+                  "description": "Optional starting offset for pagination.",
+                  "disabled": true
+                },
+                {
+                  "key": "order_by",
+                  "value": "name",
+                  "type": "text",
+                  "description": "Optional sort field: name, created_date, active_date_from, or active_date_until.",
+                  "disabled": true
+                },
+                {
+                  "key": "order_dir",
+                  "value": "ASC",
+                  "type": "text",
+                  "description": "Optional sort direction: ASC or DESC.",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "active",
+                  "type": "text",
+                  "description": "Optional status filter: scheduled, active, or completed.",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Retrieve campaign groups for a chain, with optional filtering by name/status plus ordering and pagination. Use this to discover available campaign-group containers before fetching a single group in detail.\n\n*   [Campaign Concept](https://docs.spaaza.com/api/campaigns/)\n*   [Get campaign groups](https://docs.spaaza.com/api/get-campaign-groups/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
           "name": "interact-campaign",
           "request": {
             "method": "GET",
@@ -1281,12 +1686,199 @@
             "description": "Interact with a campaign in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Campaigns Concept](https://docs.spaaza.com/docs/api/campaigns.html)\n*   [Campaign Interaction](https://docs.spaaza.com/api/interact-campaign/)"
           },
           "response": []
+        },
+        {
+          "name": "add-campaign",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{api_url}}/internal/add-campaign",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "add-campaign"
+              ]
+            },
+            "description": "Create a campaign for a chain or business. Different campaign types require different additional parameters, so this request shows a minimal login-campaign example plus optional fields.\n\n*   [Campaign Concept](https://docs.spaaza.com/api/campaigns/)\n*   [Add campaign](https://docs.spaaza.com/api/add-campaign/)\n*   [Campaign type fields](https://docs.spaaza.com/api/campaign-types-fields/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "type": "text",
+                  "description": "Required chain or business context; do not send both chain_id and business_id."
+                },
+                {
+                  "key": "type",
+                  "value": "login",
+                  "type": "text",
+                  "description": "Required campaign type."
+                },
+                {
+                  "key": "title",
+                  "value": "Login Reward Campaign",
+                  "type": "text",
+                  "description": "Optional campaign title.",
+                  "disabled": true
+                },
+                {
+                  "key": "description",
+                  "value": "Reward users for logging in.",
+                  "type": "text",
+                  "description": "Optional campaign description.",
+                  "disabled": true
+                },
+                {
+                  "key": "is_default",
+                  "value": "false",
+                  "type": "text",
+                  "description": "Optional flag for default loyalty, wallet, or points_wallet campaigns.",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Chains",
+      "item": [
+        {
+          "name": "get-chain",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{api_url}}/internal/get-chain?chain_id={{chain_id}}",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "get-chain"
+              ],
+              "query": [
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "description": "Preferred chain identifier for this request."
+                },
+                {
+                  "key": "business_id",
+                  "value": "1383",
+                  "type": "text",
+                  "description": "Optional business ID that can be used instead of chain_id.",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Retrieve chain configuration and metadata. You can identify the chain directly by `chain_id` or indirectly by `business_id`.\n\n*   [Get chain](https://docs.spaaza.com/api/get-chain/)\n*   [API Versioning](https://docs.spaaza.com/api/versioning/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ]
+          },
+          "response": []
         }
       ]
     },
     {
       "name": "Notes",
       "item": [
+        {
+          "name": "get-note",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{api_url}}/internal/get-note?note_id=12345",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "get-note"
+              ],
+              "query": [
+                {
+                  "key": "note_id",
+                  "value": "12345",
+                  "description": "Specific note ID to retrieve.",
+                  "disabled": false
+                },
+                {
+                  "key": "model_class",
+                  "value": "User",
+                  "type": "text",
+                  "description": "Entity class to fetch notes for when note_id is not used.",
+                  "disabled": true
+                },
+                {
+                  "key": "model_id",
+                  "value": "405683453",
+                  "type": "text",
+                  "description": "Entity ID to fetch notes for when note_id is not used.",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Retrieve one note by ID, or retrieve notes for a supported entity by `model_class` and `model_id`.\n\n*   [Tags & Notes](https://docs.spaaza.com/api/tags-and-notes/)\n*   [Get note](https://docs.spaaza.com/api/get-note/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ]
+          },
+          "response": []
+        },
         {
           "name": "add-note",
           "event": [
@@ -1427,6 +2019,933 @@
               ]
             },
             "description": "Delete one note by ID, or delete all notes for a supported entity.\n\n*   [Tags & Notes](https://docs.spaaza.com/api/tags-and-notes/)\n*   [Delete note](https://docs.spaaza.com/api/delete-note/)"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "get-product",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{api_url}}/internal/get-product?chain_id={{chain_id}}&id=7",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "get-product"
+              ],
+              "query": [
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "description": "Required chain that owns the product."
+                },
+                {
+                  "key": "id",
+                  "value": "7",
+                  "description": "Required product ID to fetch."
+                }
+              ]
+            },
+            "description": "Retrieve one product by product ID within a chain.\n\n*   [Products](https://docs.spaaza.com/api/products/)\n*   [Get product](https://docs.spaaza.com/api/get-product/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
+          "name": "get-product-variants",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{api_url}}/internal/get-product-variants?chain_id={{chain_id}}",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "get-product-variants"
+              ],
+              "query": [
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "description": "Required chain from which to retrieve product variants."
+                },
+                {
+                  "key": "barcodes",
+                  "value": "6566826825607,8512345875215",
+                  "type": "text",
+                  "description": "Optional comma-separated list of barcodes to filter by.",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "type": "text",
+                  "description": "Optional maximum number of results to return.",
+                  "disabled": true
+                },
+                {
+                  "key": "offset",
+                  "value": "0",
+                  "type": "text",
+                  "description": "Optional starting offset for pagination.",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Retrieve product variants for a chain, with optional barcode filtering and pagination.\n\n*   [Products](https://docs.spaaza.com/api/products/)\n*   [Get product variants](https://docs.spaaza.com/api/get-product-variants/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
+          "name": "add-product",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{api_url}}/internal/add-product",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "add-product"
+              ]
+            },
+            "description": "Create a product for a chain. This request shows the common product fields and can also update an existing product when `update_if_exists` is enabled.\n\n*   [Products](https://docs.spaaza.com/api/products/)\n*   [Add product](https://docs.spaaza.com/api/add-product/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "type": "text",
+                  "description": "Required chain to which the product belongs."
+                },
+                {
+                  "key": "name",
+                  "value": "Men's Merino Aran Jumper",
+                  "type": "text",
+                  "description": "Required product name."
+                },
+                {
+                  "key": "owner_code",
+                  "value": "00024003",
+                  "type": "text",
+                  "description": "Required unique product owner code within the chain."
+                },
+                {
+                  "key": "price",
+                  "value": "99.95",
+                  "type": "text",
+                  "description": "Required product price."
+                },
+                {
+                  "key": "brand",
+                  "value": "Aran Brands Inc.",
+                  "type": "text",
+                  "description": "Optional brand name.",
+                  "disabled": true
+                },
+                {
+                  "key": "category",
+                  "value": "sweater > Aran > mens",
+                  "type": "text",
+                  "description": "Optional category path.",
+                  "disabled": true
+                },
+                {
+                  "key": "cost_price",
+                  "value": "79.95",
+                  "type": "text",
+                  "description": "Optional cost price.",
+                  "disabled": true
+                },
+                {
+                  "key": "description",
+                  "value": "The Aran Jumper is a style of jumper...",
+                  "type": "text",
+                  "description": "Optional product description.",
+                  "disabled": true
+                },
+                {
+                  "key": "image_url",
+                  "value": "https://www.spaaza.com/images/arran.jpg",
+                  "type": "text",
+                  "description": "Optional product image URL.",
+                  "disabled": true
+                },
+                {
+                  "key": "is_promotional",
+                  "value": "false",
+                  "type": "text",
+                  "description": "Optional flag indicating whether the product is promotional.",
+                  "disabled": true
+                },
+                {
+                  "key": "season",
+                  "value": "Winter",
+                  "type": "text",
+                  "description": "Optional season identifier.",
+                  "disabled": true
+                },
+                {
+                  "key": "unit",
+                  "value": "item",
+                  "type": "text",
+                  "description": "Optional sale unit such as item, g, or kg.",
+                  "disabled": true
+                },
+                {
+                  "key": "update_if_exists",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Optional flag to update an existing product matched by owner_code.",
+                  "disabled": true
+                },
+                {
+                  "key": "web_url",
+                  "value": "https://www.shop.spaaza.com/images/arran.jpg",
+                  "type": "text",
+                  "description": "Optional product web page URL.",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "add-product-variant",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{api_url}}/internal/add-product-variant",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "add-product-variant"
+              ]
+            },
+            "description": "Create a product variant for a product, or update an existing one when `update_if_exists` is enabled.\n\n*   [Products](https://docs.spaaza.com/api/products/)\n*   [Add product variant](https://docs.spaaza.com/api/add-product-variant/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "type": "text",
+                  "description": "Required chain to which the product variant belongs."
+                },
+                {
+                  "key": "product_id",
+                  "value": "7",
+                  "type": "text",
+                  "description": "Parent product ID. Use product_owner_code instead if preferred."
+                },
+                {
+                  "key": "barcodes",
+                  "value": "2000042436019,2000042436018",
+                  "type": "text",
+                  "description": "Required barcode list when creating a new variant."
+                },
+                {
+                  "key": "owner_code",
+                  "value": "variant-456-s",
+                  "type": "text",
+                  "description": "Optional owner code for the product variant.",
+                  "disabled": true
+                },
+                {
+                  "key": "colour",
+                  "value": "navy",
+                  "type": "text",
+                  "description": "Optional variant colour.",
+                  "disabled": true
+                },
+                {
+                  "key": "cost_price",
+                  "value": "79.95",
+                  "type": "text",
+                  "description": "Optional variant cost price.",
+                  "disabled": true
+                },
+                {
+                  "key": "id",
+                  "value": "3",
+                  "type": "text",
+                  "description": "Optional product variant ID used when updating.",
+                  "disabled": true
+                },
+                {
+                  "key": "image_url",
+                  "value": "https://www.spaaza.com/images/navy_arran.jpg",
+                  "type": "text",
+                  "description": "Optional product variant image URL.",
+                  "disabled": true
+                },
+                {
+                  "key": "is_promotional",
+                  "value": "false",
+                  "type": "text",
+                  "description": "Optional promotional flag.",
+                  "disabled": true
+                },
+                {
+                  "key": "name",
+                  "value": "Aran Jumper Navy S",
+                  "type": "text",
+                  "description": "Optional variant name.",
+                  "disabled": true
+                },
+                {
+                  "key": "price",
+                  "value": "99.95",
+                  "type": "text",
+                  "description": "Optional variant price.",
+                  "disabled": true
+                },
+                {
+                  "key": "product_owner_code",
+                  "value": "00024003",
+                  "type": "text",
+                  "description": "Alternative parent product identifier.",
+                  "disabled": true
+                },
+                {
+                  "key": "size",
+                  "value": "S",
+                  "type": "text",
+                  "description": "Optional variant size.",
+                  "disabled": true
+                },
+                {
+                  "key": "update_if_exists",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Optional flag to update an existing variant if matched.",
+                  "disabled": true
+                },
+                {
+                  "key": "web_url",
+                  "value": "https://www.shop.spaaza.com/images/navy_arran.jpg",
+                  "type": "text",
+                  "description": "Optional product variant web page URL.",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete-barcode",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{api_url}}/internal/delete-barcode?id=3",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "delete-barcode"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "3",
+                  "description": "Required barcode ID to delete."
+                }
+              ]
+            },
+            "description": "Delete one product barcode by barcode ID.\n\n*   [Products](https://docs.spaaza.com/api/products/)\n*   [Delete barcode](https://docs.spaaza.com/api/delete-barcode/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
+          "name": "delete-product",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{api_url}}/internal/delete-product?id=7",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "delete-product"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "7",
+                  "description": "Required product ID to delete."
+                }
+              ]
+            },
+            "description": "Delete one product by product ID.\n\n*   [Products](https://docs.spaaza.com/api/products/)\n*   [Delete product](https://docs.spaaza.com/api/delete-product/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
+          "name": "delete-product-variant",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{api_url}}/internal/delete-product-variant?id=3",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "delete-product-variant"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "3",
+                  "description": "Required product variant ID to delete."
+                }
+              ]
+            },
+            "description": "Delete one product variant by product variant ID.\n\n*   [Products](https://docs.spaaza.com/api/products/)\n*   [Delete product variant](https://docs.spaaza.com/api/delete-product-variant/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ]
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Services API",
+      "item": [
+        {
+          "name": "search users (services API)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Origin",
+                "value": "https://console-test01.spaaza.com"
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}"
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}"
+              },
+              {
+                "key": "X-Spaaza-Session-Chain-Id",
+                "value": "{{chain_id}}"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "query",
+                  "value": "gustav mahler",
+                  "type": "text"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "type": "text"
+                },
+                {
+                  "key": "count",
+                  "value": "100",
+                  "type": "text"
+                },
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "type": "text"
+                },
+                {
+                  "key": "opted_in",
+                  "value": "false",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{services_url_protocol}}://{{services_url_domain}}/search/users",
+              "protocol": "{{services_url_protocol}}",
+              "host": [
+                "{{services_url_domain}}"
+              ],
+              "path": [
+                "search",
+                "users"
+              ]
+            },
+            "description": "Search for users using a search string (the \"query\") field. See [https://docs.spaaza.com/api/search/](https://docs.spaaza.com/api/search/) for more details."
+          },
+          "response": []
+        },
+        {
+          "name": "export users (services API)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "The export endpoint expects a JSON request body."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              },
+              {
+                "key": "X-Spaaza-Session-Chain-Id",
+                "value": "{{chain_id}}",
+                "description": "The chain context for the export request."
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"entity\": \"people\",\n  \"chain_id\": {{chain_id}},\n  \"join\": \"all\",\n  \"rules\": []\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{services_url_protocol}}://{{services_url_domain}}/segments/export/users",
+              "protocol": "{{services_url_protocol}}",
+              "host": [
+                "{{services_url_domain}}"
+              ],
+              "path": [
+                "segments",
+                "export",
+                "users"
+              ]
+            },
+            "description": "Export users for a chain via the Services API. The response is a streamed CSV export.\n\n*   [Users](https://docs.spaaza.com/api/users/)\n*   [Export users](https://docs.spaaza.com/api/export/)\n\nThe current documented request body is a simple JSON payload that exports all users for a chain."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Tags",
+      "item": [
+        {
+          "name": "get-tag",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{api_url}}/auth/get-tag?id=11",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "get-tag"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "11",
+                  "description": "Required tag ID to retrieve."
+                }
+              ]
+            },
+            "description": "Retrieve one tag by tag ID.\n\n*   [Tags & Notes](https://docs.spaaza.com/api/tags-and-notes/)\n*   [Get tag](https://docs.spaaza.com/api/get-tag/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
+          "name": "get-tags",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{api_url}}/auth/get-tags?chain_id={{chain_id}}",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "get-tags"
+              ],
+              "query": [
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "description": "Required chain for which to retrieve tags."
+                },
+                {
+                  "key": "exclude_inactive",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Optional flag excluding inactive tags.",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "50",
+                  "type": "text",
+                  "description": "Optional maximum number of results to return.",
+                  "disabled": true
+                },
+                {
+                  "key": "offset",
+                  "value": "0",
+                  "type": "text",
+                  "description": "Optional starting offset for pagination.",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Retrieve tags for a chain, with optional filtering of inactive tags and pagination.\n\n*   [Tags & Notes](https://docs.spaaza.com/api/tags-and-notes/)\n*   [Get tags](https://docs.spaaza.com/api/get-tags/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
+          "name": "add-tag",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{api_url}}/auth/add-tag",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "add-tag"
+              ]
+            },
+            "description": "Create a tag for a chain and model class such as user.\n\n*   [Tags & Notes](https://docs.spaaza.com/api/tags-and-notes/)\n*   [Add tag](https://docs.spaaza.com/api/add-tag/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "type": "text",
+                  "description": "Required chain to which the tag belongs."
+                },
+                {
+                  "key": "model_class",
+                  "value": "user",
+                  "type": "text",
+                  "description": "Required model class for the tag, for example user."
+                },
+                {
+                  "key": "value",
+                  "value": "baby_club_nov_2025",
+                  "type": "text",
+                  "description": "Required tag value."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "alter-tag",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{api_url}}/auth/alter-tag",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "alter-tag"
+              ]
+            },
+            "description": "Update an existing tag by tag ID.\n\n*   [Tags & Notes](https://docs.spaaza.com/api/tags-and-notes/)\n*   [Alter tag](https://docs.spaaza.com/api/alter-tag/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "id",
+                  "value": "11",
+                  "type": "text",
+                  "description": "Required tag ID to update."
+                },
+                {
+                  "key": "active",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Optional flag to activate or deactivate the tag.",
+                  "disabled": true
+                },
+                {
+                  "key": "value",
+                  "value": "baby_club_nov_2025",
+                  "type": "text",
+                  "description": "Optional replacement tag value.",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete-tag",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{api_url}}/auth/delete-tag?id=11",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "delete-tag"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "11",
+                  "description": "Required tag ID to delete."
+                }
+              ]
+            },
+            "description": "Delete a tag by tag ID.\n\n*   [Tags & Notes](https://docs.spaaza.com/api/tags-and-notes/)\n*   [Delete tag](https://docs.spaaza.com/api/delete-tag/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ]
           },
           "response": []
         }
@@ -1670,78 +3189,6 @@
           "response": []
         },
         {
-          "name": "search users (services API)",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/x-www-form-urlencoded"
-              },
-              {
-                "key": "Origin",
-                "value": "https://console-test01.spaaza.com"
-              },
-              {
-                "key": "X-Spaaza-Session-User-Id",
-                "value": "{{session_user_id}}"
-              },
-              {
-                "key": "X-Spaaza-Session-Key",
-                "value": "{{session_key}}"
-              },
-              {
-                "key": "X-Spaaza-Session-Chain-Id",
-                "value": "{{chain_id}}"
-              }
-            ],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "query",
-                  "value": "gustav mahler",
-                  "type": "text"
-                },
-                {
-                  "key": "page",
-                  "value": "1",
-                  "type": "text"
-                },
-                {
-                  "key": "count",
-                  "value": "100",
-                  "type": "text"
-                },
-                {
-                  "key": "chain_id",
-                  "value": "{{chain_id}}",
-                  "type": "text"
-                },
-                {
-                  "key": "opted_in",
-                  "value": "false",
-                  "type": "text",
-                  "disabled": true
-                }
-              ]
-            },
-            "url": {
-              "raw": "{{services_url_protocol}}://{{services_url_domain}}/search/users",
-              "protocol": "{{services_url_protocol}}",
-              "host": [
-                "{{services_url_domain}}"
-              ],
-              "path": [
-                "search",
-                "users"
-              ]
-            },
-            "description": "Search for users using a search string (the \"query\") field. See [https://docs.spaaza.com/api/search/](https://docs.spaaza.com/api/search/) for more details."
-          },
-          "response": []
-        },
-        {
           "name": "add-user",
           "event": [
             {
@@ -1977,6 +3424,57 @@
               ]
             },
             "description": "Add a user to Spaaza using admin authentication. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Adding a user](https://docs.spaaza.com/docs/api/users.html)\n    \n\nNote the \"Pre-request Script\" section of this POSTMAN request is used to populate some of the values in the \"Body\" section of the request with their values. These can be overridden."
+          },
+          "response": []
+        },
+        {
+          "name": "add-user-tag",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{api_url}}/auth/add-user-tag",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "add-user-tag"
+              ]
+            },
+            "description": "Assign a tag to a user identified in the request.\n\n*   [Users](https://docs.spaaza.com/api/users/)\n*   [Add user tag](https://docs.spaaza.com/api/add-user-tag/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "description": "JSON request body for this endpoint."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": {\n    \"chain_id\": {{chain_id}}\n  },\n  \"user\": {\n    \"user_id\": 4\n  },\n  \"tag\": {\n    \"id\": 11,\n    \"value\": \"baby_club_nov_2025\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
           },
           "response": []
         },
@@ -2279,6 +3777,222 @@
               ]
             },
             "description": "Alter the loyalty level of a user to that supplied. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Campaigns Concept](https://docs.spaaza.com/docs/api/campaigns.html)\n*   [Set loyalty level](https://docs.spaaza.com/api/alter-loyalty-level/)"
+          },
+          "response": []
+        },
+        {
+          "name": "apply-referral-code",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{api_url}}/auth/apply-referral-code",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "apply-referral-code"
+              ]
+            },
+            "description": "Apply a referral code to a user account. With user authentication you typically send `referral_code` and optionally `campaign_id`; with admin or privileged authentication you also send `chain_id` plus a `user` object containing one identifier such as `user_id`, `username`, `member_number`, or `authentication_point_identifier`.\n\n*   [Users](https://docs.spaaza.com/api/users/)\n*   [Apply referral code](https://docs.spaaza.com/api/auth/apply-referral-code/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-MyPrice-App-Hostname",
+                "value": "{{myprice_app_hostname}}",
+                "type": "text",
+                "description": "MyPrice app hostname. Recommended for user authentication and required for privileged authentication."
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "description": "JSON request body for this endpoint."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain_id\": {{chain_id}},\n  \"user\": {\n    \"user_id\": 405683453\n  },\n  \"referral_code\": \"an8it2\",\n  \"campaign_id\": 3\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "complete-referral-relation",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{api_url}}/auth/complete-referral-relation",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "complete-referral-relation"
+              ]
+            },
+            "description": "Complete a referral relation for a referral campaign when an admin or privileged client needs to redeem the sender reward without waiting for the normal transaction trigger. The JSON body must include `entity`, `campaign`, `referring_user`, and `referred_user`. Both user blocks can identify a user by `referral_code`, `authentication_point_identifier`, `user_id`, `username`, or `member_number`.\n\n*   [Users](https://docs.spaaza.com/api/users/)\n*   [Complete referral relation](https://docs.spaaza.com/api/auth/complete-referral-relation/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "description": "JSON request body describing the entity, campaign, referring user, and referred user."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"entity\": {\n    \"entity_type\": \"chain\",\n    \"entity_id\": \"{{chain_id}}\"\n  },\n  \"campaign\": {\n    \"campaign_id\": \"3\"\n  },\n  \"referring_user\": {\n    \"user_id\": 4\n  },\n  \"referred_user\": {\n    \"user_id\": 5\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "send-notification",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{api_url}}/auth/send-notification",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "send-notification"
+              ]
+            },
+            "description": "Send a referral notification from an existing user to a potential referred user. The JSON body includes `entity`, `campaign`, `message`, `referral_type`, and either `referral_email` or `referral_phone_number`. For admin or privileged authentication, include a `referring_user` block; for end-user authentication the logged-in user can be the sender.\n\n*   [Users](https://docs.spaaza.com/api/users/)\n*   [Send notification](https://docs.spaaza.com/api/auth/send-notification/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-MyPrice-App-Hostname",
+                "value": "{{myprice_app_hostname}}",
+                "type": "text",
+                "description": "MyPrice app hostname used for end-user or privileged requests that are scoped to an app."
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "description": "JSON request body describing the entity, campaign, sender, message, and referral target."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"entity\": {\n    \"entity_type\": \"chain\",\n    \"entity_id\": {{chain_id}}\n  },\n  \"referring_user\": {\n    \"user_id\": 3627395\n  },\n  \"campaign\": {\n    \"campaign_id\": 2098\n  },\n  \"message\": {\n    \"subject\": \"Invite a friend\",\n    \"body\": \"Join our loyalty programme using my referral link.\"\n  },\n  \"referral_type\": \"email\",\n  \"referral_email\": \"joe.bloggs@example.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete-user-tag",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{api_url}}/auth/delete-user-tag",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "delete-user-tag"
+              ]
+            },
+            "description": "Remove a tag from a user identified in the request.\n\n*   [Users](https://docs.spaaza.com/api/users/)\n*   [Delete user tag](https://docs.spaaza.com/api/delete-user-tag/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "description": "JSON request body for this endpoint."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": {\n    \"chain_id\": {{chain_id}}\n  },\n  \"user\": {\n    \"user_id\": 4\n  },\n  \"tag\": {\n    \"id\": 11\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
           },
           "response": []
         },
