@@ -2549,6 +2549,596 @@
       ]
     },
     {
+      "name": "Resources API",
+      "description": "Generic examples for the Spaaza Resources API. Replace placeholder resource names with a supported resource such as `business`, `campaign`, or `voucher` and use the schema/docs links in each request to discover supported identifiers, filters, and writable properties.",
+      "item": [
+        {
+          "name": "Schema GET",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{api_url}}/resources/schema",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "resources",
+                "schema"
+              ]
+            },
+            "description": "Retrieve the OpenAPI schema for all Resources API endpoints. Use this first when you need to discover supported resources, identifier properties, filterable fields, sortable fields, and request-body shapes.\n\n*   [Resources API overview](https://docs.spaaza.com/api/resources-api/)\n*   [Schema endpoint](https://docs.spaaza.com/api/resources-api/#schema-endpoint)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "type": "text",
+                "description": "The session user ID returned by the login/session flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "type": "text",
+                "description": "The session key for the authenticated user."
+              },
+              {
+                "key": "X-Spaaza-Chain-ID",
+                "value": "{{chain_id}}",
+                "type": "text",
+                "description": "Required chain context header for Resources API requests."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
+          "name": "Changelog GET",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{api_url}}/resources/campaign/[ID HERE]/change_log?limit=50&offset=0",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "resources",
+                "campaign",
+                "[ID HERE]",
+                "change_log"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "50",
+                  "type": "text",
+                  "description": "Optional maximum number of log entries to return."
+                },
+                {
+                  "key": "offset",
+                  "value": "0",
+                  "type": "text",
+                  "description": "Optional starting offset for pagination."
+                },
+                {
+                  "key": "sort_by",
+                  "value": "created_date",
+                  "type": "text",
+                  "description": "Optional sort field for change-log entries.",
+                  "disabled": true
+                },
+                {
+                  "key": "sort_order",
+                  "value": "desc",
+                  "type": "text",
+                  "description": "Optional sort direction: asc or desc.",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Retrieve change-log entries for a single resource object. This is currently documented for campaigns only, so use a campaign ID here unless public docs add change-log support for other resources later.\n\n*   [Resources API overview](https://docs.spaaza.com/api/resources-api/)\n*   [Change logs](https://docs.spaaza.com/api/resources-api/#change-logs)\n*   [Campaign resource](https://docs.spaaza.com/api/resources-api/campaign)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "type": "text",
+                "description": "The session user ID returned by the login/session flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "type": "text",
+                "description": "The session key for the authenticated user."
+              },
+              {
+                "key": "X-Spaaza-Chain-ID",
+                "value": "{{chain_id}}",
+                "type": "text",
+                "description": "Required chain context header for Resources API requests."
+              },
+              {
+                "key": "X-Spaaza-Response-Recursion-Level",
+                "value": "3",
+                "type": "text",
+                "description": "Optional response detail depth. Higher values expand nested related resources."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
+          "name": "Singular GET by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{api_url}}/resources/[resource name]/[ID HERE]",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "resources",
+                "[resource name]",
+                "[ID HERE]"
+              ]
+            },
+            "description": "Retrieve a single resource by its numeric Spaaza ID. Replace `[resource name]` with a supported singular resource such as `business` or `voucher`.\n\n*   [Resources API overview](https://docs.spaaza.com/api/resources-api/)\n*   [Business resource](https://docs.spaaza.com/api/resources-api/business)\n*   [Voucher resource](https://docs.spaaza.com/api/resources-api/voucher)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "type": "text",
+                "description": "The session user ID returned by the login/session flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "type": "text",
+                "description": "The session key for the authenticated user."
+              },
+              {
+                "key": "X-Spaaza-Chain-ID",
+                "value": "{{chain_id}}",
+                "type": "text",
+                "description": "Required chain context header for Resources API requests."
+              },
+              {
+                "key": "X-Spaaza-Response-Recursion-Level",
+                "value": "3",
+                "type": "text",
+                "description": "Optional response detail depth. Higher values expand nested related resources."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
+          "name": "Singular GET by identifier parameter",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{api_url}}/resources/[resource name]?[identifier_parameter]=[identifier value]",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "resources",
+                "[resource name]"
+              ],
+              "query": [
+                {
+                  "key": "[identifier_parameter]",
+                  "value": "[identifier value]",
+                  "type": "text",
+                  "description": "Identifier property/value pair for the target resource, for example owner_code or key."
+                }
+              ]
+            },
+            "description": "Retrieve a single resource using a non-ID identifier property. The actual identifier parameter depends on the resource schema, for example `owner_code` for businesses or `key` for vouchers. Use `GET /resources/schema` or the per-resource docs to confirm which properties are marked as identifiers.\n\n*   [Resources API overview](https://docs.spaaza.com/api/resources-api/)\n*   [Business resource](https://docs.spaaza.com/api/resources-api/business)\n*   [Voucher resource](https://docs.spaaza.com/api/resources-api/voucher)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "type": "text",
+                "description": "The session user ID returned by the login/session flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "type": "text",
+                "description": "The session key for the authenticated user."
+              },
+              {
+                "key": "X-Spaaza-Chain-ID",
+                "value": "{{chain_id}}",
+                "type": "text",
+                "description": "Required chain context header for Resources API requests."
+              },
+              {
+                "key": "X-Spaaza-Response-Recursion-Level",
+                "value": "3",
+                "type": "text",
+                "description": "Optional response detail depth. Higher values expand nested related resources."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
+          "name": "Plural GET by filter parameters",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{api_url}}/resources/[plural resource name]?limit=25&offset=0",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "resources",
+                "[plural resource name]"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "25",
+                  "type": "text",
+                  "description": "Optional maximum number of resources to return."
+                },
+                {
+                  "key": "offset",
+                  "value": "0",
+                  "type": "text",
+                  "description": "Optional starting offset for pagination."
+                },
+                {
+                  "key": "sort_by",
+                  "value": "[sortable_property]",
+                  "type": "text",
+                  "description": "Optional property used to sort results when the schema marks it as sortable.",
+                  "disabled": true
+                },
+                {
+                  "key": "sort_order",
+                  "value": "asc",
+                  "type": "text",
+                  "description": "Optional sort direction: asc or desc.",
+                  "disabled": true
+                },
+                {
+                  "key": "[filter_property]",
+                  "value": "[filter value]",
+                  "type": "text",
+                  "description": "Optional equality filter using a property marked as filterable in the schema.",
+                  "disabled": true
+                },
+                {
+                  "key": "search[*]",
+                  "value": "[search term]",
+                  "type": "text",
+                  "description": "Optional wildcard fulltext search across all searchable fields for resources that support it.",
+                  "disabled": true
+                },
+                {
+                  "key": "match_all",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Optional flag requiring all search terms to match when using fulltext search.",
+                  "disabled": true
+                },
+                {
+                  "key": "location[latitude]",
+                  "value": "52.3676",
+                  "type": "text",
+                  "description": "Optional latitude for resources that support geospatial filtering.",
+                  "disabled": true
+                },
+                {
+                  "key": "location[longitude]",
+                  "value": "4.9041",
+                  "type": "text",
+                  "description": "Optional longitude for resources that support geospatial filtering.",
+                  "disabled": true
+                },
+                {
+                  "key": "location[radius_km]",
+                  "value": "10",
+                  "type": "text",
+                  "description": "Optional maximum radius in kilometres for geospatial filtering.",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Retrieve multiple resources with shared pagination, sorting, and optional filter parameters. Actual filter-property names depend on the resource schema. Use the schema endpoint or per-resource docs to find supported filters, identifier fields, text-search fields, and location-search support.\n\n*   [Resources API overview](https://docs.spaaza.com/api/resources-api/)\n*   [Retrieving multiple resources](https://docs.spaaza.com/api/resources-api/#retrieving-multiple-resources)\n*   [Text search](https://docs.spaaza.com/api/resources-api/#text-search)\n*   [Location search](https://docs.spaaza.com/api/resources-api/#location-search)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "type": "text",
+                "description": "The session user ID returned by the login/session flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "type": "text",
+                "description": "The session key for the authenticated user."
+              },
+              {
+                "key": "X-Spaaza-Chain-ID",
+                "value": "{{chain_id}}",
+                "type": "text",
+                "description": "Required chain context header for Resources API requests."
+              },
+              {
+                "key": "X-Spaaza-Response-Recursion-Level",
+                "value": "3",
+                "type": "text",
+                "description": "Optional response detail depth. Higher values expand nested related resources."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
+          "name": "Singular PATCH by ID",
+          "request": {
+            "method": "PATCH",
+            "url": {
+              "raw": "{{api_url}}/resources/[resource name]/[ID HERE]",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "resources",
+                "[resource name]",
+                "[ID HERE]"
+              ]
+            },
+            "description": "Partially update a single resource by numeric ID. `PATCH` only needs the fields you want to change, but the allowed writable properties depend on the resource schema. Use the schema endpoint or the relevant resource page before editing.\n\n*   [Resources API overview](https://docs.spaaza.com/api/resources-api/)\n*   [Business resource](https://docs.spaaza.com/api/resources-api/business)\n*   [Voucher resource](https://docs.spaaza.com/api/resources-api/voucher)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "description": "JSON request body for Resources API write operations."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "type": "text",
+                "description": "The session user ID returned by the login/session flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "type": "text",
+                "description": "The session key for the authenticated user."
+              },
+              {
+                "key": "X-Spaaza-Chain-ID",
+                "value": "{{chain_id}}",
+                "type": "text",
+                "description": "Required chain context header for Resources API requests."
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"[mutable_property]\": \"[new value]\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Singular PATCH by identifier parameter",
+          "request": {
+            "method": "PATCH",
+            "url": {
+              "raw": "{{api_url}}/resources/[resource name]?[identifier_parameter]=[identifier value]",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "resources",
+                "[resource name]"
+              ],
+              "query": [
+                {
+                  "key": "[identifier_parameter]",
+                  "value": "[identifier value]",
+                  "type": "text",
+                  "description": "Identifier property/value pair for the target resource."
+                }
+              ]
+            },
+            "description": "Partially update a single resource using an alternative identifier instead of the numeric ID. This only works for resources whose schema marks one or more properties as identifiers. Replace the query parameter with a real identifier such as `owner_code` or `key`.\n\n*   [Resources API overview](https://docs.spaaza.com/api/resources-api/)\n*   [Business resource](https://docs.spaaza.com/api/resources-api/business)\n*   [Voucher resource](https://docs.spaaza.com/api/resources-api/voucher)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "description": "JSON request body for Resources API write operations."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "type": "text",
+                "description": "The session user ID returned by the login/session flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "type": "text",
+                "description": "The session key for the authenticated user."
+              },
+              {
+                "key": "X-Spaaza-Chain-ID",
+                "value": "{{chain_id}}",
+                "type": "text",
+                "description": "Required chain context header for Resources API requests."
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"[mutable_property]\": \"[new value]\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Singular POST",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{api_url}}/resources/[resource name]",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "resources",
+                "[resource name]"
+              ]
+            },
+            "description": "Create a new resource. Required body properties vary by resource, so use `GET /resources/schema` or the per-resource docs to determine which fields are required for `POST` and which nested objects are expected.\n\n*   [Resources API overview](https://docs.spaaza.com/api/resources-api/)\n*   [Schema endpoint](https://docs.spaaza.com/api/resources-api/#schema-endpoint)\n*   [Business resource](https://docs.spaaza.com/api/resources-api/business)\n*   [Voucher resource](https://docs.spaaza.com/api/resources-api/voucher)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "description": "JSON request body for Resources API write operations."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "type": "text",
+                "description": "The session user ID returned by the login/session flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "type": "text",
+                "description": "The session key for the authenticated user."
+              },
+              {
+                "key": "X-Spaaza-Chain-ID",
+                "value": "{{chain_id}}",
+                "type": "text",
+                "description": "Required chain context header for Resources API requests."
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"[required_property]\": \"[value]\",\n  \"[optional_property]\": \"[value]\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Singular DELETE",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{api_url}}/resources/[resource name]/[ID HERE]",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "resources",
+                "[resource name]",
+                "[ID HERE]"
+              ]
+            },
+            "description": "Delete a single resource by numeric ID. Some resources also support delete-by-identifier, but this generic example keeps the URL in the ID-based form. Check the resource docs or schema before using delete-by-identifier for a specific resource.\n\n*   [Resources API overview](https://docs.spaaza.com/api/resources-api/)\n*   [Business resource](https://docs.spaaza.com/api/resources-api/business)\n*   [Voucher resource](https://docs.spaaza.com/api/resources-api/voucher)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "type": "text",
+                "description": "The session user ID returned by the login/session flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "type": "text",
+                "description": "The session key for the authenticated user."
+              },
+              {
+                "key": "X-Spaaza-Chain-ID",
+                "value": "{{chain_id}}",
+                "type": "text",
+                "description": "Required chain context header for Resources API requests."
+              }
+            ]
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "name": "Services API",
       "item": [
         {
