@@ -236,6 +236,118 @@
       "response": []
     },
     {
+      "name": "get-businesses",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Spaaza-API-version",
+            "value": "{{api_version}}",
+            "description": "The API version to use for this request."
+          },
+          {
+            "key": "X-Spaaza-Session-User-Id",
+            "value": "{{session_user_id}}",
+            "description": "The session user ID returned by the login flow."
+          },
+          {
+            "key": "X-Spaaza-Session-Key",
+            "value": "{{session_key}}",
+            "description": "The session key for the authenticated user."
+          }
+        ],
+        "url": {
+          "raw": "{{api_url}}/internal/get-businesses?chain_id={{chain_id}}",
+          "host": [
+            "{{api_url}}"
+          ],
+          "path": [
+            "internal",
+            "get-businesses"
+          ],
+          "query": [
+            {
+              "key": "chain_id",
+              "value": "{{chain_id}}",
+              "description": "Required chain context for the businesses to return."
+            },
+            {
+              "key": "exclude_inactive",
+              "value": "true",
+              "description": "Optional flag to exclude businesses marked as inactive.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "limit",
+              "value": "50",
+              "description": "Optional maximum number of results to return.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "match_all",
+              "value": "true",
+              "description": "Optional flag requiring all search terms to match when text search is used.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "name",
+              "value": "Amsterdam",
+              "description": "Optional legacy text-search term for business names.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "offset",
+              "value": "0",
+              "description": "Optional result offset for pagination.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "owner_code",
+              "value": "10001",
+              "description": "Optional legacy text-search term for owner codes.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "radius",
+              "value": "25",
+              "description": "Optional search radius in kilometres when using search_lat and search_long.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "search[*]",
+              "value": "shop",
+              "description": "Optional structured search across all text-search-enabled fields.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "search_lat",
+              "value": "52.3702",
+              "description": "Optional latitude used for location-based business search.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "search_long",
+              "value": "4.8952",
+              "description": "Optional longitude used for location-based business search.",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        },
+        "description": "Retrieve businesses for a chain with optional text and location filters.\n\n*   [Business Concept](https://docs.spaaza.com/api/businesses/)\n*   [Get businesses](https://docs.spaaza.com/api/get-businesses/)"
+      },
+      "response": []
+    },
+    {
       "name": "add-user",
       "event": [
         {
@@ -920,7 +1032,7 @@
       "response": []
     },
     {
-      "name": "add-user-note",
+      "name": "add-note",
       "event": [
         {
           "listen": "prerequest",
@@ -965,7 +1077,12 @@
           "mode": "urlencoded",
           "urlencoded": [
             {
-              "key": "user_id",
+              "key": "model_class",
+              "type": "text",
+              "value": "User"
+            },
+            {
+              "key": "model_id",
               "type": "text",
               "value": "405683453"
             },
@@ -977,21 +1094,21 @@
           ]
         },
         "url": {
-          "raw": "{{api_url}}/internal/add-user-note",
+          "raw": "{{api_url}}/internal/add-note",
           "host": [
             "{{api_url}}"
           ],
           "path": [
             "internal",
-            "add-user-note"
+            "add-note"
           ]
         },
-        "description": "Add a note to a Spaaza end-user using admin authentication. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [User Notes](https://docs.spaaza.com/api/add-user-note/)"
+        "description": "Add a note to a supported entity such as a user or campaign.\n\n*   [Tags & Notes](https://docs.spaaza.com/api/tags-and-notes/)\n*   [Add note](https://docs.spaaza.com/api/add-note/)"
       },
       "response": []
     },
     {
-      "name": "delete-user-note",
+      "name": "delete-note",
       "request": {
         "auth": {
           "type": "noauth"
@@ -1025,23 +1142,35 @@
           "mode": "urlencoded",
           "urlencoded": [
             {
-              "key": "user_note_id",
+              "key": "note_id",
               "type": "text",
               "value": "494534991"
+            },
+            {
+              "key": "model_class",
+              "type": "text",
+              "value": "User",
+              "disabled": true
+            },
+            {
+              "key": "model_id",
+              "type": "text",
+              "value": "405683453",
+              "disabled": true
             }
           ]
         },
         "url": {
-          "raw": "{{api_url}}/internal/delete-user-note",
+          "raw": "{{api_url}}/internal/delete-note",
           "host": [
             "{{api_url}}"
           ],
           "path": [
             "internal",
-            "delete-user-note"
+            "delete-note"
           ]
         },
-        "description": "Delete a note added to a Spaaza end-user. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [User Notes](https://docs.spaaza.com/api/add-user-note/)"
+        "description": "Delete one note by ID, or delete all notes for a supported entity.\n\n*   [Tags & Notes](https://docs.spaaza.com/api/tags-and-notes/)\n*   [Delete note](https://docs.spaaza.com/api/delete-note/)"
       },
       "response": []
     },
@@ -1521,39 +1650,148 @@
           }
         ],
         "url": {
-          "raw": "{{api_url}}/get-user-vouchers?chain_id={{chain_id}}&member_number=3540236",
+          "raw": "{{api_url}}/get-vouchers?chain_id={{chain_id}}",
           "host": [
             "{{api_url}}"
           ],
           "path": [
-            "get-user-vouchers"
+            "get-vouchers"
           ],
           "query": [
             {
               "key": "chain_id",
               "value": "{{chain_id}}",
-              "description": "chain_id parameter used in admin authentication"
+              "description": "Required chain context for the vouchers to return."
+            },
+            {
+              "key": "authentication_point_identifier",
+              "value": "1324989443",
+              "description": "Optional user filter by third-party identity identifier.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "campaign_id",
+              "type": "text",
+              "value": "4021",
+              "description": "Optional filter returning only vouchers for one campaign.",
+              "disabled": true
+            },
+            {
+              "key": "exclude_regenerated",
+              "type": "text",
+              "value": "true",
+              "description": "Optional flag excluding vouchers regenerated from returned items.",
+              "disabled": true
+            },
+            {
+              "key": "max_created_datetime",
+              "type": "text",
+              "value": "2024-12-31T23:59:59+00:00",
+              "description": "Optional latest voucher creation timestamp to include.",
+              "disabled": true
+            },
+            {
+              "key": "max_expiry_datetime",
+              "type": "text",
+              "value": "2025-12-31T23:59:59+00:00",
+              "description": "Optional latest voucher expiry timestamp to include.",
+              "disabled": true
+            },
+            {
+              "key": "max_redeemed_datetime",
+              "type": "text",
+              "value": "2024-12-31T23:59:59+00:00",
+              "description": "Optional latest redemption timestamp to include when show_redeemed is used.",
+              "disabled": true
             },
             {
               "key": "member_number",
               "value": "3540236",
-              "description": "one of the allowed end-user identifiers in admin authentication"
+              "description": "Optional user filter by member number.",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "min_created_datetime",
+              "type": "text",
+              "value": "2024-01-01T00:00:00+00:00",
+              "description": "Optional earliest voucher creation timestamp to include.",
+              "disabled": true
+            },
+            {
+              "key": "min_expiry_datetime",
+              "type": "text",
+              "value": "2024-01-01T00:00:00+00:00",
+              "description": "Optional earliest voucher expiry timestamp to include.",
+              "disabled": true
+            },
+            {
+              "key": "min_redeemed_datetime",
+              "type": "text",
+              "value": "2024-01-01T00:00:00+00:00",
+              "description": "Optional earliest redemption timestamp to include when show_redeemed is used.",
+              "disabled": true
+            },
+            {
+              "key": "number_results",
+              "type": "text",
+              "value": "50",
+              "description": "Optional maximum number of vouchers to return.",
+              "disabled": true
+            },
+            {
+              "key": "results_offset",
+              "type": "text",
+              "value": "0",
+              "description": "Optional starting offset for paginated voucher results.",
+              "disabled": true
+            },
+            {
+              "key": "show_all_statuses",
+              "type": "text",
+              "value": "true",
+              "description": "Optional flag returning generated, claimed, and redeemed vouchers together.",
+              "disabled": true
+            },
+            {
+              "key": "show_expired",
+              "type": "text",
+              "value": "true",
+              "description": "Optional flag including expired vouchers in the results.",
+              "disabled": true
+            },
+            {
+              "key": "show_redeemed",
+              "type": "text",
+              "value": "true",
+              "description": "Optional flag returning redeemed vouchers instead of the default unredeemed set.",
+              "disabled": true
             },
             {
               "key": "user_id",
               "type": "text",
               "value": "234285434",
+              "description": "Optional user filter by Spaaza user ID.",
               "disabled": true
             },
             {
-              "key": "filter",
+              "key": "username",
               "type": "text",
-              "value": "all",
+              "value": "test49800020190228@example.com",
+              "description": "Optional user filter by email address.",
+              "disabled": true
+            },
+            {
+              "key": "voucher_id",
+              "type": "text",
+              "value": "45566623",
+              "description": "Optional filter returning one voucher by voucher ID.",
               "disabled": true
             }
           ]
         },
-        "description": "Get all vouchers for a user. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Get all vouchers for a user](https://docs.spaaza.com/api/get-user-vouchers/)"
+        "description": "Get vouchers for a chain, with optional user, campaign, status, and date filters.\n\n*   [Voucher Concept](https://docs.spaaza.com/api/vouchers/)\n*   [Get vouchers](https://docs.spaaza.com/api/get-vouchers/)"
       },
       "response": []
     },
@@ -1790,7 +2028,7 @@
         "auth": {
           "type": "noauth"
         },
-        "method": "PUT",
+        "method": "POST",
         "header": [
           {
             "key": "X-MyPrice-App-Hostname",
@@ -1820,15 +2058,15 @@
           }
         },
         "url": {
-          "raw": "{{api_url}}/claim-voucher",
+          "raw": "{{api_url}}/claim-vouchers",
           "host": [
             "{{api_url}}"
           ],
           "path": [
-            "claim-voucher"
+            "claim-vouchers"
           ]
         },
-        "description": "Claim a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n- [Voucher Concept](https://docs.spaaza.com/api/vouchers/)\n    \n- [Claiming vouchers](https://docs.spaaza.com/api/claim-voucher/)"
+        "description": "Claim one or multiple vouchers on behalf of a user using the bulk claim endpoint.\n\n*   [Voucher Concept](https://docs.spaaza.com/api/vouchers/)\n*   [Claim vouchers](https://docs.spaaza.com/api/claim-vouchers/)"
       },
       "response": []
     },
