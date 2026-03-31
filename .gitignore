@@ -3,6 +3,9 @@
 *.DS_Store
 .sync
 Icon*
+AGENTS.md
+CLAUDE.md
+agent_knowledge/
 
 ### PhpStorm ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
