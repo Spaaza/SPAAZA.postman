@@ -2244,7 +2244,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"campaign_id\": 300,\n  \"chain_id\": \"{{chain_id}}\",\n  \"user_id\": \"1234567\",\n  \"answers\": [\n    {\n      \"question_key\": \"favourite_department\",\n      \"value\": \"fresh\"\n    },\n    {\n      \"question_key\": \"nps\",\n      \"value\": 9\n    }\n  ]\n}",
+              "raw": "{\n  \"campaign_id\": 300,\n  \"chain_id\": {{chain_id}},\n  \"user_id\": 1234567,\n  \"answers\": [\n    {\n      \"question_key\": \"favourite_department\",\n      \"value\": \"fresh\"\n    },\n    {\n      \"question_key\": \"nps\",\n      \"value\": 9\n    }\n  ]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -4294,7 +4294,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"chain\": \"{{chain_id}}\",\n  \"desc\": \"Wallet ledger export\",\n  \"target\": {\n    \"action\": \"export\",\n    \"export_index\": \"wallet-ledger\",\n    \"export_format\": \"csv\"\n  },\n  \"trigger\": {\n    \"once\": \"2026-12-01T12:00:00Z\"\n  }\n}",
+                  "raw": "{\n  \"chain\": {{chain_id}},\n  \"desc\": \"Wallet ledger export\",\n  \"target\": {\n    \"action\": \"export\",\n    \"export_index\": \"wallet-ledger\",\n    \"export_format\": \"csv\"\n  },\n  \"trigger\": {\n    \"once\": \"2026-12-01T12:00:00Z\"\n  }\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -4312,6 +4312,8 @@
                       "var jsonData = pm.response.json();",
                       "if (jsonData && jsonData.id) {",
                       "    pm.environment.set(\"task_id\", jsonData.id);",
+                      "} else {",
+                      "    pm.environment.unset(\"task_id\");",
                       "}"
                     ]
                   }
@@ -4468,7 +4470,7 @@
                     "{{task_id}}"
                   ]
                 },
-                "description": "Update a task's description, target or trigger.\n\n*   [Update a Task](https://docs.spaaza.com/api/tasks/update-task/)",
+                "description": "Update a task's description, target or trigger. Send the complete target and trigger configuration, including trigger.segment or trigger.user_list if the task uses one.\n\n*   [Update a Task](https://docs.spaaza.com/api/tasks/update-task/)",
                 "header": [
                   {
                     "key": "X-Spaaza-API-version",
@@ -4498,7 +4500,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"desc\": \"Wallet ledger export (updated)\",\n  \"trigger\": {\n    \"once\": \"2026-12-02T12:00:00Z\"\n  }\n}",
+                  "raw": "{\n  \"desc\": \"Wallet ledger export (updated)\",\n  \"target\": {\n    \"action\": \"export\",\n    \"export_index\": \"wallet-ledger\",\n    \"export_format\": \"csv\"\n  },\n  \"trigger\": {\n    \"once\": \"2026-12-02T12:00:00Z\"\n  }\n}",
                   "options": {
                     "raw": {
                       "language": "json"
