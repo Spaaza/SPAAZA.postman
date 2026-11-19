@@ -217,7 +217,7 @@
                 "login"
               ]
             },
-            "description": "Log in as an end-user in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Authentication](https://docs.spaaza.com/api/authentication/)\n*   [Logging users in](https://docs.spaaza.com/api/login/)\n    \n\nNote the \"Tests\" section of this POSTMAN request uses the values in the response to a successful request to populate the \"session_user_id\" and \"session_key\" variables in the POSTMAN environment. These are then used to authenticate calls to other Spaaza API endpoints."
+            "description": "Log in as an end-user in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/api/users/)\n*   [Authentication](https://docs.spaaza.com/api/authentication/)\n*   [Logging users in](https://docs.spaaza.com/api/login/)\n    \n\nNote the \"Tests\" section of this POSTMAN request uses the values in the response to a successful request to populate the \"session_user_id\" and \"session_key\" variables in the POSTMAN environment. These are then used to authenticate calls to other Spaaza API endpoints."
           },
           "response": []
         },
@@ -273,7 +273,7 @@
                 }
               ]
             },
-            "description": "Check whether there is a valid Spaaza session for the supplied user and session key. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Authentication](https://docs.spaaza.com/api/authentication/)\n*   [Logging users in](https://docs.spaaza.com/api/login/)\n*   [Getting user session status](https://docs.spaaza.com/api/get-session-status/)"
+            "description": "Check whether there is a valid Spaaza session for the supplied user and session key. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/api/users/)\n*   [Authentication](https://docs.spaaza.com/api/authentication/)\n*   [Logging users in](https://docs.spaaza.com/api/login/)\n*   [Getting user session status](https://docs.spaaza.com/api/get-session-status/)"
           },
           "response": []
         },
@@ -323,7 +323,7 @@
                 "get-cross-site-token"
               ]
             },
-            "description": "Get a token to do cross site authentication with the given app. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Authentication](https://docs.spaaza.com/api/authentication/)\n*   [Cross site authentication token](https://docs.spaaza.com/api/cross-site-authentication-tokens/)"
+            "description": "Get a token to do cross site authentication with the given app. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/api/users/)\n*   [Authentication](https://docs.spaaza.com/api/authentication/)\n*   [Cross site authentication token](https://docs.spaaza.com/api/cross-site-authentication-tokens/)"
           },
           "response": []
         },
@@ -384,7 +384,7 @@
                 "request-password-reset"
               ]
             },
-            "description": "Request a password reset mail for an account. See the following documentation:\n\n- [User Concept](https://docs.spaaza.com/docs/api/users.html)\n- [Authentication](https://docs.spaaza.com/api/authentication/)"
+            "description": "Request a password reset mail for an account. See the following documentation:\n\n- [User Concept](https://docs.spaaza.com/api/users/)\n- [Authentication](https://docs.spaaza.com/api/authentication/)"
           },
           "response": []
         },
@@ -427,7 +427,7 @@
                 "logout"
               ]
             },
-            "description": "Destroy a logged-in session for a Spaaza API user, effectively logging the user out. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Authentication](https://docs.spaaza.com/api/authentication/)\n*   [Logging users in](https://docs.spaaza.com/api/login/)\n*   [Logging users out](https://docs.spaaza.com/api/logout/)"
+            "description": "Destroy a logged-in session for a Spaaza API user, effectively logging the user out. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/api/users/)\n*   [Authentication](https://docs.spaaza.com/api/authentication/)\n*   [Logging users in](https://docs.spaaza.com/api/login/)\n*   [Logging users out](https://docs.spaaza.com/api/logout/)"
           },
           "response": []
         }
@@ -490,7 +490,7 @@
                 "get-basket-price"
               ]
             },
-            "description": "Call to the Spaaza get-basket-price endpoint to request an adjusted basket (order/transaction). See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/docs/api/baskets.html)\n*   [Get basket adjustments](https://docs.spaaza.com/api/get-basket-price/)"
+            "description": "Call to the Spaaza get-basket-price endpoint to request an adjusted basket (order/transaction). See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/api/baskets/)\n*   [Get basket adjustments](https://docs.spaaza.com/api/get-basket-price/)"
           },
           "response": []
         },
@@ -537,7 +537,7 @@
                 "add-basket"
               ]
             },
-            "description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction) and containing the minimum number of required values for a member transaction. See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/docs/api/baskets.html)\n*   [Adding a completed basket](https://docs.spaaza.com/api/add-basket/)\n    \n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number."
+            "description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction) and containing the minimum number of required values for a member transaction. See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/api/baskets/)\n*   [Adding a completed basket](https://docs.spaaza.com/api/add-basket/)\n    \n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number."
           },
           "response": []
         },
@@ -584,7 +584,7 @@
                 "add-basket"
               ]
             },
-            "description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction), containing some optional parameters and including enough item article information to create a record in the Spaaza database which can be used for analytics purposes. See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/docs/api/baskets.html)\n*   [Adding a completed basket](https://docs.spaaza.com/api/add-basket/)\n*   [Creating products and product variants through baskets](https://docs.spaaza.com/api/creating-products-with-add-basket/)\n    \n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number."
+            "description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction), containing some optional parameters and including enough item article information to create a record in the Spaaza database which can be used for analytics purposes. See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/api/baskets/)\n*   [Adding a completed basket](https://docs.spaaza.com/api/add-basket/)\n*   [Creating products and product variants through baskets](https://docs.spaaza.com/api/creating-products-with-add-basket/)\n    \n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number."
           },
           "response": []
         },
@@ -629,7 +629,7 @@
                 "add-basket"
               ]
             },
-            "description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction), containing some optional parameters and returning a single item from a previous transaction. See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/docs/api/baskets.html)\n*   [Adding a completed basket](https://docs.spaaza.com/api/add-basket/)\n*   [Processing a return inline](https://docs.spaaza.com/api/returns/)\n    \n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number and return item details."
+            "description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction), containing some optional parameters and returning a single item from a previous transaction. See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/api/baskets/)\n*   [Adding a completed basket](https://docs.spaaza.com/api/add-basket/)\n*   [Processing a return inline](https://docs.spaaza.com/api/returns/)\n    \n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number and return item details."
           },
           "response": []
         },
@@ -676,7 +676,7 @@
                 "add-basket"
               ]
             },
-            "description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction), containing some optional parameters and redeeming a basket voucher. See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/docs/api/baskets.html)\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Adding a completed basket](https://docs.spaaza.com/api/add-basket/)\n    \n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number."
+            "description": "Call to the Spaaza add-basket endpoint confirming a basket (order/transaction), containing some optional parameters and redeeming a basket voucher. See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/api/baskets/)\n*   [Voucher Concept](https://docs.spaaza.com/api/vouchers/)\n*   [Adding a completed basket](https://docs.spaaza.com/api/add-basket/)\n    \n\nNote the parameters in the request JSON which should be edited to match the client's own details, such as customer member number."
           },
           "response": []
         },
@@ -780,7 +780,7 @@
                 "claim-basket"
               ]
             },
-            "description": "Claim a basket in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/docs/api/baskets.html)\n*   [Creating vouchers](https://docs.spaaza.com/api/create-voucher/)"
+            "description": "Claim a basket in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/api/baskets/)\n*   [Creating vouchers](https://docs.spaaza.com/api/create-voucher/)"
           },
           "response": []
         }
@@ -1235,7 +1235,7 @@
                 "alter-business"
               ]
             },
-            "description": "In Spaaza terminology, a \u201cbusiness\u201d is a branch of a retailer (a \u201cchain\u201d). This API call updates an existing business. See the following documentation for more details on background and applicable parameters:\n\n*   [Business Concept](https://docs.spaaza.com/docs/api/businesses.html)\n*   [Altering a business](https://docs.spaaza.com/api/alter-business/)"
+            "description": "In Spaaza terminology, a \u201cbusiness\u201d is a branch of a retailer (a \u201cchain\u201d). This API call updates an existing business. See the following documentation for more details on background and applicable parameters:\n\n*   [Business Concept](https://docs.spaaza.com/api/businesses/)\n*   [Altering a business](https://docs.spaaza.com/api/alter-business/)"
           },
           "response": []
         },
@@ -1483,6 +1483,76 @@
                   "description": "One of the permitted user identifiers (admin/privileged auth only)",
                   "type": "text",
                   "disabled": true
+                },
+                {
+                  "key": "campaign_assignments",
+                  "value": "barcode",
+                  "type": "text",
+                  "description": "Optional filter by campaign assignment type, e.g. barcode, business_id or business_format.",
+                  "disabled": true
+                },
+                {
+                  "key": "contributing_to",
+                  "value": "1234",
+                  "type": "text",
+                  "description": "Optional wallet campaign ID; only campaigns contributing to this wallet are returned.",
+                  "disabled": true
+                },
+                {
+                  "key": "focus_business_id",
+                  "value": "123",
+                  "type": "text",
+                  "description": "Optional business ID to focus campaign filtering on.",
+                  "disabled": true
+                },
+                {
+                  "key": "focus_business_owner_code",
+                  "value": "STORE001",
+                  "type": "text",
+                  "description": "Optional business owner code to focus campaign filtering on.",
+                  "disabled": true
+                },
+                {
+                  "key": "group_ids",
+                  "value": "1,2",
+                  "type": "text",
+                  "description": "Optional comma-separated list of campaign group IDs.",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "active",
+                  "type": "text",
+                  "description": "Optional status filter: disabled, scheduled, active or completed. Overrides exclude_inactive.",
+                  "disabled": true
+                },
+                {
+                  "key": "title",
+                  "value": "loyalty",
+                  "type": "text",
+                  "description": "Optional title text search with prefix matching.",
+                  "disabled": true
+                },
+                {
+                  "key": "match_all",
+                  "value": "false",
+                  "type": "text",
+                  "description": "Optional flag requiring all title search terms to match.",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "100",
+                  "type": "text",
+                  "description": "Optional page size (default and maximum 100).",
+                  "disabled": true
+                },
+                {
+                  "key": "offset",
+                  "value": "0",
+                  "type": "text",
+                  "description": "Optional pagination offset.",
+                  "disabled": true
                 }
               ]
             },
@@ -1683,7 +1753,7 @@
                 }
               ]
             },
-            "description": "Interact with a campaign in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Campaigns Concept](https://docs.spaaza.com/docs/api/campaigns.html)\n*   [Campaign Interaction](https://docs.spaaza.com/api/interact-campaign/)"
+            "description": "Interact with a campaign in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Campaigns Concept](https://docs.spaaza.com/api/campaigns/)\n*   [Campaign Interaction](https://docs.spaaza.com/api/interact-campaign/)"
           },
           "response": []
         },
@@ -1760,6 +1830,485 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "alter-campaign",
+          "request": {
+            "method": "PUT",
+            "url": {
+              "raw": "{{api_url}}/internal/alter-campaign",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "alter-campaign"
+              ]
+            },
+            "description": "Update an existing campaign. Accepts the same campaign fields as add-campaign plus the mandatory campaign_id. If the chain restricts campaign enabling, changing `active` or editing an active campaign requires the campaign_enable permission.\n\n*   [Altering a campaign](https://docs.spaaza.com/api/alter-campaign/)\n*   [Adding a campaign](https://docs.spaaza.com/api/add-campaign/)\n*   [Campaign types and fields](https://docs.spaaza.com/api/campaign-types-fields/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "campaign_id",
+                  "value": "1234",
+                  "type": "text",
+                  "description": "Required ID of the campaign to update."
+                },
+                {
+                  "key": "title",
+                  "value": "ACME Loyalty Programme",
+                  "type": "text",
+                  "description": "Optional campaign title."
+                },
+                {
+                  "key": "is_default",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Optional flag for default loyalty, wallet, or points_wallet campaigns.",
+                  "disabled": true
+                },
+                {
+                  "key": "active",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Optional flag to enable or disable the campaign.",
+                  "disabled": true
+                },
+                {
+                  "key": "description",
+                  "value": "Updated campaign description.",
+                  "type": "text",
+                  "description": "Optional campaign description.",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "alter-campaign-group",
+          "request": {
+            "method": "PUT",
+            "url": {
+              "raw": "{{api_url}}/internal/alter-campaign-group",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "alter-campaign-group"
+              ]
+            },
+            "description": "Create or update a campaign group. Send `id` to update an existing group; omit it (and send `name`) to create a new group.\n\n*   [Add or alter campaign groups](https://docs.spaaza.com/api/alter-campaign-group/)\n*   [Get campaign groups](https://docs.spaaza.com/api/get-campaign-groups/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "type": "text",
+                  "description": "Required chain to which the campaign group belongs."
+                },
+                {
+                  "key": "id",
+                  "value": "456",
+                  "type": "text",
+                  "description": "ID of the campaign group to update. Required for updates, omit for creation."
+                },
+                {
+                  "key": "name",
+                  "value": "Summer Campaign Group",
+                  "type": "text",
+                  "description": "Name of the campaign group. Required for creation, max 255 characters."
+                },
+                {
+                  "key": "active_date_from",
+                  "value": "2026-06-01 00:00:00",
+                  "type": "text",
+                  "description": "Optional start date in YYYY-MM-DD HH:MM:SS format.",
+                  "disabled": true
+                },
+                {
+                  "key": "active_date_until",
+                  "value": "2026-08-31 23:59:59",
+                  "type": "text",
+                  "description": "Optional end date in YYYY-MM-DD HH:MM:SS format.",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete-campaign",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{api_url}}/internal/delete-campaign",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "delete-campaign"
+              ]
+            },
+            "description": "Delete a campaign.\n\n*   [Deleting a campaign](https://docs.spaaza.com/api/delete-campaign/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "campaign_id",
+                  "value": "1234",
+                  "type": "text",
+                  "description": "Required ID of the campaign to delete."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete-campaign-group",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{api_url}}/internal/delete-campaign-group",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "delete-campaign-group"
+              ]
+            },
+            "description": "Delete a campaign group.\n\n*   [Delete campaign group](https://docs.spaaza.com/api/delete-campaign-group/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "id",
+                  "value": "456",
+                  "type": "text",
+                  "description": "Required ID of the campaign group to delete."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get-campaign-barcode-conflicts",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{api_url}}/internal/get-campaign-barcode-conflicts?chain_id={{chain_id}}&barcodes=6001069601744,8711000535806",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "get-campaign-barcode-conflicts"
+              ],
+              "query": [
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "type": "text",
+                  "description": "Required chain whose campaigns are checked."
+                },
+                {
+                  "key": "barcodes",
+                  "value": "6001069601744,8711000535806",
+                  "type": "text",
+                  "description": "Required comma-separated list of barcodes to check."
+                },
+                {
+                  "key": "active_date_from",
+                  "value": "2026-01-01T00:00:00%2B00:00",
+                  "type": "text",
+                  "description": "Optional start of the reference date window.",
+                  "disabled": true
+                },
+                {
+                  "key": "active_date_until",
+                  "value": "2026-12-31T23:59:59%2B00:00",
+                  "type": "text",
+                  "description": "Optional end of the reference date window.",
+                  "disabled": true
+                },
+                {
+                  "key": "exclude_campaign_id",
+                  "value": "1234",
+                  "type": "text",
+                  "description": "Optional campaign ID to exclude, e.g. the campaign being edited.",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Check whether one or more barcodes are already assigned to other campaigns whose active date windows overlap a reference window.\n\n*   [Get campaign barcode conflicts](https://docs.spaaza.com/api/get-campaign-barcode-conflicts/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
+          "name": "survey",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{api_url}}/survey?campaign_id=300&user_id=1234567",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "survey"
+              ],
+              "query": [
+                {
+                  "key": "campaign_id",
+                  "value": "300",
+                  "type": "text",
+                  "description": "Required ID of the survey campaign."
+                },
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "type": "text",
+                  "description": "Optional chain ID; defaults to the chain of the campaign.",
+                  "disabled": true
+                },
+                {
+                  "key": "user_id",
+                  "value": "1234567",
+                  "type": "text",
+                  "description": "The Spaaza user ID of the shopper. Alternatively send member_number or authentication_point_identifier. Not needed with user authentication."
+                },
+                {
+                  "key": "member_number",
+                  "value": "1234567890",
+                  "type": "text",
+                  "description": "Alternative shopper identifier (user code).",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Retrieve the active survey definition of a survey campaign and whether the shopper has already completed it. Available from API version 1.6.8.\n\n*   [Get survey](https://docs.spaaza.com/api/survey/)\n*   [Submit survey](https://docs.spaaza.com/api/submit-survey/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
+          "name": "submit-survey",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{api_url}}/submit-survey",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "submit-survey"
+              ]
+            },
+            "description": "Submit a shopper's answers to a survey campaign. Each answer references a question `key` from the survey definition. Available from API version 1.6.8.\n\n*   [Submit survey](https://docs.spaaza.com/api/submit-survey/)\n*   [Get survey](https://docs.spaaza.com/api/survey/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"campaign_id\": 300,\n  \"chain_id\": \"{{chain_id}}\",\n  \"user_id\": \"1234567\",\n  \"answers\": [\n    {\n      \"question_key\": \"favourite_department\",\n      \"value\": \"fresh\"\n    },\n    {\n      \"question_key\": \"nps\",\n      \"value\": 9\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get-survey-responses",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{api_url}}/internal/get-survey-responses?campaign_id=300&limit=50&offset=0",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "get-survey-responses"
+              ],
+              "query": [
+                {
+                  "key": "campaign_id",
+                  "value": "300",
+                  "type": "text",
+                  "description": "Required ID of the survey campaign."
+                },
+                {
+                  "key": "limit",
+                  "value": "50",
+                  "type": "text",
+                  "description": "Optional page size between 1 and 100 (default 50)."
+                },
+                {
+                  "key": "offset",
+                  "value": "0",
+                  "type": "text",
+                  "description": "Optional number of responses to skip (default 0)."
+                }
+              ]
+            },
+            "description": "Retrieve a page of completed survey responses for a survey campaign, newest first. Available from API version 1.6.8.\n\n*   [Get survey responses](https://docs.spaaza.com/api/get-survey-responses/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ]
+          },
+          "response": []
         }
       ]
     },
@@ -1813,6 +2362,116 @@
                 "description": "The session key for the authenticated user."
               }
             ]
+          },
+          "response": []
+        },
+        {
+          "name": "alter-chain",
+          "request": {
+            "method": "PUT",
+            "url": {
+              "raw": "{{api_url}}/internal/alter-chain",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "alter-chain"
+              ]
+            },
+            "description": "Update chain-level settings. Only the parameters sent are changed. Image uploads (chain_image, receipt_image) require a multipart POST request instead of PUT.\n\n*   [Altering a chain](https://docs.spaaza.com/api/alter-chain/)\n*   [Getting a chain](https://docs.spaaza.com/api/get-chain/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "type": "text",
+                  "description": "Required ID of the chain to update."
+                },
+                {
+                  "key": "email_address",
+                  "value": "info@example.com",
+                  "type": "text",
+                  "description": "Optional email address of the chain.",
+                  "disabled": true
+                },
+                {
+                  "key": "phone_number",
+                  "value": "+31201234567",
+                  "type": "text",
+                  "description": "Optional phone number of the chain.",
+                  "disabled": true
+                },
+                {
+                  "key": "language",
+                  "value": "en",
+                  "type": "text",
+                  "description": "Optional language of the chain.",
+                  "disabled": true
+                },
+                {
+                  "key": "redemption_grace_period",
+                  "value": "24",
+                  "type": "text",
+                  "description": "Optional grace period in hours for redeeming vouchers after a campaign ends.",
+                  "disabled": true
+                },
+                {
+                  "key": "allows_double_discounting",
+                  "value": "false",
+                  "type": "text",
+                  "description": "Optional flag controlling whether percentage discounts can be combined.",
+                  "disabled": true
+                },
+                {
+                  "key": "verify_phone_numbers",
+                  "value": "false",
+                  "type": "text",
+                  "description": "Optional flag requiring phone number verification for users.",
+                  "disabled": true
+                },
+                {
+                  "key": "email_verification_method",
+                  "value": "off",
+                  "type": "text",
+                  "description": "Optional email verification method, e.g. off.",
+                  "disabled": true
+                },
+                {
+                  "key": "require_unique_phone_number",
+                  "value": "false",
+                  "type": "text",
+                  "description": "Optional flag requiring a unique phone number per user account.",
+                  "disabled": true
+                },
+                {
+                  "key": "restrict_campaign_enable",
+                  "value": "false",
+                  "type": "text",
+                  "description": "Optional flag requiring the campaign_enable permission to enable/disable campaigns.",
+                  "disabled": true
+                }
+              ]
+            }
           },
           "response": []
         }
@@ -2268,6 +2927,27 @@
                   "type": "text",
                   "description": "Optional product web page URL.",
                   "disabled": true
+                },
+                {
+                  "key": "manufacturer",
+                  "value": "ACME Manufacturing",
+                  "type": "text",
+                  "description": "Optional name of the product manufacturer (max 64 characters).",
+                  "disabled": true
+                },
+                {
+                  "key": "private_label",
+                  "value": "false",
+                  "type": "text",
+                  "description": "Optional flag marking the product as part of the chain's private-label collection.",
+                  "disabled": true
+                },
+                {
+                  "key": "listing_source",
+                  "value": "head office",
+                  "type": "text",
+                  "description": "Optional freeform source that listed the product (max 64 characters).",
+                  "disabled": true
                 }
               ]
             }
@@ -2566,7 +3246,7 @@
                 "schema"
               ]
             },
-            "description": "Retrieve the OpenAPI schema for all Resources API endpoints. Use this first when you need to discover supported resources, identifier properties, filterable fields, sortable fields, and request-body shapes.\n\n*   [Resources API overview](https://docs.spaaza.com/api/resources-api/)\n*   [Schema endpoint](https://docs.spaaza.com/api/resources-api/#schema-endpoint)",
+            "description": "Retrieve the OpenAPI schema for all Resources API endpoints. Use this first when you need to discover supported resources, identifier properties, filterable fields, sortable fields, and request-body shapes.\n\n*   [Resources API overview](https://docs.spaaza.com/resources-api/)\n*   [Schema endpoint](https://docs.spaaza.com/resources-api/#schema-endpoint)",
             "header": [
               {
                 "key": "X-Spaaza-API-version",
@@ -2640,7 +3320,7 @@
                 }
               ]
             },
-            "description": "Retrieve change-log entries for a single resource object. This is currently documented for campaigns only, so use a campaign ID here unless public docs add change-log support for other resources later.\n\n*   [Resources API overview](https://docs.spaaza.com/api/resources-api/)\n*   [Change logs](https://docs.spaaza.com/api/resources-api/#change-logs)\n*   [Campaign resource](https://docs.spaaza.com/api/resources-api/campaign)",
+            "description": "Retrieve change-log entries for a single resource object. This is currently documented for campaigns only, so use a campaign ID here unless public docs add change-log support for other resources later.\n\n*   [Resources API overview](https://docs.spaaza.com/resources-api/)\n*   [Change logs](https://docs.spaaza.com/resources-api/#change-logs)\n*   [Campaign resource](https://docs.spaaza.com/resources-api/resources/campaign)",
             "header": [
               {
                 "key": "X-Spaaza-API-version",
@@ -2691,7 +3371,7 @@
                 "[ID HERE]"
               ]
             },
-            "description": "Retrieve a single resource by its numeric Spaaza ID. Replace `[resource name]` with a supported singular resource such as `business` or `voucher`.\n\n*   [Resources API overview](https://docs.spaaza.com/api/resources-api/)\n*   [Business resource](https://docs.spaaza.com/api/resources-api/business)\n*   [Voucher resource](https://docs.spaaza.com/api/resources-api/voucher)",
+            "description": "Retrieve a single resource by its numeric Spaaza ID. Replace `[resource name]` with a supported singular resource such as `business` or `voucher`.\n\n*   [Resources API overview](https://docs.spaaza.com/resources-api/)\n*   [Business resource](https://docs.spaaza.com/resources-api/resources/business)\n*   [Voucher resource](https://docs.spaaza.com/resources-api/resources/voucher)",
             "header": [
               {
                 "key": "X-Spaaza-API-version",
@@ -2749,7 +3429,7 @@
                 }
               ]
             },
-            "description": "Retrieve a single resource using a non-ID identifier property. The actual identifier parameter depends on the resource schema, for example `owner_code` for businesses or `key` for vouchers. Use `GET /resources/schema` or the per-resource docs to confirm which properties are marked as identifiers.\n\n*   [Resources API overview](https://docs.spaaza.com/api/resources-api/)\n*   [Business resource](https://docs.spaaza.com/api/resources-api/business)\n*   [Voucher resource](https://docs.spaaza.com/api/resources-api/voucher)",
+            "description": "Retrieve a single resource using a non-ID identifier property. The actual identifier parameter depends on the resource schema, for example `owner_code` for businesses or `key` for vouchers. Use `GET /resources/schema` or the per-resource docs to confirm which properties are marked as identifiers.\n\n*   [Resources API overview](https://docs.spaaza.com/resources-api/)\n*   [Business resource](https://docs.spaaza.com/resources-api/resources/business)\n*   [Voucher resource](https://docs.spaaza.com/resources-api/resources/voucher)",
             "header": [
               {
                 "key": "X-Spaaza-API-version",
@@ -2869,7 +3549,7 @@
                 }
               ]
             },
-            "description": "Retrieve multiple resources with shared pagination, sorting, and optional filter parameters. Actual filter-property names depend on the resource schema. Use the schema endpoint or per-resource docs to find supported filters, identifier fields, text-search fields, and location-search support.\n\n*   [Resources API overview](https://docs.spaaza.com/api/resources-api/)\n*   [Retrieving multiple resources](https://docs.spaaza.com/api/resources-api/#retrieving-multiple-resources)\n*   [Text search](https://docs.spaaza.com/api/resources-api/#text-search)\n*   [Location search](https://docs.spaaza.com/api/resources-api/#location-search)",
+            "description": "Retrieve multiple resources with shared pagination, sorting, and optional filter parameters. Actual filter-property names depend on the resource schema. Use the schema endpoint or per-resource docs to find supported filters, identifier fields, text-search fields, and location-search support.\n\n*   [Resources API overview](https://docs.spaaza.com/resources-api/)\n*   [Retrieving multiple resources](https://docs.spaaza.com/resources-api/#retrieving-multiple-resources)\n*   [Text search](https://docs.spaaza.com/resources-api/#text-search)\n*   [Location search](https://docs.spaaza.com/resources-api/#location-search)",
             "header": [
               {
                 "key": "X-Spaaza-API-version",
@@ -2920,7 +3600,7 @@
                 "[ID HERE]"
               ]
             },
-            "description": "Partially update a single resource by numeric ID. `PATCH` only needs the fields you want to change, but the allowed writable properties depend on the resource schema. Use the schema endpoint or the relevant resource page before editing.\n\n*   [Resources API overview](https://docs.spaaza.com/api/resources-api/)\n*   [Business resource](https://docs.spaaza.com/api/resources-api/business)\n*   [Voucher resource](https://docs.spaaza.com/api/resources-api/voucher)",
+            "description": "Partially update a single resource by numeric ID. `PATCH` only needs the fields you want to change, but the allowed writable properties depend on the resource schema. Use the schema endpoint or the relevant resource page before editing.\n\n*   [Resources API overview](https://docs.spaaza.com/resources-api/)\n*   [Business resource](https://docs.spaaza.com/resources-api/resources/business)\n*   [Voucher resource](https://docs.spaaza.com/resources-api/resources/voucher)",
             "header": [
               {
                 "key": "X-Spaaza-API-version",
@@ -2987,7 +3667,7 @@
                 }
               ]
             },
-            "description": "Partially update a single resource using an alternative identifier instead of the numeric ID. This only works for resources whose schema marks one or more properties as identifiers. Replace the query parameter with a real identifier such as `owner_code` or `key`.\n\n*   [Resources API overview](https://docs.spaaza.com/api/resources-api/)\n*   [Business resource](https://docs.spaaza.com/api/resources-api/business)\n*   [Voucher resource](https://docs.spaaza.com/api/resources-api/voucher)",
+            "description": "Partially update a single resource using an alternative identifier instead of the numeric ID. This only works for resources whose schema marks one or more properties as identifiers. Replace the query parameter with a real identifier such as `owner_code` or `key`.\n\n*   [Resources API overview](https://docs.spaaza.com/resources-api/)\n*   [Business resource](https://docs.spaaza.com/resources-api/resources/business)\n*   [Voucher resource](https://docs.spaaza.com/resources-api/resources/voucher)",
             "header": [
               {
                 "key": "X-Spaaza-API-version",
@@ -3046,7 +3726,7 @@
                 "[resource name]"
               ]
             },
-            "description": "Create a new resource. Required body properties vary by resource, so use `GET /resources/schema` or the per-resource docs to determine which fields are required for `POST` and which nested objects are expected.\n\n*   [Resources API overview](https://docs.spaaza.com/api/resources-api/)\n*   [Schema endpoint](https://docs.spaaza.com/api/resources-api/#schema-endpoint)\n*   [Business resource](https://docs.spaaza.com/api/resources-api/business)\n*   [Voucher resource](https://docs.spaaza.com/api/resources-api/voucher)",
+            "description": "Create a new resource. Required body properties vary by resource, so use `GET /resources/schema` or the per-resource docs to determine which fields are required for `POST` and which nested objects are expected.\n\n*   [Resources API overview](https://docs.spaaza.com/resources-api/)\n*   [Schema endpoint](https://docs.spaaza.com/resources-api/#schema-endpoint)\n*   [Business resource](https://docs.spaaza.com/resources-api/resources/business)\n*   [Voucher resource](https://docs.spaaza.com/resources-api/resources/voucher)",
             "header": [
               {
                 "key": "X-Spaaza-API-version",
@@ -3106,7 +3786,7 @@
                 "[ID HERE]"
               ]
             },
-            "description": "Delete a single resource by numeric ID. Some resources also support delete-by-identifier, but this generic example keeps the URL in the ID-based form. Check the resource docs or schema before using delete-by-identifier for a specific resource.\n\n*   [Resources API overview](https://docs.spaaza.com/api/resources-api/)\n*   [Business resource](https://docs.spaaza.com/api/resources-api/business)\n*   [Voucher resource](https://docs.spaaza.com/api/resources-api/voucher)",
+            "description": "Delete a single resource by numeric ID. Some resources also support delete-by-identifier, but this generic example keeps the URL in the ID-based form. Check the resource docs or schema before using delete-by-identifier for a specific resource.\n\n*   [Resources API overview](https://docs.spaaza.com/resources-api/)\n*   [Business resource](https://docs.spaaza.com/resources-api/resources/business)\n*   [Voucher resource](https://docs.spaaza.com/resources-api/resources/voucher)",
             "header": [
               {
                 "key": "X-Spaaza-API-version",
@@ -3152,7 +3832,7 @@
               },
               {
                 "key": "Origin",
-                "value": "https://console-test01.spaaza.com"
+                "value": "{{console_origin}}"
               },
               {
                 "key": "X-Spaaza-Session-User-Id",
@@ -3263,6 +3943,700 @@
             "description": "Export users for a chain via the Services API. The response is a streamed CSV export.\n\n*   [Users](https://docs.spaaza.com/api/users/)\n*   [Export users](https://docs.spaaza.com/api/export/)\n\nThe current documented request body is a simple JSON payload that exports all users for a chain."
           },
           "response": []
+        },
+        {
+          "name": "search products (services API)",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{services_url_protocol}}://{{services_url_domain}}/search/products",
+              "protocol": "{{services_url_protocol}}",
+              "host": [
+                "{{services_url_domain}}"
+              ],
+              "path": [
+                "search",
+                "products"
+              ]
+            },
+            "description": "Search a chain's products by name, description, owner code, brand, category and other fields.\n\n*   [Search Products](https://docs.spaaza.com/api/search-products/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              },
+              {
+                "key": "X-Spaaza-Session-Chain-Id",
+                "value": "{{chain_id}}",
+                "description": "The ID of the chain the request applies to."
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "type": "text",
+                  "description": "Required chain ID."
+                },
+                {
+                  "key": "query",
+                  "value": "Merino Jumper",
+                  "type": "text",
+                  "description": "Required search term(s)."
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "type": "text",
+                  "description": "Required page number, starting from 1."
+                },
+                {
+                  "key": "count",
+                  "value": "25",
+                  "type": "text",
+                  "description": "Optional number of results per page (default 10)."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "search product variants (services API)",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{services_url_protocol}}://{{services_url_domain}}/search/product-variants",
+              "protocol": "{{services_url_protocol}}",
+              "host": [
+                "{{services_url_domain}}"
+              ],
+              "path": [
+                "search",
+                "product-variants"
+              ]
+            },
+            "description": "Search a chain's product variants by name and barcode.\n\n*   [Search Product Variants](https://docs.spaaza.com/api/search-product-variants/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              },
+              {
+                "key": "X-Spaaza-Session-Chain-Id",
+                "value": "{{chain_id}}",
+                "description": "The ID of the chain the request applies to."
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "type": "text",
+                  "description": "Required chain ID."
+                },
+                {
+                  "key": "query",
+                  "value": "8711000535806",
+                  "type": "text",
+                  "description": "Required search term(s), matched against variant name and barcodes."
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "type": "text",
+                  "description": "Required page number, starting from 1."
+                },
+                {
+                  "key": "count",
+                  "value": "25",
+                  "type": "text",
+                  "description": "Optional number of results per page (default 10)."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get receipts (services API)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{services_url_protocol}}://{{services_url_domain}}/receipts?shopper_id=1234567",
+              "protocol": "{{services_url_protocol}}",
+              "host": [
+                "{{services_url_domain}}"
+              ],
+              "path": [
+                "receipts"
+              ],
+              "query": [
+                {
+                  "key": "shopper_id",
+                  "value": "1234567",
+                  "type": "text",
+                  "description": "Required Spaaza user ID of the shopper."
+                }
+              ]
+            },
+            "description": "Retrieve all receipts for a shopper.\n\n*   [Get individual receipt or all receipts for a customer](https://docs.spaaza.com/api/receipts/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              },
+              {
+                "key": "X-Spaaza-Session-Chain-Id",
+                "value": "{{chain_id}}",
+                "description": "The ID of the chain the request applies to."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
+          "name": "get receipt (services API)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{services_url_protocol}}://{{services_url_domain}}/receipts/12345678",
+              "protocol": "{{services_url_protocol}}",
+              "host": [
+                "{{services_url_domain}}"
+              ],
+              "path": [
+                "receipts",
+                "12345678"
+              ]
+            },
+            "description": "Retrieve a single receipt by ID.\n\n*   [Get individual receipt or all receipts for a customer](https://docs.spaaza.com/api/receipts/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              },
+              {
+                "key": "X-Spaaza-Session-Chain-Id",
+                "value": "{{chain_id}}",
+                "description": "The ID of the chain the request applies to."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
+          "name": "store blob (services API)",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{services_url_protocol}}://{{services_url_domain}}/blobs/store?chain_id={{chain_id}}&name=scheduled-rewards.csv&public=false",
+              "protocol": "{{services_url_protocol}}",
+              "host": [
+                "{{services_url_domain}}"
+              ],
+              "path": [
+                "blobs",
+                "store"
+              ],
+              "query": [
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "type": "text",
+                  "description": "Required chain ID."
+                },
+                {
+                  "key": "name",
+                  "value": "scheduled-rewards.csv",
+                  "type": "text",
+                  "description": "Required file name."
+                },
+                {
+                  "key": "public",
+                  "value": "false",
+                  "type": "text",
+                  "description": "Whether the stored object is public. Use false for customer files."
+                }
+              ]
+            },
+            "description": "Request a presigned upload URL for a file, for example the customer CSV used when scheduling campaign rewards. Upload the file with a PUT to the returned upload.url, sending every header in upload.headers.\n\n*   [Schedule campaign rewards](https://docs.spaaza.com/api/schedule-campaign-rewards/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              },
+              {
+                "key": "X-Spaaza-Session-Chain-Id",
+                "value": "{{chain_id}}",
+                "description": "The ID of the chain the request applies to."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
+          "name": "Tasks",
+          "item": [
+            {
+              "name": "create task",
+              "request": {
+                "method": "POST",
+                "url": {
+                  "raw": "{{services_url_protocol}}://{{services_url_domain}}/tasks",
+                  "protocol": "{{services_url_protocol}}",
+                  "host": [
+                    "{{services_url_domain}}"
+                  ],
+                  "path": [
+                    "tasks"
+                  ]
+                },
+                "description": "Create a task. Only the export action is publicly supported. The new task ID is saved to the task_id environment variable. Add trigger.segment or trigger.user_list to limit the export to a set of customers.\n\n*   [Create a Task](https://docs.spaaza.com/api/tasks/create-task/)\n*   [Tasks](https://docs.spaaza.com/api/tasks/index/)",
+                "header": [
+                  {
+                    "key": "X-Spaaza-API-version",
+                    "value": "{{api_version}}",
+                    "type": "text",
+                    "description": "The API version to use for this request."
+                  },
+                  {
+                    "key": "X-Spaaza-Session-User-Id",
+                    "value": "{{session_user_id}}",
+                    "description": "The session user ID returned by the login flow."
+                  },
+                  {
+                    "key": "X-Spaaza-Session-Key",
+                    "value": "{{session_key}}",
+                    "description": "The session key for the authenticated user."
+                  },
+                  {
+                    "key": "X-Spaaza-Session-Chain-Id",
+                    "value": "{{chain_id}}",
+                    "description": "The ID of the chain the request applies to."
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chain\": \"{{chain_id}}\",\n  \"desc\": \"Wallet ledger export\",\n  \"target\": {\n    \"action\": \"export\",\n    \"export_index\": \"wallet-ledger\",\n    \"export_format\": \"csv\"\n  },\n  \"trigger\": {\n    \"once\": \"2026-12-01T12:00:00Z\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": [],
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = pm.response.json();",
+                      "if (jsonData && jsonData.id) {",
+                      "    pm.environment.set(\"task_id\", jsonData.id);",
+                      "}"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "list tasks",
+              "request": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{services_url_protocol}}://{{services_url_domain}}/tasks?action=export",
+                  "protocol": "{{services_url_protocol}}",
+                  "host": [
+                    "{{services_url_domain}}"
+                  ],
+                  "path": [
+                    "tasks"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "DONE",
+                      "type": "text",
+                      "description": "Optional task state filter, READY, INPROGRESS, DONE or ERROR.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "action",
+                      "value": "export",
+                      "type": "text",
+                      "description": "Optional action filter."
+                    },
+                    {
+                      "key": "campaign_id",
+                      "value": "1234",
+                      "type": "text",
+                      "description": "Optional campaign filter.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25",
+                      "type": "text",
+                      "description": "Optional maximum number of tasks.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0",
+                      "type": "text",
+                      "description": "Optional pagination offset.",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "description": "List the tasks of the chain, optionally filtered by status, action or campaign.\n\n*   [List Tasks](https://docs.spaaza.com/api/tasks/list-tasks/)",
+                "header": [
+                  {
+                    "key": "X-Spaaza-API-version",
+                    "value": "{{api_version}}",
+                    "type": "text",
+                    "description": "The API version to use for this request."
+                  },
+                  {
+                    "key": "X-Spaaza-Session-User-Id",
+                    "value": "{{session_user_id}}",
+                    "description": "The session user ID returned by the login flow."
+                  },
+                  {
+                    "key": "X-Spaaza-Session-Key",
+                    "value": "{{session_key}}",
+                    "description": "The session key for the authenticated user."
+                  },
+                  {
+                    "key": "X-Spaaza-Session-Chain-Id",
+                    "value": "{{chain_id}}",
+                    "description": "The ID of the chain the request applies to."
+                  }
+                ]
+              },
+              "response": []
+            },
+            {
+              "name": "get task",
+              "request": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{services_url_protocol}}://{{services_url_domain}}/tasks/{{task_id}}",
+                  "protocol": "{{services_url_protocol}}",
+                  "host": [
+                    "{{services_url_domain}}"
+                  ],
+                  "path": [
+                    "tasks",
+                    "{{task_id}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "log_limit",
+                      "value": "10",
+                      "type": "text",
+                      "description": "Optional maximum number of log entries.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0",
+                      "type": "text",
+                      "description": "Optional offset for log entries.",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "description": "Retrieve a task including its state and recent log entries.\n\n*   [Get a Task](https://docs.spaaza.com/api/tasks/get-task/)",
+                "header": [
+                  {
+                    "key": "X-Spaaza-API-version",
+                    "value": "{{api_version}}",
+                    "type": "text",
+                    "description": "The API version to use for this request."
+                  },
+                  {
+                    "key": "X-Spaaza-Session-User-Id",
+                    "value": "{{session_user_id}}",
+                    "description": "The session user ID returned by the login flow."
+                  },
+                  {
+                    "key": "X-Spaaza-Session-Key",
+                    "value": "{{session_key}}",
+                    "description": "The session key for the authenticated user."
+                  },
+                  {
+                    "key": "X-Spaaza-Session-Chain-Id",
+                    "value": "{{chain_id}}",
+                    "description": "The ID of the chain the request applies to."
+                  }
+                ]
+              },
+              "response": []
+            },
+            {
+              "name": "update task",
+              "request": {
+                "method": "PUT",
+                "url": {
+                  "raw": "{{services_url_protocol}}://{{services_url_domain}}/tasks/{{task_id}}",
+                  "protocol": "{{services_url_protocol}}",
+                  "host": [
+                    "{{services_url_domain}}"
+                  ],
+                  "path": [
+                    "tasks",
+                    "{{task_id}}"
+                  ]
+                },
+                "description": "Update a task's description, target or trigger.\n\n*   [Update a Task](https://docs.spaaza.com/api/tasks/update-task/)",
+                "header": [
+                  {
+                    "key": "X-Spaaza-API-version",
+                    "value": "{{api_version}}",
+                    "type": "text",
+                    "description": "The API version to use for this request."
+                  },
+                  {
+                    "key": "X-Spaaza-Session-User-Id",
+                    "value": "{{session_user_id}}",
+                    "description": "The session user ID returned by the login flow."
+                  },
+                  {
+                    "key": "X-Spaaza-Session-Key",
+                    "value": "{{session_key}}",
+                    "description": "The session key for the authenticated user."
+                  },
+                  {
+                    "key": "X-Spaaza-Session-Chain-Id",
+                    "value": "{{chain_id}}",
+                    "description": "The ID of the chain the request applies to."
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"desc\": \"Wallet ledger export (updated)\",\n  \"trigger\": {\n    \"once\": \"2026-12-02T12:00:00Z\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "execute task",
+              "request": {
+                "method": "POST",
+                "url": {
+                  "raw": "{{services_url_protocol}}://{{services_url_domain}}/tasks/{{task_id}}/execute",
+                  "protocol": "{{services_url_protocol}}",
+                  "host": [
+                    "{{services_url_domain}}"
+                  ],
+                  "path": [
+                    "tasks",
+                    "{{task_id}}",
+                    "execute"
+                  ]
+                },
+                "description": "Run a task immediately.\n\n*   [Execute a Task](https://docs.spaaza.com/api/tasks/execute-task/)",
+                "header": [
+                  {
+                    "key": "X-Spaaza-API-version",
+                    "value": "{{api_version}}",
+                    "type": "text",
+                    "description": "The API version to use for this request."
+                  },
+                  {
+                    "key": "X-Spaaza-Session-User-Id",
+                    "value": "{{session_user_id}}",
+                    "description": "The session user ID returned by the login flow."
+                  },
+                  {
+                    "key": "X-Spaaza-Session-Key",
+                    "value": "{{session_key}}",
+                    "description": "The session key for the authenticated user."
+                  },
+                  {
+                    "key": "X-Spaaza-Session-Chain-Id",
+                    "value": "{{chain_id}}",
+                    "description": "The ID of the chain the request applies to."
+                  }
+                ]
+              },
+              "response": []
+            },
+            {
+              "name": "get task download URL",
+              "request": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{services_url_protocol}}://{{services_url_domain}}/tasks/{{task_id}}/download_url",
+                  "protocol": "{{services_url_protocol}}",
+                  "host": [
+                    "{{services_url_domain}}"
+                  ],
+                  "path": [
+                    "tasks",
+                    "{{task_id}}",
+                    "download_url"
+                  ]
+                },
+                "description": "Get a temporary download URL for the result file of a completed (DONE) export task.\n\n*   [Get Download URL](https://docs.spaaza.com/api/tasks/get-download-url/)",
+                "header": [
+                  {
+                    "key": "X-Spaaza-API-version",
+                    "value": "{{api_version}}",
+                    "type": "text",
+                    "description": "The API version to use for this request."
+                  },
+                  {
+                    "key": "X-Spaaza-Session-User-Id",
+                    "value": "{{session_user_id}}",
+                    "description": "The session user ID returned by the login flow."
+                  },
+                  {
+                    "key": "X-Spaaza-Session-Key",
+                    "value": "{{session_key}}",
+                    "description": "The session key for the authenticated user."
+                  },
+                  {
+                    "key": "X-Spaaza-Session-Chain-Id",
+                    "value": "{{chain_id}}",
+                    "description": "The ID of the chain the request applies to."
+                  }
+                ]
+              },
+              "response": []
+            },
+            {
+              "name": "delete task",
+              "request": {
+                "method": "DELETE",
+                "url": {
+                  "raw": "{{services_url_protocol}}://{{services_url_domain}}/tasks/{{task_id}}",
+                  "protocol": "{{services_url_protocol}}",
+                  "host": [
+                    "{{services_url_domain}}"
+                  ],
+                  "path": [
+                    "tasks",
+                    "{{task_id}}"
+                  ]
+                },
+                "description": "Delete a task.\n\n*   [Delete a Task](https://docs.spaaza.com/api/tasks/delete-task/)",
+                "header": [
+                  {
+                    "key": "X-Spaaza-API-version",
+                    "value": "{{api_version}}",
+                    "type": "text",
+                    "description": "The API version to use for this request."
+                  },
+                  {
+                    "key": "X-Spaaza-Session-User-Id",
+                    "value": "{{session_user_id}}",
+                    "description": "The session user ID returned by the login flow."
+                  },
+                  {
+                    "key": "X-Spaaza-Session-Key",
+                    "value": "{{session_key}}",
+                    "description": "The session key for the authenticated user."
+                  },
+                  {
+                    "key": "X-Spaaza-Session-Chain-Id",
+                    "value": "{{chain_id}}",
+                    "description": "The ID of the chain the request applies to."
+                  }
+                ]
+              },
+              "response": []
+            }
+          ]
         }
       ]
     },
@@ -3611,10 +4985,17 @@
                   "value": "1324989443",
                   "type": "text",
                   "disabled": true
+                },
+                {
+                  "key": "check_segments",
+                  "value": "false",
+                  "type": "text",
+                  "description": "Optional; set to false to skip the segment membership check and return all applicable campaigns.",
+                  "disabled": true
                 }
               ]
             },
-            "description": "Get the card for an individual end-user including all information about promotions, wallets, points and vouchers. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Getting the \"card\" of a user](https://docs.spaaza.com/api/get-card/)"
+            "description": "Get the card for an individual end-user including all information about promotions, wallets, points and vouchers. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/api/users/)\n*   [Getting the \"card\" of a user](https://docs.spaaza.com/api/get-card/)"
           },
           "response": []
         },
@@ -3774,7 +5155,7 @@
                 }
               ]
             },
-            "description": "Get the number of referrals by a referring user as well as a partially obfuscated list of referred users.. See the following documentation for more details on background and applicable parameters:\n\n*   [Campaigns Concept](https://docs.spaaza.com/docs/api/campaigns.html)\n*   [Getting a user's referrals](https://docs.spaaza.com/api/get-campaign-referrals/)"
+            "description": "Get the number of referrals by a referring user as well as a partially obfuscated list of referred users.. See the following documentation for more details on background and applicable parameters:\n\n*   [Campaigns Concept](https://docs.spaaza.com/api/campaigns/)\n*   [Getting a user's referrals](https://docs.spaaza.com/api/get-campaign-referrals/)"
           },
           "response": []
         },
@@ -4013,7 +5394,7 @@
                 "add-user"
               ]
             },
-            "description": "Add a user to Spaaza using admin authentication. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Adding a user](https://docs.spaaza.com/docs/api/users.html)\n    \n\nNote the \"Pre-request Script\" section of this POSTMAN request is used to populate some of the values in the \"Body\" section of the request with their values. These can be overridden."
+            "description": "Add a user to Spaaza using admin authentication. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/api/users/)\n*   [Adding a user](https://docs.spaaza.com/api/users/)\n    \n\nNote the \"Pre-request Script\" section of this POSTMAN request is used to populate some of the values in the \"Body\" section of the request with their values. These can be overridden."
           },
           "response": []
         },
@@ -4285,6 +5666,90 @@
                   "value": "5435435",
                   "type": "text",
                   "disabled": true
+                },
+                {
+                  "key": "login_2fa_exempt",
+                  "value": "false",
+                  "type": "text",
+                  "description": "Optional flag exempting an admin user from login 2FA. Super users only.",
+                  "disabled": true
+                },
+                {
+                  "key": "permission_read",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Optional read permission for the admin user on the requested chain.",
+                  "disabled": true
+                },
+                {
+                  "key": "permission_write",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Optional write permission for the admin user on the requested chain.",
+                  "disabled": true
+                },
+                {
+                  "key": "permission_delete",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Optional delete permission for the admin user on the requested chain.",
+                  "disabled": true
+                },
+                {
+                  "key": "permission_export",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Optional export permission for the admin user on the requested chain.",
+                  "disabled": true
+                },
+                {
+                  "key": "permission_assign",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Optional assign permission for the admin user on the requested chain.",
+                  "disabled": true
+                },
+                {
+                  "key": "permission_campaign",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Optional campaign permission for the admin user on the requested chain.",
+                  "disabled": true
+                },
+                {
+                  "key": "permission_campaign_enable",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Optional campaign enable permission for the admin user on the requested chain.",
+                  "disabled": true
+                },
+                {
+                  "key": "permission_analytics",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Optional analytics permission for the admin user on the requested chain.",
+                  "disabled": true
+                },
+                {
+                  "key": "permission_segment_query",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Optional segment query permission for the admin user on the requested chain.",
+                  "disabled": true
+                },
+                {
+                  "key": "permission_oribi",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Optional oribi permission for the admin user on the requested chain.",
+                  "disabled": true
+                },
+                {
+                  "key": "permission_super_user",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Optional super user permission for the admin user on the requested chain.",
+                  "disabled": true
                 }
               ]
             },
@@ -4298,7 +5763,7 @@
                 "alter-user"
               ]
             },
-            "description": "Alter the details of a user account. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Altering a user](https://docs.spaaza.com/api/alter-user/)"
+            "description": "Alter the details of a user account. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/api/users/)\n*   [Altering a user](https://docs.spaaza.com/api/alter-user/)"
           },
           "response": []
         },
@@ -4366,7 +5831,7 @@
                 "alter-user-loyalty-level"
               ]
             },
-            "description": "Alter the loyalty level of a user to that supplied. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Campaigns Concept](https://docs.spaaza.com/docs/api/campaigns.html)\n*   [Set loyalty level](https://docs.spaaza.com/api/alter-loyalty-level/)"
+            "description": "Alter the loyalty level of a user to that supplied. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/api/users/)\n*   [Campaigns Concept](https://docs.spaaza.com/api/campaigns/)\n*   [Set loyalty level](https://docs.spaaza.com/api/alter-loyalty-level/)"
           },
           "response": []
         },
@@ -4641,6 +6106,13 @@
                   "key": "chain_id",
                   "value": "{{chain_id}}",
                   "type": "text"
+                },
+                {
+                  "key": "override",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Must be true when using admin authentication to delete an admin user account.",
+                  "disabled": true
                 }
               ]
             },
@@ -4653,7 +6125,249 @@
                 "delete-user"
               ]
             },
-            "description": "Delete a user for legal purposes. This API endpoint obfuscates all personally-idenfiable user details such as first name, last name, email address, gender, date of birth and address details. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Deleting user accounts](https://docs.spaaza.com/api/delete-user/)"
+            "description": "Delete a user for legal purposes. This API endpoint obfuscates all personally-idenfiable user details such as first name, last name, email address, gender, date of birth and address details. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/api/users/)\n*   [Deleting user accounts](https://docs.spaaza.com/api/delete-user/)"
+          },
+          "response": []
+        },
+        {
+          "name": "otp-request",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{api_url}}/auth/otp-request",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "otp-request"
+              ]
+            },
+            "description": "Send a one-time verification code to a user's phone number or email address. The response contains a verification_code_key which is used with otp-verify.\n\n*   [Requesting an OTP code](https://docs.spaaza.com/api/otp-request/)\n*   [Verifying an OTP code](https://docs.spaaza.com/api/otp-verify/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "purpose",
+                  "value": "email_verification_rate_limit",
+                  "type": "text",
+                  "description": "Required: email_verification_rate_limit or phone_number_verification_rate_limit."
+                },
+                {
+                  "key": "user_id",
+                  "value": "1234567",
+                  "type": "text",
+                  "description": "Required ID of the user whose contact detail is being verified."
+                },
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "type": "text",
+                  "description": "Required chain the user belongs to."
+                },
+                {
+                  "key": "email",
+                  "value": "jane.doe@example.com",
+                  "type": "text",
+                  "description": "Required when purpose is email_verification_rate_limit; must match the user's email address."
+                },
+                {
+                  "key": "e164PhoneNumber",
+                  "value": "+31612345678",
+                  "type": "text",
+                  "description": "Required when purpose is phone_number_verification_rate_limit, in E.164 format.",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "otp-verify",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{api_url}}/auth/otp-verify",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "otp-verify"
+              ]
+            },
+            "description": "Verify a one-time code sent by otp-request (or by add-user/alter-user).\n\n*   [Verifying an OTP code](https://docs.spaaza.com/api/otp-verify/)\n*   [Requesting an OTP code](https://docs.spaaza.com/api/otp-request/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "verification_code",
+                  "value": "123456",
+                  "type": "text",
+                  "description": "Required 6-digit code received by the user."
+                },
+                {
+                  "key": "verification_code_key",
+                  "value": "[verification_code_key]",
+                  "type": "text",
+                  "description": "Required key returned when the code was requested."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "email-verify-request",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{api_url}}/auth/email-verify-request",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "email-verify-request"
+              ]
+            },
+            "description": "Send a verification link to a user's email address.\n\n*   [Requesting an email verification link](https://docs.spaaza.com/api/email-verify-request/)\n*   [Verifying an email address](https://docs.spaaza.com/api/email-verify/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "user_id",
+                  "value": "1234567",
+                  "type": "text",
+                  "description": "Required ID of the user whose email address should be verified."
+                },
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "type": "text",
+                  "description": "Required chain the user belongs to."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "email-verify",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{api_url}}/auth/email-verify",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "email-verify"
+              ]
+            },
+            "description": "Confirm a user's email address using the token from the verification link. No authentication is required.\n\n*   [Verifying an email address](https://docs.spaaza.com/api/email-verify/)\n*   [Requesting an email verification link](https://docs.spaaza.com/api/email-verify-request/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-MyPrice-App-Hostname",
+                "value": "{{app_hostname}}",
+                "description": "The hostname of the app the user is affiliated with."
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "username",
+                  "value": "jane.doe@example.com",
+                  "type": "text",
+                  "description": "Required username (email address) of the user."
+                },
+                {
+                  "key": "nonce",
+                  "value": "[token from verification link]",
+                  "type": "text",
+                  "description": "Required verification token from the emailed link."
+                }
+              ]
+            }
           },
           "response": []
         }
@@ -4721,7 +6435,7 @@
                 }
               ]
             },
-            "description": "Get all vouchers for a user. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/docs/api/users.html)\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Get all vouchers for a user](https://docs.spaaza.com/api/get-user-vouchers/)"
+            "description": "Get all vouchers for a user. See the following documentation for more details on background and applicable parameters:\n\n*   [User Concept](https://docs.spaaza.com/api/users/)\n*   [Voucher Concept](https://docs.spaaza.com/api/vouchers/)\n*   [Get all vouchers for a user](https://docs.spaaza.com/api/get-user-vouchers/)"
           },
           "response": []
         },
@@ -5088,6 +6802,13 @@
                   "value": "2092-07-28",
                   "type": "text",
                   "disabled": true
+                },
+                {
+                  "key": "redemption_count",
+                  "value": "1",
+                  "type": "text",
+                  "description": "Optional number of reward redemptions this voucher represents.",
+                  "disabled": true
                 }
               ]
             },
@@ -5100,7 +6821,7 @@
                 "create-voucher"
               ]
             },
-            "description": "Create a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Creating vouchers](https://docs.spaaza.com/api/create-voucher/)"
+            "description": "Create a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/api/vouchers/)\n*   [Creating vouchers](https://docs.spaaza.com/api/create-voucher/)"
           },
           "response": []
         },
@@ -5236,7 +6957,7 @@
                 "expire-voucher"
               ]
             },
-            "description": "Expire a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Expiring vouchers](https://docs.spaaza.com/api/expire-voucher/)"
+            "description": "Expire a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/api/vouchers/)\n*   [Expiring vouchers](https://docs.spaaza.com/api/expire-voucher/)"
           },
           "response": []
         },
@@ -5310,7 +7031,7 @@
                 "lock-voucher"
               ]
             },
-            "description": "Lock a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Locking vouchers](https://docs.spaaza.com/api/lock-voucher/)"
+            "description": "Lock a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/api/vouchers/)\n*   [Locking vouchers](https://docs.spaaza.com/api/lock-voucher/)"
           },
           "response": []
         },
@@ -5386,7 +7107,7 @@
                 "redeem-voucher"
               ]
             },
-            "description": "Redeem a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Redeeming vouchers](https://docs.spaaza.com/api/redeem-voucher/)"
+            "description": "Redeem a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/api/vouchers/)\n*   [Redeeming vouchers](https://docs.spaaza.com/api/redeem-voucher/)"
           },
           "response": []
         },
@@ -5450,7 +7171,7 @@
                 "unclaim-voucher"
               ]
             },
-            "description": "Unclaim a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Claiming vouchers](https://docs.spaaza.com/api/unclaim-voucher/)"
+            "description": "Unclaim a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/api/vouchers/)\n*   [Claiming vouchers](https://docs.spaaza.com/api/unclaim-voucher/)"
           },
           "response": []
         },
@@ -5508,7 +7229,7 @@
                 "unlock-voucher"
               ]
             },
-            "description": "Unlock a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Unlocking vouchers](https://docs.spaaza.com/api/unlock-voucher/)"
+            "description": "Unlock a voucher in Spaaza. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/api/vouchers/)\n*   [Unlocking vouchers](https://docs.spaaza.com/api/unlock-voucher/)"
           },
           "response": []
         },
@@ -5581,7 +7302,7 @@
                 "delete-voucher"
               ]
             },
-            "description": "Delete a voucher. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/docs/api/vouchers.html)\n*   [Deleting vouchers](https://docs.spaaza.com/api/delete-voucher)\n    \n\nNote that, in the case of a voucher with a wallet campaign this will return the amount of the voucher to the customer's wallet balance."
+            "description": "Delete a voucher. See the following documentation for more details on background and applicable parameters:\n\n*   [Voucher Concept](https://docs.spaaza.com/api/vouchers/)\n*   [Deleting vouchers](https://docs.spaaza.com/api/delete-voucher)\n    \n\nNote that, in the case of a voucher with a wallet campaign this will return the amount of the voucher to the customer's wallet balance."
           },
           "response": []
         }
@@ -5669,7 +7390,7 @@
                 "add-user-purchase-progress"
               ]
             },
-            "description": "Adds a points or monetary wallet amount to the wallet of a specified user. See the following documentation for more details on background and applicable parameters:\n\n*   [Wallet Concept](https://docs.spaaza.com/docs/api/wallets.html)\n*   [Campaign Concept](https://docs-test01.spaaza.com/docs/api/campaigns.html)\n*   [Adding wallet value](https://docs.spaaza.com/api/add-user-purchase-progress/)"
+            "description": "Adds a points or monetary wallet amount to the wallet of a specified user. See the following documentation for more details on background and applicable parameters:\n\n*   [Wallet Concept](https://docs.spaaza.com/api/wallets/)\n*   [Campaign Concept](https://docs-test01.spaaza.com/docs/api/campaigns.html)\n*   [Adding wallet value](https://docs.spaaza.com/api/add-user-purchase-progress/)"
           },
           "response": []
         },
@@ -5749,7 +7470,701 @@
                 }
               ]
             },
-            "description": "Call to the Spaaza user-wallet-ledger endpoint to retrieve of a user's points or wallet history. See the following documentation for more details on background and applicable parameters:\n\n*   [Campaigns Concept](https://docs.spaaza.com/docs/api/campaigns.html)\n*   [Wallet Concept](https://docs.spaaza.com/docs/api/wallets.html)\n*   [Wallet or points history](https://docs.spaaza.com/api/user-wallet-ledger/)"
+            "description": "Call to the Spaaza user-wallet-ledger endpoint to retrieve of a user's points or wallet history. See the following documentation for more details on background and applicable parameters:\n\n*   [Campaigns Concept](https://docs.spaaza.com/api/campaigns/)\n*   [Wallet Concept](https://docs.spaaza.com/api/wallets/)\n*   [Wallet or points history](https://docs.spaaza.com/api/user-wallet-ledger/)"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Webhooks",
+      "item": [
+        {
+          "name": "add-webhook",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{api_url}}/internal/add-webhook",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "add-webhook"
+              ]
+            },
+            "description": "Create a webhook configuration which sends event payloads to an HTTPS endpoint (or an email provider for verification events).\n\n*   [Adding a webhook](https://docs.spaaza.com/api/add-webhook/)\n*   [Webhooks and Events](https://docs.spaaza.com/api/webhooks/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "type": "text",
+                  "description": "Required chain to which the webhook belongs."
+                },
+                {
+                  "key": "event_name",
+                  "value": "shopper.voucher-issued",
+                  "type": "text",
+                  "description": "Required name of the triggering event."
+                },
+                {
+                  "key": "type",
+                  "value": "https",
+                  "type": "text",
+                  "description": "Required webhook type; use https for standard webhooks."
+                },
+                {
+                  "key": "url",
+                  "value": "https://webhooks.example.com/spaaza",
+                  "type": "text",
+                  "description": "URL the payload is sent to. Required for https webhooks."
+                },
+                {
+                  "key": "filter",
+                  "value": "",
+                  "type": "text",
+                  "description": "Optional filter expression restricting when the webhook fires.",
+                  "disabled": true
+                },
+                {
+                  "key": "identifier_key",
+                  "value": "",
+                  "type": "text",
+                  "description": "Optional key or username for authenticating with the recipient.",
+                  "disabled": true
+                },
+                {
+                  "key": "identifier_secret",
+                  "value": "",
+                  "type": "text",
+                  "description": "Optional secret or password for authenticating with the recipient.",
+                  "disabled": true
+                },
+                {
+                  "key": "webhook_signature_id",
+                  "value": "",
+                  "type": "text",
+                  "description": "Optional webhook signature key ID for HMAC signing.",
+                  "disabled": true
+                },
+                {
+                  "key": "campaign_id",
+                  "value": "",
+                  "type": "text",
+                  "description": "Optional campaign to associate with the webhook.",
+                  "disabled": true
+                },
+                {
+                  "key": "task_id",
+                  "value": "",
+                  "type": "text",
+                  "description": "Optional task to associate with the webhook.",
+                  "disabled": true
+                },
+                {
+                  "key": "event_trigger",
+                  "value": "",
+                  "type": "text",
+                  "description": "Optional event trigger expression.",
+                  "disabled": true
+                },
+                {
+                  "key": "send_from",
+                  "value": "",
+                  "type": "text",
+                  "description": "Optional sender identifier for ses/smtp webhooks.",
+                  "disabled": true
+                },
+                {
+                  "key": "delivery_role",
+                  "value": "primary",
+                  "type": "text",
+                  "description": "Optional verification delivery role: primary or standby.",
+                  "disabled": true
+                },
+                {
+                  "key": "applies_legacy_hmac",
+                  "value": "false",
+                  "type": "text",
+                  "description": "Optional flag controlling the JSON format used for HMAC signatures.",
+                  "disabled": true
+                },
+                {
+                  "key": "payload_spaaza_api_version",
+                  "value": "{{api_version}}",
+                  "type": "text",
+                  "description": "Optional API version used for the payload format.",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "alter-webhook",
+          "request": {
+            "method": "PUT",
+            "url": {
+              "raw": "{{api_url}}/internal/alter-webhook",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "alter-webhook"
+              ]
+            },
+            "description": "Update a webhook configuration. Only the parameters sent are changed.\n\n*   [Updating a webhook](https://docs.spaaza.com/api/alter-webhook/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "id",
+                  "value": "123",
+                  "type": "text",
+                  "description": "Required ID of the webhook configuration."
+                },
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "type": "text",
+                  "description": "Required chain of the webhook."
+                },
+                {
+                  "key": "active",
+                  "value": "false",
+                  "type": "text",
+                  "description": "Optional flag to enable or disable the webhook."
+                },
+                {
+                  "key": "event_name",
+                  "value": "shopper.voucher-issued",
+                  "type": "text",
+                  "description": "Optional name of the triggering event.",
+                  "disabled": true
+                },
+                {
+                  "key": "type",
+                  "value": "https",
+                  "type": "text",
+                  "description": "Optional webhook type (only ses/smtp can be switched).",
+                  "disabled": true
+                },
+                {
+                  "key": "url",
+                  "value": "https://webhooks.example.com/spaaza",
+                  "type": "text",
+                  "description": "Optional destination URL.",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": "",
+                  "type": "text",
+                  "description": "Optional filter expression.",
+                  "disabled": true
+                },
+                {
+                  "key": "identifier_key",
+                  "value": "",
+                  "type": "text",
+                  "description": "Optional recipient authentication key.",
+                  "disabled": true
+                },
+                {
+                  "key": "identifier_secret",
+                  "value": "",
+                  "type": "text",
+                  "description": "Optional recipient authentication secret.",
+                  "disabled": true
+                },
+                {
+                  "key": "webhook_signature_id",
+                  "value": "",
+                  "type": "text",
+                  "description": "Optional webhook signature key ID.",
+                  "disabled": true
+                },
+                {
+                  "key": "campaign_id",
+                  "value": "",
+                  "type": "text",
+                  "description": "Optional campaign; empty removes the association.",
+                  "disabled": true
+                },
+                {
+                  "key": "task_id",
+                  "value": "",
+                  "type": "text",
+                  "description": "Optional task; empty removes the association.",
+                  "disabled": true
+                },
+                {
+                  "key": "event_trigger",
+                  "value": "",
+                  "type": "text",
+                  "description": "Optional event trigger expression; empty removes it.",
+                  "disabled": true
+                },
+                {
+                  "key": "applies_legacy_hmac",
+                  "value": "false",
+                  "type": "text",
+                  "description": "Optional legacy HMAC payload format flag.",
+                  "disabled": true
+                },
+                {
+                  "key": "payload_spaaza_api_version",
+                  "value": "{{api_version}}",
+                  "type": "text",
+                  "description": "Optional API version used for the payload format.",
+                  "disabled": true
+                },
+                {
+                  "key": "send_from",
+                  "value": "",
+                  "type": "text",
+                  "description": "Optional sender identifier for ses/smtp webhooks.",
+                  "disabled": true
+                },
+                {
+                  "key": "delivery_role",
+                  "value": "primary",
+                  "type": "text",
+                  "description": "Optional verification delivery role: primary or standby.",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get-webhook",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{api_url}}/internal/get-webhook?id=123",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "get-webhook"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "123",
+                  "type": "text",
+                  "description": "Required ID of the webhook configuration."
+                }
+              ]
+            },
+            "description": "Retrieve a single webhook configuration.\n\n*   [Getting a webhook](https://docs.spaaza.com/api/get-webhook/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
+          "name": "get-webhooks",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{api_url}}/internal/get-webhooks?chain_id={{chain_id}}",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "get-webhooks"
+              ],
+              "query": [
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "type": "text",
+                  "description": "Required chain whose webhooks are listed."
+                },
+                {
+                  "key": "exclude_inactive",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Optional flag to return only active webhooks.",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "List the webhook configurations of a chain.\n\n*   [Getting all webhooks](https://docs.spaaza.com/api/get-webhooks/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
+          "name": "delete-webhook",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{api_url}}/internal/delete-webhook",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "delete-webhook"
+              ]
+            },
+            "description": "Delete a webhook configuration.\n\n*   [Deleting a webhook](https://docs.spaaza.com/api/delete-webhook/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "id",
+                  "value": "123",
+                  "type": "text",
+                  "description": "Required ID of the webhook configuration."
+                },
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "type": "text",
+                  "description": "Required chain of the webhook."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "swap-webhook-delivery-roles",
+          "request": {
+            "method": "PUT",
+            "url": {
+              "raw": "{{api_url}}/internal/swap-webhook-delivery-roles",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "swap-webhook-delivery-roles"
+              ]
+            },
+            "description": "Swap the primary and standby roles of a verification webhook pair.\n\n*   [Swapping webhook delivery roles](https://docs.spaaza.com/api/swap-webhook-delivery-roles/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "type": "text",
+                  "description": "Required chain that owns the webhook pair."
+                },
+                {
+                  "key": "event_name",
+                  "value": "email_verification_otp",
+                  "type": "text",
+                  "description": "Required verification event whose pair is swapped."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "add-webhook-signature",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{api_url}}/internal/add-webhook-signature",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "add-webhook-signature"
+              ]
+            },
+            "description": "Create a webhook signature key for HMAC signing of webhook payloads. The secret is only returned in this response.\n\n*   [Adding a webhook signature](https://docs.spaaza.com/api/add-webhook-signature/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "type": "text",
+                  "description": "Required chain for which the key is created."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get-webhook-signature",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{api_url}}/internal/get-webhook-signature?id=45",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "get-webhook-signature"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "45",
+                  "type": "text",
+                  "description": "Required ID of the webhook signature key."
+                }
+              ]
+            },
+            "description": "Retrieve a single webhook signature key.\n\n*   [Getting a webhook signature](https://docs.spaaza.com/api/get-webhook-signature/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
+          "name": "get-webhook-signatures",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{api_url}}/internal/get-webhook-signatures?chain_id={{chain_id}}",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "get-webhook-signatures"
+              ],
+              "query": [
+                {
+                  "key": "chain_id",
+                  "value": "{{chain_id}}",
+                  "type": "text",
+                  "description": "Required chain whose keys are listed."
+                },
+                {
+                  "key": "exclude_inactive",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Optional flag to return only active keys.",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "List the webhook signature keys of a chain.\n\n*   [Getting all webhook signatures](https://docs.spaaza.com/api/get-webhook-signatures/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ]
+          },
+          "response": []
+        },
+        {
+          "name": "delete-webhook-signature",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{api_url}}/internal/delete-webhook-signature",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "internal",
+                "delete-webhook-signature"
+              ]
+            },
+            "description": "Delete a webhook signature key.\n\n*   [Deleting a webhook signature](https://docs.spaaza.com/api/delete-webhook-signature/)",
+            "header": [
+              {
+                "key": "X-Spaaza-API-version",
+                "value": "{{api_version}}",
+                "type": "text",
+                "description": "The API version to use for this request."
+              },
+              {
+                "key": "X-Spaaza-Session-User-Id",
+                "value": "{{session_user_id}}",
+                "description": "The session user ID returned by the login flow."
+              },
+              {
+                "key": "X-Spaaza-Session-Key",
+                "value": "{{session_key}}",
+                "description": "The session key for the authenticated user."
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "id",
+                  "value": "45",
+                  "type": "text",
+                  "description": "Required ID of the webhook signature key."
+                }
+              ]
+            }
           },
           "response": []
         }
@@ -5848,7 +8263,7 @@
                 }
               ]
             },
-            "description": "Call to the Spaaza get-receipts endpoint to retrieve details of receipts for a brand or chain, matching various filters. Note that this API endpoint can also be used to export a CSV file of receipts. See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/docs/api/baskets.html)\n*   [Receipt Object](https://docs.spaaza.com/docs/api/receipt-object.html)\n*   [Get All Receipts for a Chain](https://docs.spaaza.com/docs/api/get-receipts.html)"
+            "description": "Call to the Spaaza get-receipts endpoint to retrieve details of receipts for a brand or chain, matching various filters. Note that this API endpoint can also be used to export a CSV file of receipts. See the following documentation for more details on background and applicable parameters:\n\n*   [Basket Concept](https://docs.spaaza.com/api/baskets/)\n*   [Receipt Object](https://docs.spaaza.com/api/receipt-object/)\n*   [Get All Receipts for a Chain](https://docs.spaaza.com/api/get-receipts/)"
           },
           "response": []
         }
