@@ -45,6 +45,7 @@ It includes authentication flows and example requests for:
 - Users
 - Vouchers
 - Wallets
+- Webhooks
 - Miscellaneous public endpoints
 
 Most requests use session-based authentication headers. A typical flow is:
@@ -63,7 +64,9 @@ Getting started is quite easy:
    to obtain these (see details above).
 2. Import the 'Spaaza official API examples' POSTMAN collection file in this repo into POSTMAN.
 3. Import the 'Spaaza official sample POSTMAN environment' environment file in this repo into POSTMAN.
-4. Update the variables in the environment file to match the ones given to you by Spaaza.
+4. Update the variables in the environment file to match the ones given to you by Spaaza. For Services API
+   requests, set `services_url_domain` to the Services API hostname and `console_origin` to the Console
+   origin provided to you by Spaaza.
 5. Start sending API requests and seeing responses.
 
 Most of the API requests require authentication, so you should start with the 'login admin' API
